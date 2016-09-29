@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2016-09-04" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.8.1" locale="en_CA">
+<?xml version="1.0" encoding="UTF-8"?><project name="Project Schedule" company="JS tanks" webLink="https://gitlab.cas.mcmaster.ca/pathmap/JSTanks" view-date="2016-09-04" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.8.1" locale="en_CA">
     <description/>
     <view zooming-state="default:6" id="gantt-chart">
         <field id="tpd3" name="Name" width="199" order="0"/>
         <field id="tpd4" name="Begin date" width="75" order="1"/>
         <field id="tpd5" name="End date" width="75" order="2"/>
+        <option id="taskLabelUp" value="name"/>
     </view>
     <view id="resource-table">
         <field id="0" name="Name" width="210" order="0"/>
