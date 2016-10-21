@@ -5,6 +5,8 @@
 * and drawing
 */
 
+//Create Object setting right side to function allows for a default contructor. 
+// If no constructor wanted just re-write object name
 var SquareObj = function (colour, xPos, yPos, dimens){
 	this.colour = colour;
 	this.xPos = xPos;
@@ -12,6 +14,8 @@ var SquareObj = function (colour, xPos, yPos, dimens){
 	this.dimens = dimens;
 }
 
+// object methods, declared with object name followed by prototype, then method 
+// name. right side of which is an object. A value can be sued to set value.
 SquareObj.prototype.arrUp = function(){
 	this.yPos-=size*0.5
 } 
