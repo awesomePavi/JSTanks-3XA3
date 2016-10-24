@@ -3,21 +3,20 @@
 <head>
 <link href="../CSS/Tanks.css" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JS Tanks</title>
+<title>JS Tanks - Proof Of Concept</title>
 </head>
-<!-- Use full screen-->
-<body  style="width:100%; margin:0; padding:0;">
+<!-- pass any events that occur onto the java interface method, which will just
+ care about keyboard events-->
+<body onkeydown="interface(event)" style="width:100%; margin:0; padding:0;">
 <!-- HTML 5 canvas for the JS to play with, stuck to center of pag -->
 <canvas id="Game" class="center" style="margin:0;padding:0;display:block;"> 
 	</canvas>
 <!--Jquery script for screen dimensions to be retrived-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
 	</script>
-<!-- Game Board script -->
-<script src="../JavaScript/gameBoard.js">
-	</script>
-<!-- Run the Game script -->
-<script src="../JavaScript/Game.js">
+<!--Our proof of concept script V2 OOP-->
+<script src="../JavaScript/Proof_Of_Concept-SqrObj.js"></script>
+<script src="../JavaScript/Proof_Of_Concept.js">
 	</script>
 <!--Script to be run right when the page loads to set thigns up-->
 <script type="text/javascript">
