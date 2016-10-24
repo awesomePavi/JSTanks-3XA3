@@ -14,16 +14,16 @@ var Tank = function (tileSize, tankImage) {
 }
 
 // function for tank's movement (input = up/down/left/right??)
-Tank.prototype.movement (input){
+Tank.prototype.movement = function(input){
 	
 }
 
 // function to determine if the tank will take damage or not
-Tank.prototype.damage (x, y){
+Tank.prototype.damage (x, y) = function() {
 	
 }
 
 // function to update the image of the tank (full health, damaged, destroyed,..)
-Tank.prototype.updateImage (newImage){
+Tank.prototype.updateImage (newImage) = function() {
 	
 }
