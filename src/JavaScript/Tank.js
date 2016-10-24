@@ -19,11 +19,13 @@ Tank.prototype.movement = function(input){
 }
 
 // function to determine if the tank will take damage or not
-Tank.prototype.damage (x, y) = function() {
+Tank.prototype.damage = function(x, y) {
 	
 }
 
 // function to update the image of the tank (full health, damaged, destroyed,..)
-Tank.prototype.updateImage (newImage) = function() {
+Tank.prototype.updateImage = function(newImage) {
 	
 }
+
+    
