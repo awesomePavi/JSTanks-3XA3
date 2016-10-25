@@ -6,6 +6,8 @@ Author: Viren Patel
 
 // Tank constructor and definition
 var Tank = function (tileSize){
+	this.x = tilesize*5;
+	this.y = tilesize*5;
 	this.m_canvas = document.createElement('canvas');
 	this.m_canvas.width = tileSize;
 	this.m_canvas.height = tileSize;
@@ -23,28 +25,17 @@ Tank.prototype.draw = function(canvas,startx,startY,tileSize){
 	canvas.drawImage(this.m_canvas,startx,startY);
 }
 
-// function to determine if the tank will take damage or not
-Tank.prototype.damage = function(x, y){
-	
-}
-
-// function to update the tank's attributes
-Tank.prototype.update = function(){
-	this.updatePos();
-	this.updateImage();
-}
-
 //
 Tank.prototype.type = function(){
 	return "BLANK";
 }
 
 Tank.prototype.hit = function (hitStength){
-	
+	this.health -= hitStrength;
 }
 
-Tank.prototype.getHealth = function (hitStength){
-	
+Tank.prototype.getHealth = function (){
+	return this.health;
 }
 
 Tank.prototype.getPosition = function (){
