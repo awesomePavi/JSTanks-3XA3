@@ -9,6 +9,7 @@ keyPressed = function() {
 	
 }
 
+// Tank object constructor and definition
 var Tank = function (tileSize, tankImage) {
 	this.moveSize = tileSize;
 	this.posX = tileSize*5;
@@ -16,7 +17,23 @@ var Tank = function (tileSize, tankImage) {
 	this.attack = false; 
 	this.health = 100;
 	this.currentImage = tankImage; 
-	this.update = function() {
+	
+	
+}
+
+// function to determine if the tank will take damage or not
+Tank.prototype.damage = function(x, y) {
+	
+}
+
+// function to update the tank's attributes
+Tank.prototype.update = function() {
+	this.updatePos();
+	this.updateImage();
+}
+
+// function to update the tank's position according to the input
+Tank.prototype.updatePos = function(){	
 		if (keyCode === UP){
 			this.posY += this.moveSize;
 		}
@@ -28,17 +45,11 @@ var Tank = function (tileSize, tankImage) {
 		}
 		if (keyCode === RIGHT){
 			this.posY += this.moveSize;
-		}
-	}
-}
-
-// function to determine if the tank will take damage or not
-Tank.prototype.damage = function(x, y) {
-	
+		}	
 }
 
 // function to update the image of the tank (full health, damaged, destroyed,..)
-Tank.prototype.updateImage = function(newImage) {
+Tank.prototype.updateImage = function() {
 	
 }
 
