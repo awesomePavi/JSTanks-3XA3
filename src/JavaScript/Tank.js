@@ -6,7 +6,7 @@ Author: Viren Patel
 
 //import the tank images
 var pic = new Image();
-pic.src = ""picture.jpg";
+pic.src = "picture.jpg";
 
 // function to take in the keyboard input
 keyPressed = function(){
