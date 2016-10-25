@@ -1,18 +1,24 @@
 /*
 Author: Viren Patel
 
+The tank object used in the game.
+Different images representing different states of the tank.
+(full health, dammaged, destropyed) <<<<to be implemented>>>>
 
 */
 
-// Tank constructor and definition
+/* 
+Tank constructor and definition
+tileSize: the width/height of any one tile in the grid
+*/
 var Tank = function (tileSize){
-	this.x = tilesize*5;
-	this.y = tilesize*5;
+	this.x = tileSize*5;
+	this.y = tileSize*5;
 	this.m_canvas = document.createElement('canvas');
 	this.m_canvas.width = tileSize;
 	this.m_canvas.height = tileSize;
 	var m_context = this.m_canvas.getContext("2d");
-	var img = new Image();
+	img = new Image();
 	img.src = "../Images/tank.png";
 	img.onload = function()
    	{
@@ -30,14 +36,17 @@ Tank.prototype.type = function(){
 	return "BLANK";
 }
 
+// Lower the tank's health by hitStrength when it gets hit
 Tank.prototype.hit = function (hitStength){
 	this.health -= hitStrength;
 }
 
+// returns the tank's health
 Tank.prototype.getHealth = function (){
 	return this.health;
 }
 
+// return the tank's position in x and y co-ordinates
 Tank.prototype.getPosition = function (){
 	return this.x, this.y;
 }
