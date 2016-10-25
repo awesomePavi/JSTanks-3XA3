@@ -16,7 +16,20 @@ var Tank = function (tileSize, tankImage) {
 	this.attack = false; 
 	this.health = 100;
 	this.currentImage = tankImage; 
-	
+	this.update = function() {
+		if (keyCode === UP){
+			this.posY += this.moveSize;
+		}
+		if (keyCode === DOWN){
+			this.posY -= this.moveSize;
+		}
+		if (keyCode === LEFT){
+			this.posX -= this.moveSize;
+		}
+		if (keyCode === RIGHT){
+			this.posY += this.moveSize;
+		}
+	}
 }
 
 // function to determine if the tank will take damage or not
