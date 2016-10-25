@@ -4,17 +4,18 @@ Author: Viren Patel
 
 */
 
+// function to take in the keyboard input
+keyPressed = function() {
+	
+}
+
 var Tank = function (tileSize, tankImage) {
+	this.moveSize = tileSize;
 	this.posX = tileSize*5;
 	this.posY = tileSize*5;
 	this.attack = false; 
 	this.health = 100;
 	this.currentImage = tankImage; 
-	
-}
-
-// function for tank's movement (input = up/down/left/right??)
-Tank.prototype.movement = function(input){
 	
 }
 
