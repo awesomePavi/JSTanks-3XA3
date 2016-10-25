@@ -4,13 +4,17 @@ Author: Viren Patel
 
 */
 
+//import the tank images
+var pic = new Image();
+pic.src = ""picture.jpg";
+
 // function to take in the keyboard input
-keyPressed = function() {
+keyPressed = function(){
 	
 }
 
 // Tank object constructor and definition
-var Tank = function (tileSize, tankImage) {
+var Tank = function (tileSize, tankImage){
 	this.moveSize = tileSize;
 	this.posX = tileSize*5;
 	this.posY = tileSize*5;
@@ -21,13 +25,17 @@ var Tank = function (tileSize, tankImage) {
 	
 }
 
+Tank.prototype.draw = function (x, y, drawImage){
+	
+}
+
 // function to determine if the tank will take damage or not
-Tank.prototype.damage = function(x, y) {
+Tank.prototype.damage = function(x, y){
 	
 }
 
 // function to update the tank's attributes
-Tank.prototype.update = function() {
+Tank.prototype.update = function(){
 	this.updatePos();
 	this.updateImage();
 }
@@ -49,7 +57,7 @@ Tank.prototype.updatePos = function(){
 }
 
 // function to update the image of the tank (full health, damaged, destroyed,..)
-Tank.prototype.updateImage = function() {
+Tank.prototype.updateImage = function(){
 	
 }
 
