@@ -26,7 +26,9 @@ var Tank = function (tileSize, tankImage){
 }
 
 Tank.prototype.draw = function (x, y, drawImage){
-	
+	var ctx = document.getElementById('Game').getContext('2d');
+	//drawImage(picture, X, Y)
+	//drawImage(picture, X, Y, width, height)
 }
 
 // function to determine if the tank will take damage or not
