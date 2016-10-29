@@ -514,34 +514,34 @@ Name: Tank Constructor Testing\newline
 Description: Test if a tank object is created with the specified attributes when the constructor is called.\newline
 Type: Unit Test (dynamic, automated, white box)\newline
 Initial State: Not Applicable\newline
-Input: Tank <object> = new Tank(<initial values>)\newline
+Input: Tank tankObject = new Tank(<initial values>)\newline
 Output: Not Applicable \newline
-Pass: The following methods work on the <object> created here.\newline
+Pass: The following methods work on the tankObject created here.\newline
 
 \subsubsection{Tank Draw Test}
 Name: Tank Graphics Testing\newline
 Description: Test if the image of the tank shows up at the position set by the game board when the function is called.\newline
 Type: Unit Test (dynamic, automated, white box)\newline
 Initial State: The game board with no image on the position (startX, startY)\newline
-Input: <object>.draw(canvs, startX, startY, tileSize)\newline
+Input: tankObject.draw(canvs, startX, startY, tileSize)\newline
 Output: The image of the tank appears on the position (startX, startY) of the game board.\newline
 Pass: The tank is successfully displayed on the correct position on the game board.\newline
 
 \subsubsection{Tank Type Test}
 Name: Object Type Testing\newline
-Description: Test if the method returns the correct type of object located at the specified location on the game board\newline.
+Description: Test if the method returns the correct type of object located at the specified location on the game board.\newline
 Type: Unit Test (dynamic, automated, white box)\newline
 Initial State: A tank object is placed at a certain grid location on the game board.\newline
-Input: <object>.type()\newline
+Input: tankObject.type()\newline
 Output: “TANK”\newline
-Pass: The program returns “TANK” when <object>.type() is called.\newline
+Pass: The program returns “TANK” when tankObject.type() is called.\newline
 
 \subsubsection{Tank Hit Test}
 Name: Projectile Impact Testing\newline
 Description: Test if the health points of the tank are reduced after the tank has been hit with a projectile.\newline
 Type: Unit Test (dynamic, automated, white box)\newline
 Initial State: The initial health points of the tank\newline
-Input: <object>.hit()\newline
+Input: tankObject.hit()\newline
 Output: Not Applicable\newline
 Pass: Specified points of the tank’s health are reduced.\newline
 
@@ -550,7 +550,7 @@ Name: Tank Health Getter Testing\newline
 Description: Test if the method returns the correct number of health points for the tank when called upon.\newline
 Type: Unit Test (dynamic, automated, white box)\newline
 Initial State: A tank object has been created.\newline
-Input: <object>.getHealth()\newline
+Input: tankObject.getHealth()\newline
 Output: The number of health points of the tank object.\newline
 Pass: The method returns the correct number of health points remaining for the tank object.\newline
 
@@ -559,7 +559,7 @@ Name: Tank Position Getter Testing\newline
 Description: Test if the method returns the current position of the tank object.\newline
 Type: Unit Test (dynamic, automated, white box)\newline
 Initial State: A tank object has been created and is displayed on the game board.\newline
-Input: <object>.getPosition()\newline
+Input: tankObject.getPosition()\newline
 Output: The position of the tank object (x and y co-ordinates)\newline
 Pass: The correct position (x and y co-ordinates) of the tank is returned by the method.\newline
 
