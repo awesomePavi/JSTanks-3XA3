@@ -337,9 +337,38 @@ Pass:  The game comes to the end state that the GUI turns into black with only t
 \subsubsection{Area of Testing1}
 \subsubsection{Area of Testing2}
 
+
+
+
 \section{Tests for Proof of Concept}
-\subsection{Area of Testing1}
-\subsection{Area of Testing2}
+The proof of concept forfor JSTanks was to demonstrate a block moving across the screen in up, down, left, and right directions according to the user input from the keyboard. In addition, boundaries had to be set so that the block does not go off-screen. JSTanks was successfully able to present this during the proof of concept demonstration. The testing measures included functional dynamic testing as follows:
+\subsection{Display}
+Name: Display block\newline
+Description: Test if the block is successfully displayed on the web screen once the corresponding html file is launched.\newline
+Type: Unit Test (dynamic, manual, black box)\newline
+Initial State: Empty white screen\newline
+Input: Not Applicable\newline
+Output: A block\newline
+Pass: A block is displayed on the screen
+\subsection{Movement}
+Name: Block movement\newline
+Description: Test if the block’s position is updated after the user input.\newline
+Type: Unit Test (dynamic, manual, black box)\newline
+Initial State: block displayed on screen\newline
+Input: Up, down, left, or right key on the keyboard\newline
+Output: The block moves accordingly\newline
+Pass: The tank’s position is updated by the specified value in the correct direction.
+\subsection{Boundaries}
+Name: Screen Boundary\newline
+Description: Test if the block stays in bounds of the screen.\newline
+Type: Unit Test (dynamic, manual, black box)\newline
+Initial State: block displayed on screen\newline
+Input: Any one of up, down, left or right key on the keyboard until the block is at the edge of the screen in the according side.\newline
+Output: The block stays on the screen near the corresponding edge and does not go off-screen.\newline
+Pass: The block stays within the screen even though the input tries to force it off-screen.
+
+
+
 
 \section{Comparison to Existing Implementation}
 
