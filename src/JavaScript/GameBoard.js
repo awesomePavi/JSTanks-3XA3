@@ -24,7 +24,7 @@ var GameBoard = function(tileSize){
 	//Filling board with empty tiles
 	for ( y =0; y < 15; y++){
 		for (x = 0; x < 15; x++){
-			this.board[y][x] = new EmptyTile(this.tileSize);
+			this.board[y][x] = this.randomTile();// new EmptyTile(this.tileSize);
 		}
 	}
 
@@ -33,6 +33,20 @@ var GameBoard = function(tileSize){
 	this.boardCanvas.width = this.width;
 	this.boardCanvas.height = this.height;
 	this.boardContext = this.boardCanvas.getContext("2d");
+}
+
+GameBoard.prototype.randomTile = function(){
+	  var x = Math.floor((Math.random() * 5) + 1);
+	  if (x == 1){
+	  	return new Tank(this.tileSize);
+	 } else if (x==2){
+	 	return new wall(this.tileSize);
+	 } else if (x==3){
+	 	return new steel(this.tileSize);
+	 } else if (x==4){
+	 	return new HomeBase(this.tileSize);
+	 }
+	 return new EmptyTile(this.tileSize);
 }
 
 //Method will be used to tell if there is an empty tile in said spot
