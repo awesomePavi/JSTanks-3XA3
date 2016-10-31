@@ -14,6 +14,7 @@ tileSize: the width/height of any one tile in the grid
 var Tank = function (tileSize){
 	this.x = tileSize*5;
 	this.y = tileSize*5;
+	this.health = 100;
 	this.m_canvas = document.createElement('canvas');
 	this.m_canvas.width = tileSize;
 	this.m_canvas.height = tileSize;
