@@ -44,7 +44,7 @@ GameBoard.prototype.randomTile = function(){
 	 } else if (x==3){
 	 	return new steel(this.tileSize);
 	 } else if (x==4){
-	 	return new HomeBase(this.tileSize);
+	 	return new homeBase(this.tileSize);
 	 }
 	 return new EmptyTile(this.tileSize);
 }
