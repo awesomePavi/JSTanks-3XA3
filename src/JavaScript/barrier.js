@@ -1,5 +1,5 @@
 //Wall
-var wall=function(){
+var wall=function(tilesize){
 	this.strength=1;
 	this.x = tileSize*5;
 	this.y = tileSize*5;
@@ -31,7 +31,7 @@ wall.prototype.getPosition = function (){
 }
 
 //Steel
-var steel=function(){
+var steel=function(tilesize){
 	this.strength=3;
 	this.x = tileSize*5;
 	this.y = tileSize*5;
@@ -63,7 +63,7 @@ steel.prototype.getPosition = function (){
 }
 
 //Home Base
-var HomeBase=function(){
+var HomeBase=function(tilesize){
 	this.strength=5;
 	this.x = tileSize*5;
 	this.y = tileSize*5;
