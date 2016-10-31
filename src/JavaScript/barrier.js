@@ -7,10 +7,6 @@ var wall=function(tileSize){
 	this.m_canvas.width = tileSize;
 	this.m_canvas.height = tileSize;
 	var m_context = this.m_canvas.getContext("2d");
-<<<<<<< HEAD
-=======
-	
->>>>>>> 4f6bc15bc4634098a27c92eefcd4651a4a12fcbb
 	var img = new Image();
 	img.src = "../Images/wall.png";
 	img.onload = function()
