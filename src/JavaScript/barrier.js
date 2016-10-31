@@ -1,11 +1,23 @@
 //Wall
 var wall=function(){
 	this.strength=1;
+	this.x = tileSize*5;
+	this.y = tileSize*5;
+	this.m_canvas = document.createElement('canvas');
+	this.m_canvas.width = tileSize;
+	this.m_canvas.height = tileSize;
+	var m_context = this.m_canvas.getContext("2d");
+	img = new Image();
+	img.src = "../Images/wall.png";
+	img.onload = function()
+   	{
+   		m_context.drawImage(img,0,0,tileSize,tileSize);
+   	}
 }
 wall.prototype.type = function(){
 	return "BARRIER";
 }
-wall.prototype.draw = function(canvas,startx,startY,tileSize,t){
+wall.prototype.draw = function(canvas,startx,startY,tileSize){
 	canvas.drawImage(this.m_canvas,startx,startY);
 }
 wall.prototype.hit = function (hitStength){
@@ -21,11 +33,23 @@ wall.prototype.getPosition = function (){
 //Steel
 var steel=function(){
 	this.strength=3;
+	this.x = tileSize*5;
+	this.y = tileSize*5;
+	this.m_canvas = document.createElement('canvas');
+	this.m_canvas.width = tileSize;
+	this.m_canvas.height = tileSize;
+	var m_context = this.m_canvas.getContext("2d");
+	img = new Image();
+	img.src = "../Images/steel.png";
+	img.onload = function()
+   	{
+   		m_context.drawImage(img,0,0,tileSize,tileSize);
+   	}
 }
 steel.prototype.type = function(){
 	return "BARRIER";
 }
-steel.prototype.draw = function(canvas,startx,startY,tileSize,t){
+steel.prototype.draw = function(canvas,startx,startY,tileSize){
 	canvas.drawImage(this.m_canvas,startx,startY);
 }
 steel.prototype.hit = function (hitStength){
@@ -41,11 +65,23 @@ steel.prototype.getPosition = function (){
 //Home Base
 var HomeBase=function(){
 	this.strength=5;
+	this.x = tileSize*5;
+	this.y = tileSize*5;
+	this.m_canvas = document.createElement('canvas');
+	this.m_canvas.width = tileSize;
+	this.m_canvas.height = tileSize;
+	var m_context = this.m_canvas.getContext("2d");
+	img = new Image();
+	img.src = "../Images/homebase.png";
+	img.onload = function()
+   	{
+   		m_context.drawImage(img,0,0,tileSize,tileSize);
+   	}
 }
 HomeBase.prototype.type = function(){
 	return "HOMEBASE";
 }
-HomeBase.prototype.draw = function(canvas,startx,startY,tileSize,t){
+HomeBase.prototype.draw = function(canvas,startx,startY,tileSize){
 	canvas.drawImage(this.m_canvas,startx,startY);
 }
 HomeBase.prototype.hit = function (hitStength){
