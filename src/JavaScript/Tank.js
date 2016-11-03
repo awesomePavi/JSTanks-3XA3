@@ -38,7 +38,7 @@ Tank.prototype.type = function(){
 }
 
 // Lower the tank's health by hitStrength when it gets hit
-Tank.prototype.hit = function (hitStength){
+Tank.prototype.hit = function (hitStrength){
 	this.health -= hitStrength;
 }
 
