@@ -24,16 +24,47 @@ var GameBoard = function(tileSize){
 	//Filling board with empty tiles
 	for ( y =0; y < 15; y++){
 		for (x = 0; x < 15; x++){
-			this.board[y][x] = this.randomTile();// new EmptyTile(this.tileSize);
+			this.board[y][x] = new EmptyTile(this.tileSize);//this.randomTile();// new EmptyTile(this.tileSize);
 		}
 	}
 
+	//Handle Projectiles
+	this.projectileQueue = new ProjectileQue();
+
+	
 	//Building virtual canvas for board to be prerendered on
 	this.boardCanvas = document.createElement('canvas');
 	this.boardCanvas.width = this.width;
 	this.boardCanvas.height = this.height;
 	this.boardContext = this.boardCanvas.getContext("2d");
 }
+
+GameBoard.prototype.fire = function(x,y,direction){
+	this.projectileQueue.add(x,y,this.tileSize,direction);
+}
+
+GameBoard.prototype.damage = function(damageTaken,x,y){
+	try{
+		this.board[y][x].hit(damageTaken);
+	}catch(e){
+		console.log(e);
+		console.log(y);
+		console.log(x);
+	}
+}
+
+GameBoard.prototype.update = function(){
+	this.projectileQueue.update(this);
+	for ( y =0; y < 15; y++){
+		for (x = 0; x < 15; x++){
+			//tile location
+			if (this.board[y][x].getHealth()<=0){
+				this.board[y][x] =  new EmptyTile(this.tileSize);
+			}
+		}
+	}
+}
+
 
 GameBoard.prototype.randomTile = function(){
 	  var x = Math.floor((Math.random() * 5) + 1);
@@ -52,10 +83,16 @@ GameBoard.prototype.randomTile = function(){
 //Method will be used to tell if there is an empty tile in said spot
 GameBoard.prototype.canBePlaced = function(x,y){
 	
+	try{
+		return this.board[y][x].empty;
+	}catch(e){
+		return false;
+	}
 }
 
 //draw onto pre-rendered game baord and then onto actual screen
 GameBoard.prototype.draw = function(){
+	this.update();
 	for ( y =0; y < 15; y++){
 		for (x = 0; x < 15; x++){
 			//tile location
@@ -63,6 +100,7 @@ GameBoard.prototype.draw = function(){
 				,y*this.tileSize,this.tileSize)
 		}
 	}
+	this.projectileQueue.render(this.boardContext);
 }
 
 //get rendered image
@@ -81,6 +119,15 @@ var EmptyTile = function(tileSize){
 	this.m_context.fillStyle = "000000";
 	this.m_context.rect(0,0,tileSize,tileSize);
 	this.m_context.stroke();
+}
+
+EmptyTile.prototype.empty = function(){
+	return true;
+}
+
+// returns the tank's health
+EmptyTile.prototype.getHealth = function (){
+	return 1;
 }
 
 //draw pre rnedered image onto tile at location
