@@ -39,3 +39,7 @@ Bot.prototype.movementLogic = function(playerTank, x, y) {
 	}
 }
 
+Bot.prototype.Flag = function(){
+	return true;
+}
+
