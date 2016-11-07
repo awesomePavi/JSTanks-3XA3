@@ -1,0 +1,74 @@
+\documentclass{article}
+
+%table customization, stack overflow 
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\
+\arraybackslash\hspace{0pt}}m{#1}}
+
+%figure flaots from http://www.tex.ac.uk/FAQ-figurehere.HTML
+\usepackage{float}
+
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\begin{document}
+\pagenumbering{gobble}
+\lhead{Team 6\\ JSTanks\\}
+\newpage
+\title{JSTanks - Design Document}
+\date{November 6, 2016}
+\author{Jiahao Li\\LI577\\001416646\and Pavithran Pathmarajah\\PATHMAP\\
+001410729 \and Viren Patel\\PATELVH3\\001419057}
+
+\maketitle
+
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+
+\newpage
+\section{Revision History}
+\subsection{Revision 0}
+\begin{table}[H]
+\caption{Revision History}
+	\begin{tabularx}{\textwidth}{cXc}
+		\toprule
+		Date & Developer & Change\\
+		\midrule
+		November 6&Jiahao Li &Initial Draft \\
+		November 6&Pavithran Pathmarajah &Initial Draft\\
+		November 6&Viren Patel  &Initial Draft\\
+	\end{tabularx}
+\end{table}
+
+\section{Introduction}
+
+\section{Anticipated and Unlikely Changes}
+\subsection{Anticipated Changes}
+\subsection{Unlikely Changes}
+
+\section{Module Hierarchy}
+
+\section{Connection between Requirements and Design}
+
+\section{Module Decomposition}
+\subsection{Hardware Hiding Modules}
+\subsection{Behaviour Hiding Module}
+\subsection{Software Decision Module}
+
+\section{Traceability Matrix}
+
+\section{Use Relations}
+
+\newpage
+% Revision History, Module Hierarchy, Trace between Requirements and Modules, Trace between Anticipated Changes and Modules
+\listoftables
+% Use hierarchy among modules
+\listoffigures
+
+\end{document}
