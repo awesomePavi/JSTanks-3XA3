@@ -5,13 +5,17 @@ The bot class
 
 */
 
+// Bot tank definition
+// calls the constructor of the Tank class
 var Bot = function(tileSize, x, y){
 	Tank.call(this, tileSize, x, y);
 }
 
+
+// Bot inherits Tank
 inherits(Bot, Tank);
 
-
+// Decide the movement of bot tank: random or towards target
 Bot.prototype.movementLogic = function(Player tank, x, y) {
 	var rand = Math.floor(Math.random()*5)+1;
 	if (rand == 1){

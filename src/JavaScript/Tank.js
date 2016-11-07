@@ -47,7 +47,7 @@ Tank.prototype.draw = function(canvas,startx,startY,tileSize){
 
 //
 Tank.prototype.type = function(){
-	return "Tank";
+	return "TANK";
 }
 
 // Lower the tank's health by hitStrength when it gets hit
