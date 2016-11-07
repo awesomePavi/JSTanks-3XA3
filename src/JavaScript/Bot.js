@@ -16,7 +16,7 @@ var Bot = function(tileSize, x, y, gameBoard){
 inherits(Bot, Tank);
 
 // Decide the movement of bot tank: random or towards target
-Bot.prototype.movementLogic = function(Player tank, x, y) {
+Bot.prototype.movementLogic = function(playerTank, x, y) {
 	var rand = Math.floor(Math.random()*5)+1;
 	if (rand == 1){
 		this.moveUp();
@@ -27,13 +27,13 @@ Bot.prototype.movementLogic = function(Player tank, x, y) {
 	} else if (rand == 4){
 		this.moveRight();
 	} else if (rand == 5){
-		if (this.x < tank.x){
+		if (this.x < playerTank.x){
 			this.moveRight();
-		} else if (this.y < tank.y){
+		} else if (this.y < playerTank.y){
 			this.moveDown();
-		} else if (this.x > tank.x){
+		} else if (this.x > playerTank.x){
 			this.moveLeft();
-		} else if (this.y > tank.y){
+		} else if (this.y > playerTank.y){
 			this.moveUp();
 		}
 	}
