@@ -24,7 +24,8 @@ function inherits(ctor, superCtor) {
 Tank constructor and definition
 tileSize: the width/height of any one tile in the grid
 */
-var Tank = function (tileSize, x, y){
+var Tank = function (tileSize, x, y, gameBoard){
+	this.board = gameBoard;
 	this.x = x;
 	this.y = y;
 	this.health = 100;
@@ -33,7 +34,7 @@ var Tank = function (tileSize, x, y){
 	this.m_canvas.height = tileSize;
 	var m_context = this.m_canvas.getContext("2d");
 	var img = new Image();
-	img.src = "../Images/tank.png";
+	img.src = "../Images/tankUp.png";
 	img.onload = function()
    	{
    		m_context.drawImage(img,0,0,tileSize,tileSize);
@@ -67,28 +68,28 @@ Tank.prototype.getPosition = function (){
 
 // move the tank up one tile if possible
 Tank.prototype.moveUp = function(){
-	if (board.canBePlaced(this.x, this.y-1)){
+	if (this.board.canBePlaced(this.x, this.y-1)){
 		this.y = this.y - 1;
 	}
 }
 
 // move the tank down one tile if possible
 Tank.prototype.moveDown = function(){
-	if (board.canBePlaced(this.x, this.y+1)){
+	if (this.board.canBePlaced(this.x, this.y+1)){
 		this.y = this.y + 1;
 	}
 }
 
 // move the tank left one tile if possible
 Tank.prototype.moveLeft = function(){
-	if (board.canBePlaced(this.x-1, this.y)){
+	if (this.board.canBePlaced(this.x-1, this.y)){
 		this.x = this.x - 1;
 	}
 }
 
 // move the tank right one tile if possible
 Tank.prototype.moveRight = function(){
-	if (board.canBePlaced(this.x+1, this.y)){
+	if (this.board.canBePlaced(this.x+1, this.y)){
 		this.x = this.x + 1;
 	}
 }
