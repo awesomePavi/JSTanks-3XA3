@@ -114,9 +114,9 @@ var EmptyTile = function(tileSize){
 	this.m_canvas.width = tileSize;
 	this.m_canvas.height = tileSize;
 	this.m_context = this.m_canvas.getContext("2d");
-	this.m_context.fillStyle = "458B00";
+	this.m_context.fillStyle = "#458B00";
 	this.m_context.fillRect(0,0,tileSize,tileSize);
-	this.m_context.fillStyle = "000000";
+	this.m_context.fillStyle = "#000000";
 	this.m_context.rect(0,0,tileSize,tileSize);
 	this.m_context.stroke();
 }
