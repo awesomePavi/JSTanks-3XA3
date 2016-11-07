@@ -3,16 +3,37 @@
 <head>
 <link href="../CSS/Tanks.css" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--Jquery script for screen dimensions to be retrived-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+	</script>
+<script src="../JavaScript/Overlay.js">
+	</script>
+
 <title>JS Tanks</title>
 </head>
 <!-- Use full screen-->
 <body  style="width:100%; margin:0; padding:0;">
+
+<!-- Pause Menu -->
+<div id="PauseMenu" class="overlay">
+
+  <a href="javascript:void(0)" class="closebtn" onclick="closePause()">&times;</a>
+
+  <div class="overlay-content">
+    <a href="#" onclick="closePause()">Continue</a>
+    <a href="#" >Home</a>
+    <br>
+    <a href="#"  onclick="quit()">Quit</a>
+  </div>
+
+</div>
+
 <!-- HTML 5 canvas for the JS to play with, stuck to center of pag -->
 <canvas id="Game" class="center" style="margin:0;padding:0;display:block;"> 
 	</canvas>
-<!--Jquery script for screen dimensions to be retrived-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-	</script>
+
+
+
 <!--Projectile Tiles -->
 <script src="../JavaScript/Projectile.js">
 	</script>
@@ -21,6 +42,15 @@
 	</script>
 <!-- Tank script -->
 <script src="../JavaScript/Tank.js">
+	</script>
+<!-- Player script -->
+<script src="../JavaScript/Player.js">
+	</script>
+<!-- AI script-->
+<script src="../JavaScript/Bot.js">
+	</script>
+<!--Baord Creation-->
+<script src="../JavaScript/createBoard.js">
 	</script>
 <!-- Game Board script -->
 <script src="../JavaScript/gameBoard.js">

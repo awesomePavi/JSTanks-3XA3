@@ -44,15 +44,29 @@ function setUpCanvas(){
 	m_context = m_canvas.getContext("2d");
 
 	//call the draw method 20 times per second
-	Run=setInterval(function(){DrawCanvas();},1000/20);
+	Run=setInterval(function(){DrawCanvas();},1000/5);
+	paused = false;
 }
 
+window.onkeydown = function (e) {
+    var code = e.keyCode ? e.keyCode : e.which;
+    if (code === 80) { //up key
+        if (paused){
+        	closePause();
+        }else{
+     	   openPause();
+    	}
+    }
+    board.playerMove(e);
+};
 
 function DrawCanvas(){
+	if (!paused){
 	//pre-render Board
 	board.draw();
 	//draw rendered board on rendered screen
 	m_context.drawImage(board.getRender(), xOffSet,yOffSet);
 	//draw screen
 	gameCanvas.drawImage(m_canvas,0,0);
+	}
 }

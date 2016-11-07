@@ -32,29 +32,29 @@ var Projectile = function(tileSize,x,y,dir){
 
 //update projectile movment and if it has hit a piece or not
 Projectile.prototype.update = function(board){
-	posx = Math.floor((this.startx+this.shiftx)/this.tileSize)+1;
-	posy = Math.floor((this.startY+this.shifty)/this.tileSize)+1;
+	posx = Math.floor((this.startx+this.shiftx)/this.tileSize);
+	posy = Math.floor((this.startY+this.shifty)/this.tileSize);
 	switch(this.direction) {
 		case 1:
-		this.shiftx++;
-		
+		this.shiftx+=1//this.tileSize/4;
+		posx++;
 		break;
 		case 2:
-		this.shiftx--;
-		posx--;
+		this.shiftx-=1//this.tileSize/4;
 		break;
 		case 3:
-		this.shifty++;
+		this.shifty+=1//this.tileSize/4;
+		posy++;
 		break;
 		default:
-		this.shifty--;
-		posy--;
+		this.shifty-=1//this.tileSize/4;
 		break;
 	}
 
+	console.log()
 	if(!board.canBePlaced(posx,posy))
 	{
-		board.damage(100,posx,posy);
+		board.damage(50,posx,posy);
 		return true;
 	}
 	return false;

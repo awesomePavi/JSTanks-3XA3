@@ -34,7 +34,7 @@ var Tank = function (tileSize, x, y, gameBoard){
 	this.m_canvas.height = tileSize;
 	var m_context = this.m_canvas.getContext("2d");
 	var img = new Image();
-	img.src = "../Images/tankUp.png";
+	img.src = "../Images/tank.png";
 	img.onload = function()
    	{
    		m_context.drawImage(img,0,0,tileSize,tileSize);

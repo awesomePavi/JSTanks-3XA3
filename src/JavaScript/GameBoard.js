@@ -14,6 +14,7 @@ var GameBoard = function(tileSize){
 	this.tileSize = tileSize;
 	this.height = tileSize*15;
 	this.width = tileSize*15;
+	this.player;
 	//board is a 15*15 array
 	this.board = new Array(15);
 
@@ -28,15 +29,23 @@ var GameBoard = function(tileSize){
 		}
 	}
 
+	new createBoard(this,"normal");
+	this.player = new Player(this.tileSize,7,0,this);
+	this.board[0][7] = this.player;
+	this.board[13][2] = new Bot(this.tileSize,2,13,this);
+
+
 	//Handle Projectiles
 	this.projectileQueue = new ProjectileQue();
-
 	
 	//Building virtual canvas for board to be prerendered on
 	this.boardCanvas = document.createElement('canvas');
 	this.boardCanvas.width = this.width;
 	this.boardCanvas.height = this.height;
 	this.boardContext = this.boardCanvas.getContext("2d");
+}
+GameBoard.prototype.playerMove = function(event){
+	this.player.interface(event);
 }
 
 GameBoard.prototype.fire = function(x,y,direction){
@@ -90,14 +99,27 @@ GameBoard.prototype.canBePlaced = function(x,y){
 	}
 }
 
+GameBoard.prototype.moveTo = function(Oldx,Oldy,newX,newY){
+	console.log(Oldx,Oldy,newX,newY);
+	this.board[newY][newX] = this.board[Oldy][Oldx];
+	this.board[Oldy][Oldx] = new EmptyTile(this.tileSize);
+}
+
 //draw onto pre-rendered game baord and then onto actual screen
 GameBoard.prototype.draw = function(){
 	this.update();
 	for ( y =0; y < 15; y++){
 		for (x = 0; x < 15; x++){
 			//tile location
+			try{
+			if (this.board[y][x].Flag){
+				this.board[y][x].movementLogic(this.player,x,y);
+			}
+		}catch(e){}
+
 			this.board[y][x].draw(this.boardContext,x*this.tileSize
 				,y*this.tileSize,this.tileSize)
+		
 		}
 	}
 	this.projectileQueue.render(this.boardContext);
