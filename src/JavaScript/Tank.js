@@ -69,6 +69,7 @@ Tank.prototype.getPosition = function (){
 // move the tank up one tile if possible
 Tank.prototype.moveUp = function(){
 	if (this.board.canBePlaced(this.x, this.y-1)){
+		this.board.moveTo(this.x,this.y,this.x,this.y-1);
 		this.y = this.y - 1;
 	}
 }
@@ -76,6 +77,7 @@ Tank.prototype.moveUp = function(){
 // move the tank down one tile if possible
 Tank.prototype.moveDown = function(){
 	if (this.board.canBePlaced(this.x, this.y+1)){
+		this.board.moveTo(this.x,this.y,this.x,this.y+1);
 		this.y = this.y + 1;
 	}
 }
@@ -83,6 +85,7 @@ Tank.prototype.moveDown = function(){
 // move the tank left one tile if possible
 Tank.prototype.moveLeft = function(){
 	if (this.board.canBePlaced(this.x-1, this.y)){
+		this.board.moveTo(this.x,this.y,this.x-1,this.y);
 		this.x = this.x - 1;
 	}
 }
@@ -90,6 +93,7 @@ Tank.prototype.moveLeft = function(){
 // move the tank right one tile if possible
 Tank.prototype.moveRight = function(){
 	if (this.board.canBePlaced(this.x+1, this.y)){
+		this.board.moveTo(this.x,this.y,this.x+1,this.y);
 		this.x = this.x + 1;
 	}
 }
