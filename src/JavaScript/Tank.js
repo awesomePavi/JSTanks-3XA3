@@ -7,13 +7,26 @@ Different images representing different states of the tank.
 
 */
 
+// code to allow inheritance 
+function inherits(ctor, superCtor) {
+  ctor.super_ = superCtor;
+  ctor.prototype = Object.create(superCtor.prototype, {
+    constructor: {
+      value: ctor,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+};
+
 /* 
 Tank constructor and definition
 tileSize: the width/height of any one tile in the grid
 */
-var Tank = function (tileSize){
-	this.x = tileSize*5;
-	this.y = tileSize*5;
+var Tank = function (tileSize, x, y){
+	this.x = x;
+	this.y = y;
 	this.health = 100;
 	this.m_canvas = document.createElement('canvas');
 	this.m_canvas.width = tileSize;
@@ -52,7 +65,33 @@ Tank.prototype.getPosition = function (){
 	return this.x, this.y;
 }
 
+// move the tank up one tile if possible
+Tank.prototype.moveUp = function(){
+	if (board.canBePlaced(this.x, this.y-1)){
+		this.y = this.y - 1;
+	}
+}
 
+// move the tank down one tile if possible
+Tank.prototype.moveDown = function(){
+	if (board.canBePlaced(this.x, this.y+1)){
+		this.y = this.y + 1;
+	}
+}
+
+// move the tank left one tile if possible
+Tank.prototype.moveLeft = function(){
+	if (board.canBePlaced(this.x-1, this.y)){
+		this.x = this.x - 1;
+	}
+}
+
+// move the tank right one tile if possible
+Tank.prototype.moveRight = function(){
+	if (board.canBePlaced(this.x+1, this.y)){
+		this.x = this.x + 1;
+	}
+}
 
 
 	
