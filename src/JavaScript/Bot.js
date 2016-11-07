@@ -7,8 +7,8 @@ The bot class
 
 // Bot tank definition
 // calls the constructor of the Tank class
-var Bot = function(tileSize, x, y){
-	Tank.call(this, tileSize, x, y);
+var Bot = function(tileSize, x, y, gameBoard){
+	Tank.call(this, tileSize, x, y, gameBoard);
 }
 
 

@@ -7,8 +7,8 @@ The player class
 
 // Player tank definition
 // calls the constructor of the Tank class
-var Player = function(tileSize, x, y){
-	Tank.call(this, tileSize, x, y);
+var Player = function(tileSize, x, y, gameBoard){
+	Tank.call(this, tileSize, x, y, gameBoard);
 }
 
 // Player inherits Tank
