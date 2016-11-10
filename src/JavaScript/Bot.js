@@ -24,7 +24,7 @@ inherits(Bot, Tank);
  * @param {number} x - The x value of the player's position.
  * @param {number} y - The y value of the player's position.
  */
-Bot.prototype.movementLogic = function(playerTank, x, y) {
+Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 	var rand = Math.floor(Math.random()*5)+1;
 	if (rand == 1){
 		this.moveUp();

@@ -30,9 +30,9 @@ var GameBoard = function(tileSize){
 	}
 
 	new createBoard(this,"normal");
-	this.player = new Player(this.tileSize,7,0,this);
+	this.player = new Player(this.tileSize,7,0,this, 1);
 	this.board[0][7] = this.player;
-	this.board[13][2] = new Bot(this.tileSize,2,13,this);
+	this.board[13][2] = new Bot(this.tileSize,2,13,this, 1);
 
 
 	//Handle Projectiles

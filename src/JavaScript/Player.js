@@ -11,7 +11,7 @@ The player class
  * @constructor
  * @see {@link Tank} for constructor details. 
  */
-var Player = function(tileSize, x, y, gameBoard){
+var Player = function(tileSize, x, y, gameBoard, direction){
 	Tank.call(this, tileSize, x, y, gameBoard);
 }
 

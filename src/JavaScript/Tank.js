@@ -33,15 +33,32 @@ tileSize: the width/height of any one tile in the grid
  * @param {number} y - the value of the y co-ordinate of the tank object as per the array in GameBoard.js .
  * @param {GameBoard} - A GameBoard object.
  */
-var Tank = function (tileSize, x, y, gameBoard){
+var Tank = function (tileSize, x, y, gameBoard, direction){
 	this.board = gameBoard;
 	this.x = x;
 	this.y = y;
 	this.health = 100;
-	this.m_canvas = document.createElement('canvas');
-	this.m_canvas.width = tileSize;
-	this.m_canvas.height = tileSize;
-	var m_context = this.m_canvas.getContext("2d");
+	this.direction = 1; // 1=up, 2= down, 3=left, 4=right
+
+	this.m_canvas1 = document.createElement('canvas');
+	this.m_canvas1.width = tileSize;
+	this.m_canvas1.height = tileSize;
+	var m_context1 = this.m_canvas1.getContext("2d");
+	
+	this.m_canvas2 = document.createElement('canvas');
+	this.m_canvas2.width = tileSize;
+	this.m_canvas2.height = tileSize;
+	var m_context2 = this.m_canvas2.getContext("2d");
+	
+	this.m_canvas3 = document.createElement('canvas');
+	this.m_canvas3.width = tileSize;
+	this.m_canvas3.height = tileSize;
+	var m_context3 = this.m_canvas3.getContext("2d");
+	
+	this.m_canvas4 = document.createElement('canvas');
+	this.m_canvas4.width = tileSize;
+	this.m_canvas4.height = tileSize;
+	var m_context4 = this.m_canvas4.getContext("2d");
 	
 	var tankUp = new Image();
 	var tankDown = new Image();
@@ -61,11 +78,32 @@ var Tank = function (tileSize, x, y, gameBoard){
 	tankDmgLeft.src = "../Images/tankDmgLeft.png";
 	tankDmgRight.src = "../Images/tankDmgRight.png";
 	
-	var img = new Image();
-	img.src = "../Images/tankUp.png";
-	img.onload = function()
+	var img1 = new Image();
+	img1.src = "../Images/tankUp.png";
+	img1.onload = function()
    	{
-   		m_context.drawImage(img,0,0,tileSize,tileSize);
+   		m_context1.drawImage(img1,0,0,tileSize,tileSize);
+   	}
+	
+	var img2 = new Image();
+	img2.src = "../Images/tankDown.png";
+	img2.onload = function()
+   	{
+   		m_context2.drawImage(img2,0,0,tileSize,tileSize);
+   	}
+	
+	var img3 = new Image();
+	img3.src = "../Images/tankLeft.png";
+	img3.onload = function()
+   	{
+   		m_context3.drawImage(img3,0,0,tileSize,tileSize);
+   	}
+	
+	var img4 = new Image();
+	img4.src = "../Images/tankRight.png";
+	img4.onload = function()
+   	{
+   		m_context4.drawImage(img4,0,0,tileSize,tileSize);
    	}
 }
 
@@ -77,7 +115,19 @@ var Tank = function (tileSize, x, y, gameBoard){
  * @param {number} tileSize - The size of one tile in the grid.
  */
 Tank.prototype.draw = function(canvas,startx,startY,tileSize){
-	canvas.drawImage(this.m_canvas,startx,startY);
+	switch (this.direction){
+		case 1:
+		canvas.drawImage(this.m_canvas1,startx,startY);
+		break;
+		case 2:
+		canvas.drawImage(this.m_canvas2,startx,startY);
+		break;
+		case 3:
+		canvas.drawImage(this.m_canvas3,startx,startY);
+		break;
+		default:
+		canvas.drawImage(this.m_canvas4,startx,startY);
+	}
 }
 
 /**
@@ -119,6 +169,7 @@ Tank.prototype.getPosition = function (){
  */
 Tank.prototype.moveUp = function(){
 	if (this.board.canBePlaced(this.x, this.y-1)){
+		this.direction = 1;
 		this.board.moveTo(this.x,this.y,this.x,this.y-1);
 		this.y = this.y - 1;
 	}
@@ -129,6 +180,7 @@ Tank.prototype.moveUp = function(){
  */
 Tank.prototype.moveDown = function(){
 	if (this.board.canBePlaced(this.x, this.y+1)){
+		this.direction = 2;
 		this.board.moveTo(this.x,this.y,this.x,this.y+1);
 		this.y = this.y + 1;
 	}
@@ -139,6 +191,7 @@ Tank.prototype.moveDown = function(){
  */
 Tank.prototype.moveLeft = function(){
 	if (this.board.canBePlaced(this.x-1, this.y)){
+		this.direction = 3;
 		this.board.moveTo(this.x,this.y,this.x-1,this.y);
 		this.x = this.x - 1;
 	}
@@ -149,6 +202,7 @@ Tank.prototype.moveLeft = function(){
  */
 Tank.prototype.moveRight = function(){
 	if (this.board.canBePlaced(this.x+1, this.y)){
+		this.direction = 4;
 		this.board.moveTo(this.x,this.y,this.x+1,this.y);
 		this.x = this.x + 1;
 	}
