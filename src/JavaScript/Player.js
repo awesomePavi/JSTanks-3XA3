@@ -25,16 +25,23 @@ inherits(Player, Tank);
  */
 Player.prototype.interface = function(event) {
 	//get key pressed
-   var keyIn = event.which;
-   if (keyIn==40) //Arrow down
+	var keyIn = event.which;
+	if (keyIn==40) //Arrow down
    		this.moveDown();
-   else if(keyIn==38) //Arrow up
+	else if(keyIn==38) //Arrow up
    		this.moveUp();
-		else if(keyIn==37) //Arrow left
+	else if(keyIn==37) //Arrow left
    		this.moveLeft();
-   else if(keyIn==39) //Arrow right
+	else if(keyIn==39) //Arrow right
    		this.moveRight();
 	else if(keyIn==70){
-		this.board.fire (this.x, this.y, 3);
+		if (this.direction == 1)
+			this.board.fire (this.x, this.y, 3);		
+		else if (this.direction == 2)
+			this.board.fire (this.x, this.y, 3);
+		else if (this.direction == 3)
+			this.board.fire (this.x, this.y, 1);
+		else 
+			this.board.fire (this.x, this.y, 1);		
 	}   	
 }
