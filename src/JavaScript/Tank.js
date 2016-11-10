@@ -33,8 +33,27 @@ var Tank = function (tileSize, x, y, gameBoard){
 	this.m_canvas.width = tileSize;
 	this.m_canvas.height = tileSize;
 	var m_context = this.m_canvas.getContext("2d");
+	
+	var tankUp = new Image();
+	var tankDown = new Image();
+	var tankLeft = new Image();
+	var tankRight = new Image();
+	var tankDmgUp = new Image();
+	var tankDmgDown = new Image();
+	var tankDmgLeft = new Image();
+	var tankDmgRight = new Image();
+
+	tankUp.src = "../Images/tankUp.png";
+	tankDown.src = "../Images/tankDown.png";
+	tankLeft.src = "../Images/tankLeft.png";
+	tankRight.src = "../Images/tankRight.png";
+	tankDmgUp.src = "../Images/tankDmgUp.png";
+	tankDmgDown.src = "../Images/tankDmgDown.png";
+	tankDmgLeft.src = "../Images/tankDmgLeft.png";
+	tankDmgRight.src = "../Images/tankDmgRight.png";
+	
 	var img = new Image();
-	img.src = "../Images/tank.png";
+	img.src = "../Images/tankUp.png";
 	img.onload = function()
    	{
    		m_context.drawImage(img,0,0,tileSize,tileSize);
