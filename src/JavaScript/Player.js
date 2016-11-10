@@ -30,6 +30,9 @@ Player.prototype.interface = function(event) {
    else if(keyIn==39) //Arrow right
    		//x+=size*0.5; ~ Repalced with object method
    		this.moveRight();
+	else if(keyIn==70){
+		this.board.fire (this.x, this.y, 3);
+	}
    	//check if box is out of bounds
    	//outOfBounds(); ~ Repalced with object method
    	
