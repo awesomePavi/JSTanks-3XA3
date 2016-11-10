@@ -24,6 +24,15 @@ function inherits(ctor, superCtor) {
 Tank constructor and definition
 tileSize: the width/height of any one tile in the grid
 */
+
+/**
+ * Represents a Tank.
+ * @constructor 
+ * @param {number} tileSize - The size of one tile in the grid.
+ * @param {number} x - the value of the x co-ordinate of the tank object as per the array in GameBoard.js .
+ * @param {number} y - the value of the y co-ordinate of the tank object as per the array in GameBoard.js .
+ * @param {GameBoard} - A GameBoard object.
+ */
 var Tank = function (tileSize, x, y, gameBoard){
 	this.board = gameBoard;
 	this.x = x;
@@ -60,32 +69,54 @@ var Tank = function (tileSize, x, y, gameBoard){
    	}
 }
 
-// method to draw the tank image - called by GameBoard
+/**
+ * Draw the tank image on the game board.
+ * @param {canvas} canvas - The canvas for the Tank image.
+ * @param {number} startx - The starting x co-ordinate for the tank image.
+ * @param {number} startY - The starting y co-ordinate for the tank image.
+ * @param {number} tileSize - The size of one tile in the grid.
+ */
 Tank.prototype.draw = function(canvas,startx,startY,tileSize){
 	canvas.drawImage(this.m_canvas,startx,startY);
 }
 
-//
+/**
+ * Give the type of the object
+ * @return {string} The type of the Tank object
+ */
 Tank.prototype.type = function(){
 	return "TANK";
 }
 
-// Lower the tank's health by hitStrength when it gets hit
+/**
+ * Lower the health of tank when hit by a projectile. 
+ * @param {number} hitStrength - The strengh of the projectile.
+ */
 Tank.prototype.hit = function (hitStrength){
 	this.health -= hitStrength;
 }
 
-// returns the tank's health
+/**
+ * Give the tank's health.
+ * @return {number} - The tank's health.
+ */
 Tank.prototype.getHealth = function (){
 	return this.health;
 }
 
 // return the tank's position in x and y co-ordinates
+/**
+ * Give the x and y co-ordinates of the tank object.
+ * @return {number} The x value.
+ * @return {number} The y value.
+ */
 Tank.prototype.getPosition = function (){
 	return this.x, this.y;
 }
 
-// move the tank up one tile if possible
+/**
+ * Move the tank's position up one tile if possible.
+ */
 Tank.prototype.moveUp = function(){
 	if (this.board.canBePlaced(this.x, this.y-1)){
 		this.board.moveTo(this.x,this.y,this.x,this.y-1);
@@ -93,7 +124,9 @@ Tank.prototype.moveUp = function(){
 	}
 }
 
-// move the tank down one tile if possible
+/**
+ * Move the tank's position down one tile if possible.
+ */
 Tank.prototype.moveDown = function(){
 	if (this.board.canBePlaced(this.x, this.y+1)){
 		this.board.moveTo(this.x,this.y,this.x,this.y+1);
@@ -101,7 +134,9 @@ Tank.prototype.moveDown = function(){
 	}
 }
 
-// move the tank left one tile if possible
+/**
+ * Move the tank's position up left tile if possible.
+ */
 Tank.prototype.moveLeft = function(){
 	if (this.board.canBePlaced(this.x-1, this.y)){
 		this.board.moveTo(this.x,this.y,this.x-1,this.y);
@@ -109,14 +144,12 @@ Tank.prototype.moveLeft = function(){
 	}
 }
 
-// move the tank right one tile if possible
+/**
+ * Move the tank's position right one tile if possible.
+ */
 Tank.prototype.moveRight = function(){
 	if (this.board.canBePlaced(this.x+1, this.y)){
 		this.board.moveTo(this.x,this.y,this.x+1,this.y);
 		this.x = this.x + 1;
 	}
 }
-
-
-	
-    
