@@ -5,9 +5,13 @@ The player class
 
 */
 
-// Player tank definition
-// calls the constructor of the Tank class
-var Player = function(tileSize, x, y, gameBoard){
+// 
+/**
+ * Represents a player tank.
+ * @constructor
+ * @see {@link Tank} for constructor details. 
+ */
+var Player = function(tileSize, x, y, gameBoard, direction){
 	Tank.call(this, tileSize, x, y, gameBoard);
 }
 
@@ -15,25 +19,29 @@ var Player = function(tileSize, x, y, gameBoard){
 inherits(Player, Tank);
 
 //Interacts with key inputs from the webpage
+/**
+ * Moves the player tank according to the input from the user.
+ * @param {event} A keyboard event
+ */
 Player.prototype.interface = function(event) {
 	//get key pressed
-   var keyIn = event.which;
-   if (keyIn==40) //Arrow down
-   		//y+=size*0.5; ~ Repalced with object method
+	var keyIn = event.which;
+	if (keyIn==40) //Arrow down
    		this.moveDown();
-   else if(keyIn==38) //Arrow up
-   		//y-=size*0.5; ~ Repalced with object method
+	else if(keyIn==38) //Arrow up
    		this.moveUp();
-		else if(keyIn==37) //Arrow left
-   		//x-=size*0.5; ~ Repalced with object method
+	else if(keyIn==37) //Arrow left
    		this.moveLeft();
-   else if(keyIn==39) //Arrow right
-   		//x+=size*0.5; ~ Repalced with object method
+	else if(keyIn==39) //Arrow right
    		this.moveRight();
 	else if(keyIn==70){
-		this.board.fire (this.x, this.y, 3);
-	}
-   	//check if box is out of bounds
-   	//outOfBounds(); ~ Repalced with object method
-   	
+		if (this.direction == 1)
+			this.board.fire (this.x, this.y, 3);		
+		else if (this.direction == 2)
+			this.board.fire (this.x, this.y, 3);
+		else if (this.direction == 3)
+			this.board.fire (this.x, this.y, 1);
+		else 
+			this.board.fire (this.x, this.y, 1);		
+	}   	
 }
