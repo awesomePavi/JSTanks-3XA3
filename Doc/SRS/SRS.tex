@@ -383,52 +383,51 @@ come to the end state.
 \item The executable HTML file shall create a new browser window.
 \item The HTML shall be executed by a browser with JavaScript functionality.
 \item The game shall have a standby state in which it waits for user input.
-\item The menu with four sections which are ?game?, ?pause/continue?, ?level?and
- ?introduction? shall shows up in the standby state.
-\item The sub menu of ?game?section which has choices of?start a new game?and 
-?quit?shall shows up when the ?game?section is clicked.
-\item The sub menu of ?pause/continue?section which has choices of?pause?and 
-?continue?shall shows up when the ?pause/continue?section is clicked.
-\item The sub menu of ?level?section which has choices of?level 1?, ?level 2?,
- and ?level 3?shall shows up when the ?level?section is clicked.
-\item The game shall be reset and start when ?start a new game?is clicked.
-\item The game shall come to the end state that the GUI turns into black with 
-only the menu on it when ?quit?is clicked.
-\item the game shall come to the pause state when ?pause?is clicked.. All stuff 
+\item The menu with four sections which are `game', `pause/continue', `level' and
+ `introduction' shall shows up in the standby state.
+\item The sub menu of `game' section which has choices of `start a new game' and 
+`quit' shall shows up when the `game' section is clicked.
+\item The sub menu of  `pause/continue' section which has choices of `pause‘ and  
+`continue' shall shows up when the ?pause/continue?section is clicked.
+\item The sub menu of  `level' section which has choices of `level 1', `level 2',
+ and `level 3' shall shows up when the `level' section is clicked.
+\item The game shall be reset and start when `start a new game' is clicked.
+\item The game shall close the window when `quit' is clicked.
+\item the game shall come to the pause state when `pause' is clicked.. All stuff 
 in the game shall freeze and stay in the temporal positions in the pause state.
-\item All stuff frozen by the ?pause?button in the game shall be activated and
- back into the routine when ?continue?is clicked.
-\item The click of the?continue?button shall have no effect if the game is not
+\item All stuff frozen by the `pause' button in the game shall be activated and
+ back into the routine when `continue' is clicked.
+\item The click of the `continue' button shall have no effect if the game is not
  in the pause state.
 \item The AI shall control tanks to move and fire randomly when the game starts.
-\item The moving speed of tanks controlled by the AI shall change when ?level 1?
-, ?level 2?or ?level 3?is clicked. The higher the level is, the higher the speed
+\item The moving speed of tanks controlled by the AI shall change when `level 1'
+, `level 2' or `level 3' is clicked. The higher the level is, the higher the speed
  it.
-\item The ?level 1 ?shall be chosen as the default speed of tanks when the game 
+\item The `level 1' shall be chosen as the default speed of tanks when the game 
 starts.
 \item The window with the information of the game in it shall pops up when 
-?introduction?is clicked.
+`introduction' is clicked.
 \item The tank controlled by the user shall move left, right, up or down when 
 the left, right, up or down key on the keyboard is pressed. The tank shall keep
  moving when the key is kept pressing until the tank hits the wall or the 
  boundary of the map.
 \item A bullet shall be launched and move along the direction that the tank
- faces to when the ?F?on the keyboard is pressed. One bullet shall be launched 
- every time that user press ?F?.
-\item When the bullet launched by the user?s tank hit another tank, that tank 
+ faces to when the `F' on the keyboard is pressed. One bullet shall be launched 
+ every time that user press `F'.
+\item When the bullet launched by the user's tank hit another tank, that tank 
 shall disappear with the bullet at the same time.
-\item When the bullet launched by the user?s tank hit a brick wall, the brick 
+\item When the bullet launched by the user's tank hit a brick wall, the brick 
 wall shall disappear with the bullet at the same time.
-\item When the bullet launched by the user?s tank hit a steel, the bullet shall 
-disappear and the steel wall shall keep staying at the same position.
-\item When the bullet launched by the tank of the AI hits the user?s tank or the 
-home base, one-tenth of blood in the blood bar shall decrease.
-\item When the user?s tank cross over a heart, one-tenth of blood shall increase
- in the blood bar. The blood shall not increase if the blood bar is full.
+\item When the bullet launched by the user's tank hit a steel, the bullet shall 
+disappear and the steel wall shall disappear after being fit for three times.
+\item When the bullet launched by the tank of the AI hits the  home base, 
+one-fifth of strength of the home base shall decrease.
+\item When the bullet launched by the tank of the AI hits the user's tank, 
+ the user's tank shall disappear with the bullet at the same time.
 \item A window shall pops up to show that the game is over and the game shall
- comes to the end state if the blood bar is empty.
-\item A window shall pops up to show that the user wins the game and the game
- comes to the end state if the user?s tank is the only one left in the map.
+ comes to the end state if the user's tank is destroyed.
+\item The window shall pops up to show that the user wins the game and the game
+ comes to the end state if the user's tank is the only one left in the map.
 \end{itemize}
 
 \section{Non-Functional Requirements:}

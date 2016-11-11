@@ -70,7 +70,72 @@ This document has been divided into the following sections: Anticipated and Unli
 \subsection{Software Decision Module}
 
 \section{Traceability Matrix}
-
+\begin{table}[!htbp]
+      \begin{tabular}{ll}
+        \toprule
+        Requirement & Modules \\
+        \midrule
+        \multicolumn{2}{c}{Functional Requirements} \\
+        \midrule
+        FR1 & JSTanks.html \\
+        FR2 & JSTanks.html \\
+        FR3 & JSTanks.html, Tank.css, Game.js, GameBoard.js, barrier.js, \\
+                 & createBoard.js, Tank.js, Bot.js, Overlay.js \\
+        FR4 & Overlay.js \\
+        FR5 & Overlay.js \\
+        FR6 & Overlay.js \\
+        FR7 & Overlay.js\\
+        FR8 & Overlay.js \\
+        FR9 & Overlay.js \\
+        FR10 & Overlay.js \\
+        FR11 & Overlay.js \\
+        FR12 & Overlay.js \\
+        FR13 & Bot.js, Projectile.js, Tank.js \\
+        FR14 & Bot.js \\
+        FR15 & Bot.js \\
+        FR16 & Overlay.js \\
+        FR17 & Player.js, Tank.js \\
+        FR18 & Projectile.js \\
+        FR19 & Projectile.js,Tank.js, Bot.js\\
+        FR20 & GameBoard.js, barriers.js, Projectile.js\\
+        FR21 & GameBoard.js, barriers.js, Projectile.js \\
+        FR22 & GameBoard.js, barriers.js, Projectile.js \\
+        FR23 & Projectile.js,Tank.js,Player.js  \\
+        FR24 & EndGame.js \\
+        FR25 & EndGame.js \\ \\
+        \midrule
+        \multicolumn{2}{c}{Non-functional Requirements} \\
+        \midrule
+        NF1.1 & JSTanks.html, Tank.css, Game.js, GameBoard.js, barriers.js,\\
+                     & createBoard.js, Tank.js, Bot.js \\
+        NF1.2 & JSTanks.html, Tank.css, Game.js, GameBoard.js, Tank.js, \\
+                     & Bot.js, Overlay.js \\
+        NF2.1 & Tank.js, Player.js, Projectile.js \\
+        NF2.2 & -- \\
+        NF2.3 & JSTanks.html \\
+        NF2.4& Overlay.js \\
+        NF2.5 & -- \\
+        NF3 & -- \\
+        NF4 &JSTanks.html, Tank.css \\
+        NF5 & Game.js, GameBoard.js, Tank.js, Player.js, Bot.js, Overlay.js, \\
+                 &barrier.js, createBoard.js, Projectile.js \\
+        NF6 & -- \\
+        NF7 & Overlay.js \\
+        NF8 & -- \\
+        \bottomrule
+        \end{tabular}
+        \caption{Trace Between Requirements and Modules}
+        % Colour for the rulings in tables:
+        \makeatletter
+           \def\rulecolor#1#{\CT@arc{#1}}
+           \def\CT@arc#1#2{%
+           \ifdim\baselineskip=\z@\noalign\fi
+           {\gdef\CT@arc@{\color#1{#2}}}}
+           \let\CT@arc@\relax
+          \rulecolor{black!50}
+        \makeatother
+        \label{Table 2}
+        \end{table}
 \section{Use Relations}
 
 \newpage

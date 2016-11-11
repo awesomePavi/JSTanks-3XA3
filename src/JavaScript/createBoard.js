@@ -1,3 +1,11 @@
+/**
+ * Creates the map of the game and chooses the difficulty of the map.
+ *
+ * @constructer
+ * @this {createBoard}
+ * @param {gameBoard} gameBoard The object will create this object in its constructer.
+ * @param {string} style The difficulty of the map.
+ */
 var createBoard = function(gameBoard,style){
 	if (style == "normal"){
 		this.normal(gameBoard)
@@ -6,6 +14,12 @@ var createBoard = function(gameBoard,style){
 	}
 }
 
+/**
+ * Sets up the map of the game on the game board as a normal version.
+ *
+ * @this {createBoard}
+ * @param {gameBoard} gameBoard The object will create this object in its constructer.
+ */
 createBoard.prototype.normal = function(gameBoard){
 	for ( y =7; y < 12; y=y+4){
 		for ( x =5; x < 10; x++){
@@ -49,6 +63,12 @@ createBoard.prototype.normal = function(gameBoard){
 	
 }
 
+/**
+ * Sets up the map of the game on the game board as a difficult version.
+ *
+ * @this {createBoard}
+ * @param {gameBoard} gameBoard The object will create this object in its constructer.
+ */
 createBoard.prototype.difficult = function(gameBoard){
 
 	for ( y =0; y < 7; y++){
