@@ -7,7 +7,7 @@
 
 %figure flaots from http://www.tex.ac.uk/FAQ-figurehere.HTML
 \usepackage{float}
-
+\usepackage{ltablex}
 \usepackage{tabularx}
 \usepackage{enumitem}
 \usepackage{graphicx}
@@ -57,20 +57,140 @@ This document has been divided into the following sections: Anticipated and Unli
 
 
 \section{Anticipated and Unlikely Changes}
+This sections contains possible changes to the project which may occur. The changes are placed into two categories anticipated and unlikely, depending on how likely a change is to occur.
+
 \subsection{Anticipated Changes}
+Anticipated changes are sources within modules which may be modified throughs-out the products life time. The changes will be made to specific modules in such a way that it will not affect how modules interact, or respond, but how they work.
+\subsubsection*{AC1}
+Each tile pre-render's it's own image when it is created. Will be changed such that shared images are pre-rendered on startup
+\subsubsection*{AC2}
+Currently a single thread runs procedurally. Updated game will have a sole update and render thread in the background. Preventing browser lock up.
+\subsubsection*{AC3}
+Level and map specifications may be moved to an external text or Html file to be parsed by the game dynamically. Allowing for the addition of new maps without having to hardcode scripts.
+\subsubsection*{AC4}
+Artificial Intelligence of bots, to be replaced with an algorithm to try and attack the player tank and the home-base depending on what is closer. 
+\subsubsection*{AC5}
+The strength of projectiles to go down depending on number of grid spots away from the tank they have travelled.
+\subsubsection*{AC6}
+Only re-rendering changed entities instead of the current system where  all entities are re-rendered each frame.
+
 \subsection{Unlikely Changes}
+Unlikely changes are the changes that will most likely not occur, for the affects of these changes would require many modifications to many modules for it would have an effect on how modules interact and respond.
+\subsubsection*{UC1}
+The data that tile-entities store and provide will remain at a minimum of health information and graphics renders.
+\subsubsection*{UC2}
+The game will continue to be purely, HTML, CSS, an JavaScript such that it modules will not have to be ported to another language or ecosystem
+\subsubsection*{UC3} 
+All interfacing between entities and the user will continue to propagate through the gameBoard class.
+\subsubsection*{UC4}
+  Game graphics will not be changed from a three level render stack to, a two level stack. Since it would require changes across all modules.
 
 \section{Module Hierarchy}
+This section provides a simple overview of the module design. The modules are hierarchically labelled M1 through M13 below and are decomposed in the table below that. 
+\\
+Hierarchy. These are the modules which will be implemented.
+\\ \\M1: Game Module
+\\M2: GameBoard Module
+\\M3: Projectile Queue Module
+\\M4: Create Game Module
+\\M5: Player Module
+\\M6: Bot Module
+\\M7: Tank Module
+\\M8: Empty Tile Module
+\\M9: Projectile Module
+\\M10: Home-Base Module
+\\M11: Wall-Module
+\\M12: Steel-Wall Module
+\\M13: Overlay Module
+
+%space used to move table to next page
+ % \caption{Module Hierarchy}
+\begin{tabularx}{\textwidth}{l X}
+	
+	Level 1 & Level 2\\
+	\midrule
+	Game Module & - Set graphics area\\ \\
+	 & - Create graphics context\\ \\
+	 & - start main game loop\\ \\
+	 & - interface between key presses, Overlay menu and GameBoard\\ \\
+	 & - GameBoard Module\\ \\
+	 & - Overlay menu\\
+	 \midrule
+	 GameBoard Module & - Interface between user and game\\ \\
+	 & - update board graphics\\ \\
+	 & - update projectiles\\ \\
+	 & - move entities on request\\ \\
+	 & - Create Game Module \\ \\
+	 & - Projectile  QueueModule \\ \\
+	 & - Player Module\\ \\
+	 & - Bot Module\\ \\
+	 & - Wall Module\\ \\
+	 & - Steel-Wall Module\\ \\
+	 & - Home-Base Module\\ \\
+	 & - Empty Tile Module\\
+	  \midrule
+	 Projectile  Queue Module & - Array of Projectiles \\ \\
+	 & - draw projectiles on board\\ \\
+	 & - Projectile Module\\
+	  \midrule
+	 Create Game Module & - Place tiles on board \\ \\
+	 & - Player Module\\ \\
+	 & - Bot Module\\ \\
+	 & - Wall Module\\ \\
+	 & - Steel-Wall Module\\ \\
+	 & - Home-Base Module\\
+	  \midrule
+	 Player Module & - Keyboard interfacing with tank\\ \\
+	 & - Tank Module\\
+	   \midrule
+	 Bot Module & - Artificial Intelligence interfacing  with tank\\ \\
+	 & - Tank Module\\
+	 \midrule
+	 Tank Module & - tank movement \\ \\
+	 & - fire projectiles\\ \\
+	 & - tracks tank health\\
+	   \midrule
+	 Empty Tile Module & - No strength factor \\ \\
+	  & - Can be moved to\\ \\
+	  & - replaces destroyed entities\\
+	    \midrule
+	 Projectile Module & - Damage tile entities \\ \\
+	 & - identify tile hit\\
+	  \midrule
+	 Home-Base Module & - Player' home base will trigger end game on destroy \\ \\
+	 & - tracks base health\\
+	 \midrule 
+	 Wall Module & - A weak wall, that can be destroyed \\ \\
+	 & - tracks wall health\\
+	 \midrule
+	 Steel-Wall Module & - A weak wall, that can be destroyed \\ \\
+	 & - tracks steel-wall health\\
+	  \midrule
+	 Overlayl Module & - Pauses game loop \\ \\
+	 & - overlay's pause menu
+\end{tabularx}
 
 \section{Connection between Requirements and Design}
+The requirements included in the Software Requirements Specifications document are implemented into the following modules: \\ \\
+JSTanks.html \\ 
+Tanks.css \\
+Overlay.js \\
+Game.js \\
+GameBoard.js \\
+createBoard.js \\
+Tank.js \\
+Player.js \\
+Bot.js \\
+barrier.js \\
+Projectile.js \\ \\
+The specific objects involved in these modules are listed in the “Module Hierarchy” section of this document. The corresponding modules of all function and non-functional requirements can be found in Table 4.
+
 
 \section{Module Decomposition}
-\subsection{Hardware Hiding Modules}
-\subsection{Behaviour Hiding Module}
-\subsection{Software Decision Module}
+Modules are decomposed according to the principles of "information hiding" proposed by Parnas ed el (1984). We have made the design decision to not implement traditional information hiding, such that the project may be used by others whom are starting out in game design or programming, whom will be able to easily decipher our project and build their own web based game. By hiding how our key modules function internally, these new-comers will not be able to fully understand how to develop a basic HTML, CSS, JavaScript game; for this reason JSTanks has opted out from information hiding. All module decomposition can be found in the Module Interface Specification. 
 
 \section{Traceability Matrix}
-\begin{table}[!htbp]
+\begin{table}[H]
       \begin{tabular}{ll}
         \toprule
         Requirement & Modules \\
@@ -136,7 +256,31 @@ This document has been divided into the following sections: Anticipated and Unli
         \makeatother
         \label{Table 2}
         \end{table}
+
 \section{Use Relations}
+\begin{table}[!h]
+\begin{tabular}{lll}
+Module && Use Relation \\ 
+\hline \\
+JSTanks.html & uses & Tanks.css, Overlay.js, Game.js, GameBoard.js, \\  
+&&createBoard.js, Tank.js, Player.js, Bot.js,\\
+&& Barrier.js, and Projectile.js \\ \\
+Tanks.css & uses & -- \\ \\
+Overlay.js & uses & -- \\ \\
+Game.js & uses & GameBoard.js \\ \\
+GameBoard.js & uses & Player.js, Bot.js, barrier.js, and Projectile.js, \\
+&&and createBoard.js \\ \\
+createBoard.js & uses & barrier.js \\ \\
+Tank.js & uses & -- \\ \\
+Player.js & uses & Tank.js \\ \\
+Bot.js & uses & Tank.js \\ \\
+barrier.js & uses & -- \\ \\
+Projectile.js & uses & -- \\ \\
+\hline
+\end{tabular}
+\caption {Uses Relationship between Modules}
+\end{table}
+
 
 \newpage
 % Revision History, Module Hierarchy, Trace between Requirements and Modules, Trace between Anticipated Changes and Modules
