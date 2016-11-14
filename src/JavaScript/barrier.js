@@ -143,7 +143,7 @@ steel.prototype.getHealth = function (hitStength){
  */
 steel.prototype.getPosition = function (){
 	return this.x, this.y;
-
+}
 
 
 
