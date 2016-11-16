@@ -25,24 +25,36 @@ inherits(Bot, Tank);
  * @param {number} y - The y value of the player's position.
  */
 Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
-	var rand = Math.floor(Math.random()*5)+1;
+	//ensure ai only moves once per frame
+	if (this.movedThisRound)
+		return;
+	var rand = 5;//Math.floor(Math.random()*5)+1;
 	if (rand == 1){
 		this.moveUp();
+		this.movedThisRound = true; //ensure AI only moves once per frame
 	} else if (rand == 2){
 		this.moveDown();
+		this.movedThisRound = true; //ensure AI only moves once per frame
 	} else if (rand == 3){
 		this.moveLeft();
+		this.movedThisRound = true; //ensure AI only moves once per frame
 	} else if (rand == 4){
 		this.moveRight();
+		this.movedThisRound = true; //ensure AI only moves once per frame
 	} else if (rand == 5){
-		if (this.x < playerTank.x){
+		if (this.x < playerTank.x && board.canBePlaced(this.x+1,this.y)){
+			console.log(board.canBePlaced(this.x-1,this.y));
 			this.moveRight();
-		} else if (this.y < playerTank.y){
+			this.movedThisRound = true; //ensure AI only moves once per frame
+		} else if (this.y < playerTank.y && board.canBePlaced(this.x,this.y+1)){
 			this.moveDown();
-		} else if (this.x > playerTank.x){
+			this.movedThisRound = true; //ensure AI only moves once per frame
+		} else if (this.x > playerTank.x && board.canBePlaced(this.x-1,this.y)){
 			this.moveLeft();
-		} else if (this.y > playerTank.y){
+			this.movedThisRound = true; //ensure AI only moves once per frame
+		} else if (this.y > playerTank.y && board.canBePlaced(this.x,this.y-1)){
 			this.moveUp();
+			this.movedThisRound = true; //ensure AI only moves once per frame
 		}
 	}
 }

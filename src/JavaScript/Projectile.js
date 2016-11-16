@@ -11,21 +11,26 @@ var Projectile = function(tileSize,x,y,dir){
 	this.shiftx = 0; 
 	this.shifty = 0;
 	this.tileSize = tileSize;
+	this.speed = 10;
 
 	switch(this.direction) {
 		case 1:
 		m_context.fillRect(tileSize-(tileSize/4),tileSize/2-(tileSize/16)
 			,tileSize/4,tileSize/8);
+		this.shiftx += tileSize/16;
 		break;
 		case 2:
 		m_context.fillRect(0,tileSize/2-(tileSize/16),tileSize/4,tileSize/8);
+		this.shiftx -= tileSize/16;
 		break;
 		case 3:
 		m_context.fillRect(tileSize/2-(tileSize/16),tileSize-(tileSize/4)
 			,tileSize/8,tileSize/4);
+		this.shifty += tileSize/16;
 		break;
 		default:
 		m_context.fillRect(tileSize/2-(tileSize/16),0,tileSize/8,tileSize/4);
+		this.shifty -= tileSize/16;
 		break;
 	}
 }
@@ -36,22 +41,21 @@ Projectile.prototype.update = function(board){
 	posy = Math.floor((this.startY+this.shifty)/this.tileSize);
 	switch(this.direction) {
 		case 1:
-		this.shiftx+=1//this.tileSize/4;
+		this.shiftx+=this.speed//this.tileSize/4;
 		posx++;
 		break;
 		case 2:
-		this.shiftx-=1//this.tileSize/4;
+		this.shiftx-=this.speed//this.tileSize/4;
 		break;
 		case 3:
-		this.shifty+=1//this.tileSize/4;
+		this.shifty+=this.speed//this.tileSize/4;
 		posy++;
 		break;
 		default:
-		this.shifty-=1//this.tileSize/4;
+		this.shifty-=this.speed//this.tileSize/4;
 		break;
 	}
 
-	console.log()
 	if(!board.canBePlaced(posx,posy))
 	{
 		board.damage(50,posx,posy);
@@ -75,7 +79,6 @@ var ProjectileQue = function(){
 ProjectileQue.prototype.add = function (x,y,tileSize,direction){
 	var tmp = new Projectile (tileSize, x,y,direction);
 	this.queue.push(tmp)
-	console.log("1");
 }
 
 ProjectileQue.prototype.update = function (board){

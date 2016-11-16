@@ -47,7 +47,7 @@ wall.prototype.draw = function(canvas,startx,startY,tileSize){
  * @this {wall}
  */
 wall.prototype.hit = function (hitStength){
-	this.strength--;
+	this.strength-=hitStength;
 }
 /**
  * Returns the remainning points of strength of the wall.
@@ -123,7 +123,7 @@ steel.prototype.draw = function(canvas,startx,startY,tileSize){
  * @param {number} hitStength The points of strength of the object will decrease after being hit.
  */
 steel.prototype.hit = function (hitStength){
-	this.strength--;
+	this.strength-=hitStength;
 }
 /**
  * Returns the remainning points of strength of the steel.
@@ -198,7 +198,7 @@ homeBase.prototype.draw = function(canvas,startx,startY,tileSize){
  * @param {number} hitStength The points of strength of the object will decrease after being hit.
  */
 homeBase.prototype.hit = function (hitStength){
-	this.strength--;
+	this.strength-=hitStength;
 }
 /**
  * Returns the remainning points of strength of the home base.

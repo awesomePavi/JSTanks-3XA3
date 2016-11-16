@@ -44,7 +44,7 @@ function setUpCanvas(){
 	m_context = m_canvas.getContext("2d");
 
 	//call the draw method 20 times per second
-	Run=setInterval(function(){DrawCanvas();},1000/5);
+	Run=setInterval(function(){updateThenDraw();},1000/5);
 	paused = false;
 }
 
@@ -60,13 +60,18 @@ window.onkeydown = function (e) {
     board.playerMove(e);
 };
 
-function DrawCanvas(){
+function updateThenDraw(){
 	if (!paused){
+		board.update();
+	}
+	setTimeout(DrawCanvas, 200);
+}
+
+function DrawCanvas(){
 	//pre-render Board
 	board.draw();
 	//draw rendered board on rendered screen
 	m_context.drawImage(board.getRender(), xOffSet,yOffSet);
 	//draw screen
 	gameCanvas.drawImage(m_canvas,0,0);
-	}
 }

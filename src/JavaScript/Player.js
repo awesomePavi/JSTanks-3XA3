@@ -24,23 +24,30 @@ inherits(Player, Tank);
  * @param {event} A keyboard event
  */
 Player.prototype.interface = function(event) {
+	//ensure playe only moves once per frame
+	if (this.movedThisRound)
+		return;
 	//get key pressed
 	var keyIn = event.which;
-	if (keyIn==40) //Arrow down
+	if (keyIn==40){ //Arrow down
    		this.moveDown();
-	else if(keyIn==38) //Arrow up
+   		this.movedThisRound = true; //ensure player only moves once per frame
+	}else if(keyIn==38){ //Arrow up
    		this.moveUp();
-	else if(keyIn==37) //Arrow left
+	this.movedThisRound = true; //ensure player only moves once per frame
+	}else if(keyIn==37){ //Arrow left
    		this.moveLeft();
-	else if(keyIn==39) //Arrow right
+	this.movedThisRound = true; //ensure player only moves once per frame
+	}else if(keyIn==39){ //Arrow right
    		this.moveRight();
-	else if(keyIn==70){
+	this.movedThisRound = true; //ensure player only moves once per frame
+	}else if(keyIn==70){
 		if (this.direction == 1)
-			this.board.fire (this.x, this.y, 3);		
+			this.board.fire (this.x, this.y, 4);		
 		else if (this.direction == 2)
 			this.board.fire (this.x, this.y, 3);
 		else if (this.direction == 3)
-			this.board.fire (this.x, this.y, 1);
+			this.board.fire (this.x, this.y, 2);
 		else 
 			this.board.fire (this.x, this.y, 1);		
 	}   	

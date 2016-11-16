@@ -53,7 +53,9 @@ GameBoard.prototype.fire = function(x,y,direction){
 }
 
 GameBoard.prototype.damage = function(damageTaken,x,y){
+	console.log("hit");
 	try{
+		console.log("hitt");
 		this.board[y][x].hit(damageTaken);
 	}catch(e){
 		console.log(e);
@@ -61,19 +63,6 @@ GameBoard.prototype.damage = function(damageTaken,x,y){
 		console.log(x);
 	}
 }
-
-GameBoard.prototype.update = function(){
-	this.projectileQueue.update(this);
-	for ( y =0; y < 15; y++){
-		for (x = 0; x < 15; x++){
-			//tile location
-			if (this.board[y][x].getHealth()<=0){
-				this.board[y][x] =  new EmptyTile(this.tileSize);
-			}
-		}
-	}
-}
-
 
 GameBoard.prototype.randomTile = function(){
 	  var x = Math.floor((Math.random() * 5) + 1);
@@ -100,14 +89,20 @@ GameBoard.prototype.canBePlaced = function(x,y){
 }
 
 GameBoard.prototype.moveTo = function(Oldx,Oldy,newX,newY){
-	console.log(Oldx,Oldy,newX,newY);
 	this.board[newY][newX] = this.board[Oldy][Oldx];
 	this.board[Oldy][Oldx] = new EmptyTile(this.tileSize);
 }
 
-//draw onto pre-rendered game baord and then onto actual screen
-GameBoard.prototype.draw = function(){
-	this.update();
+GameBoard.prototype.update = function(){
+	this.projectileQueue.update(this);
+	for ( y =0; y < 15; y++){
+		for (x = 0; x < 15; x++){
+			//tile location
+			if (this.board[y][x].getHealth()<=0){
+				this.board[y][x] =  new EmptyTile(this.tileSize);
+			}
+		}
+	}
 	for ( y =0; y < 15; y++){
 		for (x = 0; x < 15; x++){
 			//tile location
@@ -116,10 +111,17 @@ GameBoard.prototype.draw = function(){
 				this.board[y][x].movementLogic(this.player,x,y);
 			}
 		}catch(e){}
-
-			this.board[y][x].draw(this.boardContext,x*this.tileSize
-				,y*this.tileSize,this.tileSize)
 		
+		}
+	}
+}
+
+//draw onto pre-rendered game baord and then onto actual screen
+GameBoard.prototype.draw = function(){
+	for ( y =0; y < 15; y++){
+		for (x = 0; x < 15; x++){
+			this.board[y][x].draw(this.boardContext,x*this.tileSize
+				,y*this.tileSize,this.tileSize);
 		}
 	}
 	this.projectileQueue.render(this.boardContext);

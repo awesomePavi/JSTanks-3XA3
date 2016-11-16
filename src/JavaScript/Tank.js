@@ -34,6 +34,7 @@ tileSize: the width/height of any one tile in the grid
  * @param {GameBoard} - A GameBoard object.
  */
 var Tank = function (tileSize, x, y, gameBoard, direction){
+	this.movedThisRound = false; //boolean to ensure that tank only moves once per frame 
 	this.board = gameBoard;
 	this.x = x;
 	this.y = y;
@@ -115,6 +116,7 @@ var Tank = function (tileSize, x, y, gameBoard, direction){
  * @param {number} tileSize - The size of one tile in the grid.
  */
 Tank.prototype.draw = function(canvas,startx,startY,tileSize){
+	this.movedThisRound = false;
 	switch (this.direction){
 		case 1:
 		canvas.drawImage(this.m_canvas1,startx,startY);
