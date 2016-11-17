@@ -11,7 +11,7 @@ var Projectile = function(tileSize,x,y,dir){
 	this.shiftx = 0; 
 	this.shifty = 0;
 	this.tileSize = tileSize;
-	this.speed = 10;
+	this.speed = 25;
 
 	switch(this.direction) {
 		case 1:
