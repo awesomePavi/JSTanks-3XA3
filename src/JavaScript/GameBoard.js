@@ -53,8 +53,15 @@ var GameBoard = function(tileSize,level,game){
 
 	this.player = new Player(this.tileSize,7,0,this, 1);
 	this.board[0][7] = this.player;
+	for (i = 0; i < 5; i++){
+		var tmpx = Math.floor((Math.random() * 15) + 1);
+		var tmpy = Math.floor((Math.random() * 15) + 1);
+		if (this.canBePlaced( tmpx,tmpy )){
+			this.board[tmpy][tmpx] = new Bot(this.tileSize,tmpx,tmpy,this, 1);
 
-	this.board[13][2] = new Bot(this.tileSize,2,13,this, 1);
+		}
+	}
+	//this.board[13][2] = new Bot(this.tileSize,2,13,this, 1);
 
 
 	//Handle Projectiles
@@ -75,14 +82,12 @@ GameBoard.prototype.fire = function(x,y,direction){
 }
 
 GameBoard.prototype.damage = function(damageTaken,x,y){
-	console.log("hit");
 	try{
-		console.log("hitt");
 		this.board[y][x].hit(damageTaken);
 	}catch(e){
 		console.log(e);
-		console.log(y);
-		console.log(x);
+		//console.log(y);
+		//console.log(x);
 	}
 }
 

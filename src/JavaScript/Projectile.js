@@ -5,6 +5,8 @@ var Projectile = function(tileSize,x,y,dir){
 	var m_context = this.m_canvas.getContext("2d");
 	m_context.fillStyle = "#FF0000";
 
+	this.startTilex = x;
+	this.startTiley = y;
 	this.startx = x*tileSize;
 	this.startY = y*tileSize; 
 	this.direction = dir;
@@ -42,17 +44,21 @@ Projectile.prototype.update = function(board){
 	switch(this.direction) {
 		case 1:
 		this.shiftx+=this.speed//this.tileSize/4;
+		posy = this.startTiley;
 		posx++;
 		break;
 		case 2:
 		this.shiftx-=this.speed//this.tileSize/4;
+		posy = this.startTiley;
 		break;
 		case 3:
 		this.shifty+=this.speed//this.tileSize/4;
+		posx = this.startTilex;
 		posy++;
 		break;
 		default:
 		this.shifty-=this.speed//this.tileSize/4;
+		posx = this.startTilex;
 		break;
 	}
 
