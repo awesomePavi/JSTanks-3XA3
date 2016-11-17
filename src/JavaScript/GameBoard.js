@@ -9,8 +9,11 @@
 * The baord classes handles the board graphcis and relative infromation
 *
 * int tileseize: The size that each of the tiels o nthe board should be
+* int level: The level of the AI
+* int map: The map number
+*
 */
-var GameBoard = function(tileSize){
+var GameBoard = function(tileSize,level,game){
 	this.tileSize = tileSize;
 	this.height = tileSize*15;
 	this.width = tileSize*15;
@@ -29,9 +32,28 @@ var GameBoard = function(tileSize){
 		}
 	}
 
-	new createBoard(this,"normal");
+
+	this.AIWait = 5;
+
+	if (level > 0 && level < 6){
+		this.AIWait = 5 - level;
+	}else{
+
+	}
+
+	this.AiMoves = this.AIWait;
+
+	//map difficulty
+	if (map == 1){
+		new createBoard(this,"normal");
+	}else{
+		new createBoard(this,"difficult");
+	}
+
+
 	this.player = new Player(this.tileSize,7,0,this, 1);
 	this.board[0][7] = this.player;
+
 	this.board[13][2] = new Bot(this.tileSize,2,13,this, 1);
 
 
@@ -94,7 +116,7 @@ GameBoard.prototype.moveTo = function(Oldx,Oldy,newX,newY){
 }
 
 GameBoard.prototype.update = function(){
-	this.projectileQueue.update(this);
+
 	for ( y =0; y < 15; y++){
 		for (x = 0; x < 15; x++){
 			//tile location
@@ -103,21 +125,33 @@ GameBoard.prototype.update = function(){
 			}
 		}
 	}
+	if (this.AiMoves <= 0 ){
+
+		numAI = 0;
+		this.AiMoves = this.AIWait ;
 	for ( y =0; y < 15; y++){
 		for (x = 0; x < 15; x++){
 			//tile location
 			try{
 			if (this.board[y][x].Flag){
 				this.board[y][x].movementLogic(this.player,x,y);
+				numAI++;
 			}
 		}catch(e){}
 		
 		}
 	}
+	if (numAI<1){
+		endGame("CONGRATS YOU HAVE WON");
+	}
+	}
+	this.AiMoves --;
 }
 
 //draw onto pre-rendered game baord and then onto actual screen
 GameBoard.prototype.draw = function(){
+	//projectiles move faster then palyers
+	this.projectileQueue.update(this);
 	for ( y =0; y < 15; y++){
 		for (x = 0; x < 15; x++){
 			this.board[y][x].draw(this.boardContext,x*this.tileSize

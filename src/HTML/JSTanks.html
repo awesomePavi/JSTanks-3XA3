@@ -20,10 +20,15 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closePause()">&times;</a>
 
   <div class="overlay-content">
+
+    <a href="#" onclick="home()">Home Page</a>
     <a href="#" onclick="closePause()">Continue</a>
-    <a href="#" >Home</a>
+    <div id="instr"></div>
+    <div id="newGme"></div>
     <br>
     <a href="#"  onclick="quit()">Quit</a>
+
+  	
   </div>
 
 </div>
@@ -61,7 +66,9 @@
 
 <!--Script to be run right when the page loads to set thigns up-->
 <script type="text/javascript">
-	window.onload=setUpCanvas();
+	window.onload=function (){
+		fillDiv();
+		setUpCanvas()};
 </script>
 </body>
 </html>

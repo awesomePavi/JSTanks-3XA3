@@ -1,5 +1,32 @@
 var paused;
 
+function newGame(level, map){
+	 window.location="JSTanks.html?Level="+level+"&Map="+map;
+}
+
+function fillDiv(){
+	 $.ajax({
+        url: './Instructions.html',
+        beforeSend: function(xhr) {
+             xhr.setRequestHeader("Authorization", "Bearer 6QXNMEMFHNY4FJ5ELNFMP5KRW52WFXN5")
+        }, success: function(data){
+        	var instrOption = document.getElementById( 'instr' );
+			instrOption.innerHTML = data;
+  
+        }
+	})
+	$.ajax({
+        url: './newGameMenu.html',
+        beforeSend: function(xhr) {
+             xhr.setRequestHeader("Authorization", "Bearer 6QXNMEMFHNY4FJ5ELNFMP5KRW52WFXN5")
+        }, success: function(data){
+        	 var newGameOption = document.getElementById( 'newGme' );
+			newGameOption.innerHTML = data;  
+       }
+	})
+	
+}
+
 /* Open when someone clicks on the span element */
 function openPause() {
 	paused = true;
@@ -15,4 +42,9 @@ function closePause() {
 function quit(){
 	 window.location="https://gitlab.cas.mcmaster.ca/pathmap/JSTanks";
 }
+
+function home(){
+	 window.location="../HomePage/homePage.html";
+}
+
 

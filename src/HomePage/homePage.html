@@ -19,6 +19,10 @@
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
+    <!--Jquery script for screen dimensions to be retrived-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+    </script>
+
     <!-- Theme CSS -->
     <link href="css/JSTanks.min.css" rel="stylesheet">
 
@@ -30,6 +34,14 @@
     <![endif]-->
 
 </head>
+<style type="text/css">
+    #overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1000000;
+}
+</style>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -94,22 +106,48 @@
 
     <!-- game Section -->
     <section id="download" class="content-section text-center">
+    <script type="text/javascript">
+        function newGame(level, map){
+            window.location="../HTML/JSTanks.html?Level="+level+"&Map="+map;
+        }
+        function setupGame(){
+            overlay = $('<div></div>').prependTo('body').attr('id', 'overlay');
+            $("body").css("overflow", "hidden");
+         $.ajax({
+        url: '../HTML/newGameMenu.html',
+        beforeSend: function(xhr) {
+             xhr.setRequestHeader("Authorization", "Bearer 6QXNMEMFHNY4FJ5ELNFMP5KRW52WFXN5")
+        }, success: function(data){
+             var newGameOption = document.getElementById( 'newGme' );
+             $("#newGme").css("z-index", "1009001");
+            newGameOption.innerHTML = data;  
+            
+            document.getElementById('modalGame').style.display='block';
+         }
+        })
+        }
+    </script>
         <div class="download-section">
             <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-8 col-lg-offset-2" id="newGme">
                     <h2>Are you ready ?</h2>
-                    <a href="http://www.google.ca" class="btn btn-default btn-lg">			 PLAY</a>
+                    <a href="#" onclick="setupGame()" class="btn btn-default btn-lg">PLAY</a>
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+
+
+        </script>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Feel free to contact us</h2>
-                <p><a href="http://www.google.ca">GitLab</a>
+                <p><a href="https://gitlab.cas.mcmaster.ca/pathmap/JSTanks">GitLab</a>
                 </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>

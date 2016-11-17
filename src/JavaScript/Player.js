@@ -42,6 +42,7 @@ Player.prototype.interface = function(event) {
    		this.moveRight();
 	this.movedThisRound = true; //ensure player only moves once per frame
 	}else if(keyIn==70){
+		this.movedThisRound = true;
 		if (this.direction == 1)
 			this.board.fire (this.x, this.y, 4);		
 		else if (this.direction == 2)

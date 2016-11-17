@@ -199,6 +199,9 @@ homeBase.prototype.draw = function(canvas,startx,startY,tileSize){
  */
 homeBase.prototype.hit = function (hitStength){
 	this.strength-=hitStength;
+	if (this.strength <= 0 ){
+		endGame("YOU LOST");
+	}
 }
 /**
  * Returns the remainning points of strength of the home base.

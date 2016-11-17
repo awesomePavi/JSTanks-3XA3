@@ -10,6 +10,9 @@ var size,width, height, gameCanvas, xOffSet, yOffSet;
 var board;
 //virtual canvas for pre-renders
 var m_canvas, m_context;
+//endGame Tracker;
+var gameOver;
+//gamestate
 
 //retrive and setup Dimensions for canvas area and box to be used
 function getSize(){
@@ -23,11 +26,86 @@ function getSize(){
 	yOffSet = size
 }
 
+function endGame(winLoss){
+	gameOver = true;
+	paused = true;
+	board.update();
+	setTimeout(DrawCanvas, 100);
+	console.log("GAMOVER LOSER");
+
+	var modal1 = document.createElement( 'div' );
+	modal1.className += "modal-container";
+	modal1.style.display = "block";
+
+	var modal2  = document.createElement( 'div' );
+	modal2.className += "modal-wrapper";
+	modal1.appendChild(modal2);
+
+	var modal3  = document.createElement( 'div' );
+	modal3.className += "modal-content";
+	modal2.appendChild(modal3);
+
+	var modal4  = document.createElement( 'header' );
+	modal4.className += "modal-header";
+	modal3.appendChild(modal4);
+
+	var header = document.createElement( 'h2' )
+	header.innerHTML = winLoss;
+	modal4.appendChild(header);
+
+	var modal5  = document.createElement( 'div' );
+	modal5.className += "modal-body";
+	modal3.appendChild(modal5);
+
+	var article1 = document.createElement( 'h4' );
+	article1.innerHTML = "Home";
+	article1.style.textAlign = "center";
+	article1.onclick = function() {home()};
+	modal5.appendChild(article1);
+
+	
+
+	var article3 = document.createElement( 'h4' );
+	article3.innerHTML = "Quit";
+	article3.style.textAlign = "center";
+	article3.onclick = function() {quit()};
+	modal5.appendChild(article3);
+
+
+	document.body.appendChild(modal1); 
+}
+
+// for new Game
+function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+
 //set up game area
 function setUpCanvas(){
-	getSize()
+	getSize();
+	gameOver = false;
+	level = getQueryVariable("Level");
+	map = getQueryVariable("Map");
+	if (!level){
+		level = 1;
+	}else{
+		level = parseInt(level);
+	}
+	if (!map){
+		map = 1;
+	}else{
+		map = parseInt(map);
+	}
+
 	//create board objet with empty tiles
-	board = new GameBoard(size);
+	board = new GameBoard(size,level,map);
 	
 
 	//set up html5 canvas for use
@@ -63,8 +141,9 @@ window.onkeydown = function (e) {
 function updateThenDraw(){
 	if (!paused){
 		board.update();
-	}
+	setTimeout(DrawCanvas, 100);
 	setTimeout(DrawCanvas, 200);
+	}
 }
 
 function DrawCanvas(){

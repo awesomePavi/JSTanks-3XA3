@@ -76,7 +76,6 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 		}
 	} else if (rand == 5){
 		if (this.x < playerTank.x && board.canBePlaced(this.x+1,this.y) && moveRight){
-			console.log(board.canBePlaced(this.x-1,this.y));
 			this.moveRight();
 			this.movedThisRound = true; //ensure AI only moves once per frame
 			if (rand1 == 2){
