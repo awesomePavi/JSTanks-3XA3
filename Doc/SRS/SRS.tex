@@ -85,7 +85,7 @@ Developers:
 the team of developers for this project. All developers will play a role in
 redeveloping the Tanks game; transforming it from a Java application to a
 website friendly game easily available to all potential customers.
-\end{itemize} Other Software Develoeprs 
+\end{itemize} Other Software Developers 
 \begin{itemize} 
 \item  These are members
 of the general public, but what separates them from the rest is their interest
@@ -95,9 +95,9 @@ wanting to get into developing software using our product as a learning example.
 \end{itemize}
 
 \subsubsection{Hands-On Users of the product:}
-Teenages and University / College Studetns
+Teenagers and University / College Students
 \begin{itemize}
-\item Use games asa means of entertainment
+\item Use games as a means of entertainment
 \item Novice in game development
 \item Masters of gaming media and its consumption
 \item Access to the product, majority age group 11 - 24
@@ -112,7 +112,7 @@ Teenages and University / College Studetns
 \item[Hobbies:]Educational Politics
 \item[Residence:] North Bay, ON, Canada
 \item[Favourite Food:] Poutine
-\item[Favourite Music:] EDM ? Alan walker
+\item[Favourite Music:] EDM   Alan walker
 \item[Likes:]Tanks, Action, Flash Games
 \item[Dislikes:] High tuition costs of post-secondary education 
 \item[Preferred Holiday:] Niagara Falls, Canada
@@ -220,7 +220,7 @@ capable of running latest browsers is available to users. Since the game take
 the keyboard as the input tool, a keyboard is also required to play the game.
 
 \section{The Scope of the Work} 
- \subsection{Current Situtation}
+ \subsection{Current Situation}
  Currently
 computer systems based games run solely on the system itself and  require the
 end-user to download and install dependencies for each game they would like to
@@ -268,7 +268,7 @@ tracked and such that tanks can recognize there is a wall
 Attributes: Location
 \\\\Relationships: Connected to the Tiles class such that its health can be 
 tracked and such that tanks can recognize where the base is
-\\\\Inputs: Destoryed
+\\\\Inputs: Destroyed
 \\\\Outputs: End-Game
 
 \subsubsection{Tiles}
@@ -314,52 +314,50 @@ of the tank\\\hline
 bullet\\\hline
 9 & Hit the enemy & User & Action of the tank operated by the user & The 
 disappearance of the enemy\\\hline
-10 & Hit the brick wall & User & Action of the tank operated by the user &
+10 & Hit the wall & User & Action of the tank operated by the user &
  The disappearances of both the bullet and the brick wall\\\hline
-11 & Hit the steel wall & User & Action of the tank operated by the user & 
+11 & Hit the steel & User & Action of the tank operated by the user & 
 The disappearance of the bullet\\\hline
 12 & Hit by the enemy & AI & Action of the tank operated by the AI & The 
 decrement of the blood in the blood bar\\\hline
 13 & Home base destroyed & AI & Action of the tank operated by the AI & The
  message of game over\\\hline
-14 & Cross over the heart & User & Action of the tank operated by the user & 
-The increment of the blood in the blood bar\\\hline
-15 & Kill all enemies & User & Action of the tank operated by the user &The
+14 & Kill all enemies & User & Action of the tank operated by the user &The
  message of win\\\hline
 \end{tabular}
 
 \subsection {Individual product use cases}
 \begin{enumerate}
-\item When the user clicks?start a new game?in the menu, the whole web page gets
+\item When the user clicks`start a new game' in the menu, the whole web page gets
  refreshed which makes all stuff in the game back to their initial positions.
 
-\item When the user clicks ?pause?in the menu, the game come into a pause state.
+\item When the user clicks `pause' in the menu, the game come into a pause state.
  All stuff in the game freeze and stay in their temporal position until the 
- button?continue?in the menu is clicked.
+ button `continue' in the menu is clicked.
 
-\item When the user clicks ?continue?in the menu, the game is activated from 
+\item When the user clicks `continue' in the menu, the game is activated from 
 the pause state that all stuff run as the routine if it was the pause state 
-before the click. And the click of ?continue?cause no effect if it was not the 
+before the click. And the click of  `continue' cause no effect if it was not the 
 pause state before the click.
 
-\item When the user click the different ?level?in the menu, the speed of tanks 
+\item When the user click the different `level' in the menu, the speed of tanks 
 controlled by the AI changes in the game. The higher the level is, the higher 
 the speed is.
 
-\item When the user clicks ?introduction?in the menu, the web page pops up a 
+\item When the user clicks `introduction' in the menu, the web page pops up a 
 window with the information of the game in it.
 
-\item When the user clicks ?quit?in the menu, the game comes to the end state 
+\item When the user clicks `quit' in the menu, the game comes to the end state 
 that the GUI turns into black with only the menu on it.
 
-\item When the user presses the ?up?, ?down?, ?left? or ?right? key on the 
+\item When the user presses the `up', `down', `left' or `right' key on the 
 keyboard, the tank controlled by the user moves to the exact direction according 
 to the key. If the user keep pressing the key, the tank keeps moving until it 
 hits the wall or the boundary of the map.
-\item When the user press the ?F?key on the keyboard, the tank controlled by the
+\item When the user press the `F' key on the keyboard, the tank controlled by the
  user launches a bullet. The bullet keeps moving and disappears when it hits 
  another tank, a wall or the boundary of the map.
-\item When the bullet launched by the user?s tank hits another tank controlled 
+\item When the bullet launched by the user's tank hits another tank controlled 
 by the AI, that tank and the bullet disappear all together at the same time.
 \item When the bullet hits a brick wall, the wall and the bullet disappear all 
 together at the same time.
@@ -378,7 +376,7 @@ page pops up a window showing that the user wins the game, and then the game
 come to the end state.
 \end{enumerate}
 
-\section {Functional Requirments:}
+\section {Functional Requirements:}
 \begin{itemize}
 \item The executable HTML file shall create a new browser window.
 \item The HTML shall be executed by a browser with JavaScript functionality.
@@ -388,7 +386,7 @@ come to the end state.
 \item The sub menu of `game' section which has choices of `start a new game' and 
 `quit' shall shows up when the `game' section is clicked.
 \item The sub menu of  `pause/continue' section which has choices of `pause‘ and  
-`continue' shall shows up when the ?pause/continue?section is clicked.
+`continue' shall shows up when the `pause/continue' section is clicked.
 \item The sub menu of  `level' section which has choices of `level 1', `level 2',
  and `level 3' shall shows up when the `level' section is clicked.
 \item The game shall be reset and start when `start a new game' is clicked.
