@@ -36,10 +36,12 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 		var rand = Math.floor(Math.random()*2)+1;
 		target = rand;
 		targetAssigned = true;
+		baseNum = Math.floor(Math.random()*6)+1; // which base to attack
 	}
 	
 	// fire this frame or not
-	fire = Math.floor(Math.random()*2)+1;
+	//fire = Math.floor(Math.random()*2)+1;
+	fire = 1;
 	
 	if (target == 1){
 		if (this.x < playerTank.x && board.canBePlaced(this.x+1,this.y)){
@@ -81,7 +83,127 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 				if (fire == 1)
 					this.board.fire (this.x, this.y, 1);
 			}
+		}else {
+			if (baseNum == 1){
+				if (this.x > 1 && board.canBePlaced(this.x-1,this.y)){
+					this.moveLeft();
+					this.movedThisRound = true; //ensure AI only moves once per frame	
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 3);
+				} else if (this.y >= 7 && board.canBePlaced(this.x,this.y-1)){
+					this.moveUp();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 2);				
+				} else if (this.y < 7 && board.canBePlaced(this.x,this.y+1)){
+					this.moveDown();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 1);
+				}				
+			}else if (baseNum == 2){
+				if (this.y >= 7 && board.canBePlaced(this.x,this.y-1)){
+					this.moveUp();
+					this.movedThisRound = true; //ensure AI only moves once per frame	
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 3);
+				} else if (this.x >= 7 && board.canBePlaced(this.x-1,this.y)){
+					this.moveLeft();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 2);					
+				} else if (this.y < 7 && board.canBePlaced(this.x,this.y+1)){
+					this.moveDown();
+					this.movedThisRound = true; //ensure AI only moves once per frame	
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 3);
+				} else if (this.x < 7 && board.canBePlaced(this.x+1,this.y)){
+					this.moveRight();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 1);
+				}				
+			}else if (baseNum == 3){
+				if (this.x < 14 && board.canBePlaced(this.x+1,this.y)){
+					this.moveRight();
+					this.movedThisRound = true; //ensure AI only moves once per frame	
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 3);
+				} else if (this.y >= 7 && board.canBePlaced(this.x,this.y-1)){
+					this.moveUp();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 2);				
+				} else if (this.y < 7 && board.canBePlaced(this.x,this.y+1)){
+					this.moveDown();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 1);
+				}				
+			}else if (baseNum == 4){
+				if (this.y >= 12 && board.canBePlaced(this.x,this.y-1)){
+					this.moveUp();
+					this.movedThisRound = true; //ensure AI only moves once per frame	
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 3);
+				} else if (this.x >= 4 && board.canBePlaced(this.x-1,this.y)){
+					this.moveLeft();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 2);					
+				} else if (this.y < 12 && board.canBePlaced(this.x,this.y+1)){
+					this.moveDown();
+					this.movedThisRound = true; //ensure AI only moves once per frame	
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 3);
+				} else if (this.x < 4 && board.canBePlaced(this.x+1,this.y)){
+					this.moveRight();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 1);
+				}				
+			}else if (baseNum == 5){
+				if (this.y >= 12 && board.canBePlaced(this.x,this.y-1)){
+					this.moveUp();
+					this.movedThisRound = true; //ensure AI only moves once per frame	
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 3);
+				} else if (this.x >= 12 && board.canBePlaced(this.x-1,this.y)){
+					this.moveLeft();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 2);					
+				} else if (this.y < 12 && board.canBePlaced(this.x,this.y+1)){
+					this.moveDown();
+					this.movedThisRound = true; //ensure AI only moves once per frame	
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 3);
+				} else if (this.x < 12 && board.canBePlaced(this.x+1,this.y)){
+					this.moveRight();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 1);
+				}								
+			}else{
+				if (this.y < 14 && board.canBePlaced(this.x,this.y+1)){
+					this.moveDown();
+					this.movedThisRound = true; //ensure AI only moves once per frame	
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 3);
+				} else if (this.x >= 7 && board.canBePlaced(this.x-1,this.y)){
+					this.moveLeft();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 2);				
+				} else if (this.x < 7 && board.canBePlaced(this.x+1,this.y)){
+					this.moveRight();
+					this.movedThisRound = true; //ensure AI only moves once per frame
+					if (fire == 1)
+						this.board.fire (this.x, this.y, 1);
+				}
+			}
 		}
+		
 	}
 }
 
