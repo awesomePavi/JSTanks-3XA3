@@ -170,8 +170,8 @@ Tank.prototype.getPosition = function (){
  * Move the tank's position up one tile if possible.
  */
 Tank.prototype.moveUp = function(){
+	this.direction = 1;
 	if (this.board.canBePlaced(this.x, this.y-1)){
-		this.direction = 1;
 		this.board.moveTo(this.x,this.y,this.x,this.y-1);
 		this.y = this.y - 1;
 	}
@@ -181,8 +181,8 @@ Tank.prototype.moveUp = function(){
  * Move the tank's position down one tile if possible.
  */
 Tank.prototype.moveDown = function(){
-	if (this.board.canBePlaced(this.x, this.y+1)){
-		this.direction = 2;
+	this.direction = 2;
+	if (this.board.canBePlaced(this.x, this.y+1)){		
 		this.board.moveTo(this.x,this.y,this.x,this.y+1);
 		this.y = this.y + 1;
 	}
@@ -192,8 +192,8 @@ Tank.prototype.moveDown = function(){
  * Move the tank's position up left tile if possible.
  */
 Tank.prototype.moveLeft = function(){
-	if (this.board.canBePlaced(this.x-1, this.y)){
-		this.direction = 3;
+	this.direction = 3;
+	if (this.board.canBePlaced(this.x-1, this.y)){		
 		this.board.moveTo(this.x,this.y,this.x-1,this.y);
 		this.x = this.x - 1;
 	}
@@ -203,8 +203,8 @@ Tank.prototype.moveLeft = function(){
  * Move the tank's position right one tile if possible.
  */
 Tank.prototype.moveRight = function(){
-	if (this.board.canBePlaced(this.x+1, this.y)){
-		this.direction = 4;
+	this.direction = 4;
+	if (this.board.canBePlaced(this.x+1, this.y)){		
 		this.board.moveTo(this.x,this.y,this.x+1,this.y);
 		this.x = this.x + 1;
 	}
