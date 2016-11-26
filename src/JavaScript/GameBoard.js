@@ -13,7 +13,7 @@
 * int map: The map number
 *
 */
-var GameBoard = function(tileSize,level,game){
+var GameBoard = function(tileSize,level,map){
 	this.tileSize = tileSize;
 	this.height = tileSize*15;
 	this.width = tileSize*15;

@@ -40,8 +40,8 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 	}
 	
 	// fire this frame or not
-	//fire = Math.floor(Math.random()*2)+1;
-	fire = 1;
+	fire = Math.floor(Math.random()*2)+1;
+	
 	
 	if (target == 1){
 		if (this.x < playerTank.x && board.canBePlaced(this.x+1,this.y)){
@@ -64,7 +64,15 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 			this.movedThisRound = true; //ensure AI only moves once per frame
 			if (fire == 1)
 				this.board.fire (this.x, this.y, 4);
-		}		
+		} else if (this.direction == 1){
+			this.board.fire(this.x,this.y, 4);
+		} else if (this.direction == 2){
+			this.board.fire(this.x,this.y, 3);
+		} else if (this.direction == 3){
+			this.board.fire(this.x,this.y, 2);
+		} else if (this.direction == 4){
+			this.board.fire(this.x,this.y, 1);
+		}
 	}else{
 		if (map == 1){
 			if (this.y < 14 && board.canBePlaced(this.x,this.y+1)){
@@ -82,7 +90,15 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 				this.movedThisRound = true; //ensure AI only moves once per frame
 				if (fire == 1)
 					this.board.fire (this.x, this.y, 1);
-			}
+			} else if (this.direction == 1){
+				this.board.fire(this.x,this.y, 4);
+			} else if (this.direction == 2){
+				this.board.fire(this.x,this.y, 3);
+			} else if (this.direction == 3){
+				this.board.fire(this.x,this.y, 2);
+			} else if (this.direction == 4){
+				this.board.fire(this.x,this.y, 1);
+			}			
 		}else {
 			if (baseNum == 1){
 				if (this.x > 1 && board.canBePlaced(this.x-1,this.y)){
@@ -100,7 +116,15 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 					this.movedThisRound = true; //ensure AI only moves once per frame
 					if (fire == 1)
 						this.board.fire (this.x, this.y, 1);
-				}				
+				} else if (this.direction == 1){
+					this.board.fire(this.x,this.y, 4);
+				} else if (this.direction == 2){
+					this.board.fire(this.x,this.y, 3);
+				} else if (this.direction == 3){
+					this.board.fire(this.x,this.y, 2);
+				} else if (this.direction == 4){
+					this.board.fire(this.x,this.y, 1);
+			}					
 			}else if (baseNum == 2){
 				if (this.y >= 7 && board.canBePlaced(this.x,this.y-1)){
 					this.moveUp();
@@ -122,7 +146,15 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 					this.movedThisRound = true; //ensure AI only moves once per frame
 					if (fire == 1)
 						this.board.fire (this.x, this.y, 1);
-				}				
+				} else if (this.direction == 1){
+					this.board.fire(this.x,this.y, 4);
+				} else if (this.direction == 2){
+					this.board.fire(this.x,this.y, 3);
+				} else if (this.direction == 3){
+					this.board.fire(this.x,this.y, 2);
+				} else if (this.direction == 4){
+					this.board.fire(this.x,this.y, 1);
+			}					
 			}else if (baseNum == 3){
 				if (this.x < 14 && board.canBePlaced(this.x+1,this.y)){
 					this.moveRight();
@@ -139,7 +171,15 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 					this.movedThisRound = true; //ensure AI only moves once per frame
 					if (fire == 1)
 						this.board.fire (this.x, this.y, 1);
-				}				
+				} else if (this.direction == 1){
+					this.board.fire(this.x,this.y, 4);
+				} else if (this.direction == 2){
+					this.board.fire(this.x,this.y, 3);
+				} else if (this.direction == 3){
+					this.board.fire(this.x,this.y, 2);
+				} else if (this.direction == 4){
+					this.board.fire(this.x,this.y, 1);
+			}					
 			}else if (baseNum == 4){
 				if (this.y >= 12 && board.canBePlaced(this.x,this.y-1)){
 					this.moveUp();
@@ -161,7 +201,15 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 					this.movedThisRound = true; //ensure AI only moves once per frame
 					if (fire == 1)
 						this.board.fire (this.x, this.y, 1);
-				}				
+				} else if (this.direction == 1){
+					this.board.fire(this.x,this.y, 4);
+				} else if (this.direction == 2){
+					this.board.fire(this.x,this.y, 3);
+				} else if (this.direction == 3){
+					this.board.fire(this.x,this.y, 2);
+				} else if (this.direction == 4){
+					this.board.fire(this.x,this.y, 1);
+			}					
 			}else if (baseNum == 5){
 				if (this.y >= 12 && board.canBePlaced(this.x,this.y-1)){
 					this.moveUp();
@@ -183,7 +231,15 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 					this.movedThisRound = true; //ensure AI only moves once per frame
 					if (fire == 1)
 						this.board.fire (this.x, this.y, 1);
-				}								
+				} else if (this.direction == 1){
+					this.board.fire(this.x,this.y, 4);
+				} else if (this.direction == 2){
+					this.board.fire(this.x,this.y, 3);
+				} else if (this.direction == 3){
+					this.board.fire(this.x,this.y, 2);
+				} else if (this.direction == 4){
+					this.board.fire(this.x,this.y, 1);
+			}									
 			}else{
 				if (this.y < 14 && board.canBePlaced(this.x,this.y+1)){
 					this.moveDown();
@@ -200,7 +256,15 @@ Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 					this.movedThisRound = true; //ensure AI only moves once per frame
 					if (fire == 1)
 						this.board.fire (this.x, this.y, 1);
-				}
+				} else if (this.direction == 1){
+					this.board.fire(this.x,this.y, 4);
+				} else if (this.direction == 2){
+					this.board.fire(this.x,this.y, 3);
+				} else if (this.direction == 3){
+					this.board.fire(this.x,this.y, 2);
+				} else if (this.direction == 4){
+					this.board.fire(this.x,this.y, 1);
+			}	
 			}
 		}
 		
