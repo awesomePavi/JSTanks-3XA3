@@ -105,7 +105,7 @@ function setUpCanvas(){
 	}
 
 	//create board objet with empty tiles
-	board = new GameBoard(size,level,map);
+	board = new GameBoard(size,3,2);
 	
 
 	//set up html5 canvas for use

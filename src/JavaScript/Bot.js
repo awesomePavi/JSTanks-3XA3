@@ -10,8 +10,8 @@ The bot class
  * @constructor
  * @see {@link Tank} for constructor details. 
  */
-var Bot = function(tileSize, x, y, gameBoard){
-	Tank.call(this, tileSize, x, y, gameBoard);
+var Bot = function(tileSize, x, y, gameBoard, direction, type){
+	Tank.call(this, tileSize, x, y, gameBoard, direction, type);
 }
 
 

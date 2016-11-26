@@ -32,15 +32,18 @@ tileSize: the width/height of any one tile in the grid
  * @param {number} x - the value of the x co-ordinate of the tank object as per the array in GameBoard.js .
  * @param {number} y - the value of the y co-ordinate of the tank object as per the array in GameBoard.js .
  * @param {GameBoard} - A GameBoard object.
+ * @param {number} direction - the direction the tank is facing.
+ * @param {number} type - the type of tank: player or bot.
  */
-var Tank = function (tileSize, x, y, gameBoard, direction){
+var Tank = function (tileSize, x, y, gameBoard, direction, type){
 	this.movedThisRound = false; //boolean to ensure that tank only moves once per frame 
 	this.board = gameBoard;
 	this.x = x;
 	this.y = y;
 	this.health = 100;
 	this.direction = 1; // 1=up, 2= down, 3=left, 4=right
-
+	this.type = type; //1=player, 2=bot
+	
 	this.m_canvas1 = document.createElement('canvas');
 	this.m_canvas1.width = tileSize;
 	this.m_canvas1.height = tileSize;
@@ -61,23 +64,25 @@ var Tank = function (tileSize, x, y, gameBoard, direction){
 	this.m_canvas4.height = tileSize;
 	var m_context4 = this.m_canvas4.getContext("2d");
 	
-	var tankUp = new Image();
-	var tankDown = new Image();
-	var tankLeft = new Image();
-	var tankRight = new Image();
-	var tankDmgUp = new Image();
-	var tankDmgDown = new Image();
-	var tankDmgLeft = new Image();
-	var tankDmgRight = new Image();
-
-	tankUp.src = "../Images/tankUp.png";
-	tankDown.src = "../Images/tankDown.png";
-	tankLeft.src = "../Images/tankLeft.png";
-	tankRight.src = "../Images/tankRight.png";
-	tankDmgUp.src = "../Images/tankDmgUp.png";
-	tankDmgDown.src = "../Images/tankDmgDown.png";
-	tankDmgLeft.src = "../Images/tankDmgLeft.png";
-	tankDmgRight.src = "../Images/tankDmgRight.png";
+	this.m_canvas11 = document.createElement('canvas');
+	this.m_canvas11.width = tileSize;
+	this.m_canvas11.height = tileSize;
+	var m_context11 = this.m_canvas11.getContext("2d");
+	
+	this.m_canvas22 = document.createElement('canvas');
+	this.m_canvas22.width = tileSize;
+	this.m_canvas22.height = tileSize;
+	var m_context22 = this.m_canvas22.getContext("2d");
+	
+	this.m_canvas33 = document.createElement('canvas');
+	this.m_canvas33.width = tileSize;
+	this.m_canvas33.height = tileSize;
+	var m_context33 = this.m_canvas33.getContext("2d");
+	
+	this.m_canvas44 = document.createElement('canvas');
+	this.m_canvas44.width = tileSize;
+	this.m_canvas44.height = tileSize;
+	var m_context44 = this.m_canvas44.getContext("2d");
 	
 	var img1 = new Image();
 	img1.src = "../Images/tankUp.png";
@@ -106,6 +111,34 @@ var Tank = function (tileSize, x, y, gameBoard, direction){
    	{
    		m_context4.drawImage(img4,0,0,tileSize,tileSize);
    	}
+	
+	var img11 = new Image();
+	img11.src = "../Images/tankDmgUp.png";
+	img11.onload = function()
+   	{
+   		m_context11.drawImage(img11,0,0,tileSize,tileSize);
+   	}
+	
+	var img22 = new Image();
+	img22.src = "../Images/tankDmgDown.png";
+	img22.onload = function()
+   	{
+   		m_context22.drawImage(img22,0,0,tileSize,tileSize);
+   	}
+	
+	var img33 = new Image();
+	img33.src = "../Images/tankDmgLeft.png";
+	img33.onload = function()
+   	{
+   		m_context33.drawImage(img33,0,0,tileSize,tileSize);
+   	}
+	
+	var img44 = new Image();
+	img44.src = "../Images/tankDmgRight.png";
+	img44.onload = function()
+   	{
+   		m_context44.drawImage(img44,0,0,tileSize,tileSize);
+   	}
 }
 
 /**
@@ -117,18 +150,36 @@ var Tank = function (tileSize, x, y, gameBoard, direction){
  */
 Tank.prototype.draw = function(canvas,startx,startY,tileSize){
 	this.movedThisRound = false;
-	switch (this.direction){
+	switch (this.type){
 		case 1:
-		canvas.drawImage(this.m_canvas1,startx,startY);
-		break;
-		case 2:
-		canvas.drawImage(this.m_canvas2,startx,startY);
-		break;
-		case 3:
-		canvas.drawImage(this.m_canvas3,startx,startY);
+		switch (this.direction){
+			case 1:
+			canvas.drawImage(this.m_canvas1,startx,startY);
+			break;
+			case 2:
+			canvas.drawImage(this.m_canvas2,startx,startY);
+			break;
+			case 3:
+			canvas.drawImage(this.m_canvas3,startx,startY);
+			break;
+			default:
+			canvas.drawImage(this.m_canvas4,startx,startY);
+		}
 		break;
 		default:
-		canvas.drawImage(this.m_canvas4,startx,startY);
+		switch (this.direction){
+			case 1:
+			canvas.drawImage(this.m_canvas11,startx,startY);
+			break;
+			case 2:
+			canvas.drawImage(this.m_canvas22,startx,startY);
+			break;
+			case 3:
+			canvas.drawImage(this.m_canvas33,startx,startY);
+			break;
+			default:
+			canvas.drawImage(this.m_canvas44,startx,startY);
+		}
 	}
 }
 

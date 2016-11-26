@@ -51,13 +51,13 @@ var GameBoard = function(tileSize,level,map){
 	}
 
 
-	this.player = new Player(this.tileSize,7,0,this, 1);
+	this.player = new Player(this.tileSize,7,0,this, 1, 1);
 	this.board[0][7] = this.player;
 	for (i = 0; i < 5; i++){
 		var tmpx = Math.floor((Math.random() * 15) + 1);
 		var tmpy = Math.floor((Math.random() * 15) + 1);
 		if (this.canBePlaced( tmpx,tmpy )){
-			this.board[tmpy][tmpx] = new Bot(this.tileSize,tmpx,tmpy,this, 1);
+			this.board[tmpy][tmpx] = new Bot(this.tileSize,tmpx,tmpy,this, 1, 2);
 
 		}
 	}
