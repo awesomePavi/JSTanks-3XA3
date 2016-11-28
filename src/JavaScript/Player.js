@@ -38,6 +38,17 @@ Player.prototype.interface = function(event) {
 		else 
 			this.board.fire (this.x, this.y, 1);		
 	}   
+	//rotational frame independent
+	if (keyIn==40){ //Arrow down
+   		this.direction = 2;
+	}else if(keyIn==38){ //Arrow up
+		this.direction = 1;
+	}else if(keyIn==37){ //Arrow left
+		this.direction = 3;
+	}else if(keyIn==39){ //Arrow right
+		this.direction = 4;
+	}	
+
 	//ensure playe only moves once per frame
 	if (this.movedThisRound > 0)
 		return;
@@ -45,14 +56,14 @@ Player.prototype.interface = function(event) {
    		this.movedThisRound = 4; //ensure player only moves once per frame
    		this.moveDown();
 	}else if(keyIn==38){ //Arrow up
-	this.movedThisRound = 4; //ensure player only moves once per frame
-	this.moveUp();
+		this.movedThisRound = 4; //ensure player only moves once per frame
+		this.moveUp();
 	}else if(keyIn==37){ //Arrow left
-	this.movedThisRound = 4; //ensure player only moves once per frame
-	this.moveLeft();
+		this.movedThisRound = 4; //ensure player only moves once per frame
+		this.moveLeft();
 	}else if(keyIn==39){ //Arrow right
-	this.movedThisRound = 4; //ensure player only moves once per frame
-	this.moveRight();
+		this.movedThisRound = 4; //ensure player only moves once per frame
+		this.moveRight();
 	}	
 }
 
