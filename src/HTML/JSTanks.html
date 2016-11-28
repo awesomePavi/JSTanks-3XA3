@@ -17,16 +17,16 @@
 <!-- Pause Menu -->
 <div id="PauseMenu" class="overlay">
 
-  <a href="javascript:void(0)" class="closebtn" onclick="closePause()">&times;</a>
-
   <div class="overlay-content">
-
-    <a href="#" onclick="home()">Home Page</a>
-    <a href="#" onclick="closePause()">Continue</a>
+ 	<a id="message" style="display: none"></a>
+ 	<a id="message2" style="display: none"></a>
+ 	<br>
+    <a id="home" href="#" onclick="home()">Home Page</a>
+    <a id="continue" href="#" onclick="closePause()">Continue</a>
     <div id="instr"></div>
     <div id="newGme"></div>
     <br>
-    <a href="#"  onclick="quit()">Quit</a>
+    <a id = "quit" href="#"  onclick="quit()">Quit</a>
 
   	
   </div>

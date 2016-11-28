@@ -14,65 +14,37 @@ var m_canvas, m_context;
 var gameOver;
 //gamestate
 
+var numAI;
+
 //retrive and setup Dimensions for canvas area and box to be used
 function getSize(){
 	//jquery gave most accurate window dimesnions
 	width = $(window).width();
     height = $(window).height();
-	//The board will be 15x15, with an offset from the top and bottom equivalent to that
-	size = height /17;
+	//The board will be 15x15, with an offset from the top will be double that of 
+	//the bottom to allow room for the health bar
+	size = height /18;
 	//board offsets
 	xOffSet = (width-(size*15))/2
 	yOffSet = size
 }
+//on AI die remove it
+function deQueueAI(){
+	numAI--;
+	if (numAI<1){
+		console.log("hi");
+		endGame("ALL ENEMIES DESTROYED", "WINNER");
+	}	
+}
 
-function endGame(winLoss){
+function endGame(message,winLoss){
 	gameOver = true;
 	paused = true;
 	board.update();
 	setTimeout(DrawCanvas, 100);
 	console.log("GAMOVER LOSER");
-
-	var modal1 = document.createElement( 'div' );
-	modal1.className += "modal-container";
-	modal1.style.display = "block";
-
-	var modal2  = document.createElement( 'div' );
-	modal2.className += "modal-wrapper";
-	modal1.appendChild(modal2);
-
-	var modal3  = document.createElement( 'div' );
-	modal3.className += "modal-content";
-	modal2.appendChild(modal3);
-
-	var modal4  = document.createElement( 'header' );
-	modal4.className += "modal-header";
-	modal3.appendChild(modal4);
-
-	var header = document.createElement( 'h2' )
-	header.innerHTML = winLoss;
-	modal4.appendChild(header);
-
-	var modal5  = document.createElement( 'div' );
-	modal5.className += "modal-body";
-	modal3.appendChild(modal5);
-
-	var article1 = document.createElement( 'h4' );
-	article1.innerHTML = "Home";
-	article1.style.textAlign = "center";
-	article1.onclick = function() {home()};
-	modal5.appendChild(article1);
-
-	
-
-	var article3 = document.createElement( 'h4' );
-	article3.innerHTML = "Quit";
-	article3.style.textAlign = "center";
-	article3.onclick = function() {quit()};
-	modal5.appendChild(article3);
-
-
-	document.body.appendChild(modal1); 
+	openGameOver(message,winLoss);
+ 
 }
 
 // for new Game
@@ -104,8 +76,10 @@ function setUpCanvas(){
 		map = parseInt(map);
 	}
 
+	numAI = 2;
+
 	//create board objet with empty tiles
-	board = new GameBoard(size,3,2);
+	board = new GameBoard(size,level,map,numAI);
 	
 
 	//set up html5 canvas for use
@@ -122,8 +96,9 @@ function setUpCanvas(){
 	m_context = m_canvas.getContext("2d");
 
 	//call the draw method 20 times per second
-	Run=setInterval(function(){updateThenDraw();},1000/5);
-	paused = false;
+	Run=setInterval(function(){updateThenDraw();},200);
+	paused = true;
+	openPause(true);
 }
 
 window.onkeydown = function (e) {
@@ -141,8 +116,10 @@ window.onkeydown = function (e) {
 function updateThenDraw(){
 	if (!paused){
 		board.update();
-	setTimeout(DrawCanvas, 100);
-	setTimeout(DrawCanvas, 200);
+		setTimeout(DrawCanvas, 50);
+		setTimeout(DrawCanvas, 100);
+		setTimeout(DrawCanvas, 150);
+		setTimeout(DrawCanvas, 200);
 	}
 }
 

@@ -58,7 +58,7 @@ createBoard.prototype.normal = function(gameBoard){
 	gameBoard.board[14][6]= new wall(gameBoard.tileSize);
 	gameBoard.board[14][8]= new wall(gameBoard.tileSize);
 	gameBoard.board[13][7]= new wall(gameBoard.tileSize);
-	gameBoard.board[14][7]= new homeBase(gameBoard.tileSize);
+	gameBoard.board[14][7]= new homeBase(gameBoard.tileSize,gameBoard);
 
 	
 }
@@ -96,23 +96,23 @@ createBoard.prototype.difficult = function(gameBoard){
 	gameBoard.board[14][6]= new wall(gameBoard.tileSize);
 	gameBoard.board[14][8]= new wall(gameBoard.tileSize);
 	gameBoard.board[13][7]= new wall(gameBoard.tileSize);
-	gameBoard.board[14][7]= new homeBase(gameBoard.tileSize);
+	gameBoard.board[14][7]= new homeBase(gameBoard.tileSize,gameBoard);
 
 	gameBoard.board[6][1]= new steel(gameBoard.tileSize);
 	gameBoard.board[8][1]= new steel(gameBoard.tileSize);
 	gameBoard.board[6][0]= new wall(gameBoard.tileSize);
 	gameBoard.board[8][0]= new wall(gameBoard.tileSize);
 	gameBoard.board[7][1]= new wall(gameBoard.tileSize);
-	gameBoard.board[7][0]= new homeBase(gameBoard.tileSize);
+	gameBoard.board[7][0]= new homeBase(gameBoard.tileSize,gameBoard);
 
 	gameBoard.board[6][13]= new steel(gameBoard.tileSize);
 	gameBoard.board[8][13]= new steel(gameBoard.tileSize);
 	gameBoard.board[6][14]= new wall(gameBoard.tileSize);
 	gameBoard.board[8][14]= new wall(gameBoard.tileSize);
 	gameBoard.board[7][13]= new wall(gameBoard.tileSize);
-	gameBoard.board[7][14]= new homeBase(gameBoard.tileSize);
+	gameBoard.board[7][14]= new homeBase(gameBoard.tileSize,gameBoard);
 
-	gameBoard.board[7][7]= new homeBase(gameBoard.tileSize);
-	gameBoard.board[11][3]= new homeBase(gameBoard.tileSize);
-	gameBoard.board[11][11]= new homeBase(gameBoard.tileSize);
+	gameBoard.board[7][7]= new homeBase(gameBoard.tileSize,gameBoard);
+	gameBoard.board[11][3]= new homeBase(gameBoard.tileSize,gameBoard);
+	gameBoard.board[11][11]= new homeBase(gameBoard.tileSize,gameBoard);
 }

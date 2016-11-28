@@ -24,25 +24,11 @@ inherits(Player, Tank);
  * @param {event} A keyboard event
  */
 Player.prototype.interface = function(event) {
-	//ensure playe only moves once per frame
-	if (this.movedThisRound)
-		return;
+
 	//get key pressed
 	var keyIn = event.which;
-	if (keyIn==40){ //Arrow down
-   		this.moveDown();
-   		this.movedThisRound = true; //ensure player only moves once per frame
-	}else if(keyIn==38){ //Arrow up
-   		this.moveUp();
-	this.movedThisRound = true; //ensure player only moves once per frame
-	}else if(keyIn==37){ //Arrow left
-   		this.moveLeft();
-	this.movedThisRound = true; //ensure player only moves once per frame
-	}else if(keyIn==39){ //Arrow right
-   		this.moveRight();
-	this.movedThisRound = true; //ensure player only moves once per frame
-	}else if(keyIn==70){
-		this.movedThisRound = true;
+	//fire weapon
+	if(keyIn==70){
 		if (this.direction == 1)
 			this.board.fire (this.x, this.y, 4);		
 		else if (this.direction == 2)
@@ -51,5 +37,33 @@ Player.prototype.interface = function(event) {
 			this.board.fire (this.x, this.y, 2);
 		else 
 			this.board.fire (this.x, this.y, 1);		
-	}   	
+	}   
+	//ensure playe only moves once per frame
+	if (this.movedThisRound > 0)
+		return;
+	if (keyIn==40){ //Arrow down
+   		this.movedThisRound = 4; //ensure player only moves once per frame
+   		this.moveDown();
+	}else if(keyIn==38){ //Arrow up
+	this.movedThisRound = 4; //ensure player only moves once per frame
+	this.moveUp();
+	}else if(keyIn==37){ //Arrow left
+	this.movedThisRound = 4; //ensure player only moves once per frame
+	this.moveLeft();
+	}else if(keyIn==39){ //Arrow right
+	this.movedThisRound = 4; //ensure player only moves once per frame
+	this.moveRight();
+	}	
+}
+
+/**
+ * Lower the health of tank when hit by a projectile. 
+ * @param {number} hitStrength - The strengh of the projectile.
+ */
+Player.prototype.hit = function (hitStrength){
+	console.log("hi");
+	this.health -= hitStrength;
+	if (this.health <= 0 ){
+		endGame("YOU DIED","YOU LOSE");
+	}
 }

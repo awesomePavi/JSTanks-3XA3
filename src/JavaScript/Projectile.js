@@ -13,7 +13,7 @@ var Projectile = function(tileSize,x,y,dir){
 	this.shiftx = 0; 
 	this.shifty = 0;
 	this.tileSize = tileSize;
-	this.speed = 25;
+	this.speed = tileSize/3;
 
 	switch(this.direction) {
 		case 1:
@@ -64,7 +64,7 @@ Projectile.prototype.update = function(board){
 
 	if(!board.canBePlaced(posx,posy))
 	{
-		board.damage(50,posx,posy);
+		board.damage(25,posx,posy);
 		return true;
 	}
 	return false;

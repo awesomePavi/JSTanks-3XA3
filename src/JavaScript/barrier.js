@@ -155,8 +155,9 @@ steel.prototype.getPosition = function (){
  * @this {homeBase}
  * @param {number} tileSize The size of one tile in a grid
  */
-var homeBase=function(tileSize){
-	this.strength=125;
+var homeBase=function(tileSize,gameBoard){
+	this.board = gameBoard;
+	this.strength=200;
 	this.x = tileSize*5;
 	this.y = tileSize*5;
 	this.m_canvas = document.createElement('canvas');
@@ -199,8 +200,9 @@ homeBase.prototype.draw = function(canvas,startx,startY,tileSize){
  */
 homeBase.prototype.hit = function (hitStength){
 	this.strength-=hitStength;
+	this.board.updateBase(this.strength);
 	if (this.strength <= 0 ){
-		endGame("YOU LOST");
+		endGame("BASE DESTROYED","YOU LOSE");
 	}
 }
 /**

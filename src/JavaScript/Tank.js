@@ -36,58 +36,77 @@ tileSize: the width/height of any one tile in the grid
  * @param {number} type - the type of tank: player or bot.
  */
 var Tank = function (tileSize, x, y, gameBoard, direction, type){
-	this.movedThisRound = false; //boolean to ensure that tank only moves once per frame 
+	this.movedThisRound = 0; //boolean to ensure that tank only moves once per frame 
 	this.board = gameBoard;
 	this.x = x;
 	this.y = y;
 	this.health = 100;
 	this.direction = 1; // 1=up, 2= down, 3=left, 4=right
 	this.type = type; //1=player, 2=bot
+
+	//Background
+	this.m_canvasBG = document.createElement('canvas');
+	this.m_canvasBG.width = tileSize;
+	this.m_canvasBG.height = tileSize;
+	this.m_contextBG = this.m_canvasBG.getContext("2d");
+	this.m_contextBG.fillStyle = "#458B00";
+	this.m_contextBG.fillRect(0,0,tileSize,tileSize);
+	this.m_contextBG.fillStyle = "#000000";
+	this.m_contextBG.rect(0,0,tileSize,tileSize);
+	this.m_contextBG.stroke();
 	
 	this.m_canvas1 = document.createElement('canvas');
 	this.m_canvas1.width = tileSize;
 	this.m_canvas1.height = tileSize;
 	var m_context1 = this.m_canvas1.getContext("2d");
+	m_context1.drawImage(this.m_canvasBG,0,0,tileSize,tileSize);
 	
 	this.m_canvas2 = document.createElement('canvas');
 	this.m_canvas2.width = tileSize;
 	this.m_canvas2.height = tileSize;
 	var m_context2 = this.m_canvas2.getContext("2d");
+	m_context2.drawImage(this.m_canvasBG,0,0,tileSize,tileSize);
 	
 	this.m_canvas3 = document.createElement('canvas');
 	this.m_canvas3.width = tileSize;
 	this.m_canvas3.height = tileSize;
 	var m_context3 = this.m_canvas3.getContext("2d");
+	m_context3.drawImage(this.m_canvasBG,0,0,tileSize,tileSize);
 	
 	this.m_canvas4 = document.createElement('canvas');
 	this.m_canvas4.width = tileSize;
 	this.m_canvas4.height = tileSize;
 	var m_context4 = this.m_canvas4.getContext("2d");
+	m_context4.drawImage(this.m_canvasBG,0,0,tileSize,tileSize);
 	
 	this.m_canvas11 = document.createElement('canvas');
 	this.m_canvas11.width = tileSize;
 	this.m_canvas11.height = tileSize;
 	var m_context11 = this.m_canvas11.getContext("2d");
+	m_context11.drawImage(this.m_canvasBG,0,0,tileSize,tileSize);
 	
 	this.m_canvas22 = document.createElement('canvas');
 	this.m_canvas22.width = tileSize;
 	this.m_canvas22.height = tileSize;
 	var m_context22 = this.m_canvas22.getContext("2d");
+	m_context22.drawImage(this.m_canvasBG,0,0,tileSize,tileSize);
 	
 	this.m_canvas33 = document.createElement('canvas');
 	this.m_canvas33.width = tileSize;
 	this.m_canvas33.height = tileSize;
 	var m_context33 = this.m_canvas33.getContext("2d");
+	m_context33.drawImage(this.m_canvasBG,0,0,tileSize,tileSize);
 	
 	this.m_canvas44 = document.createElement('canvas');
 	this.m_canvas44.width = tileSize;
 	this.m_canvas44.height = tileSize;
 	var m_context44 = this.m_canvas44.getContext("2d");
+	m_context44.drawImage(this.m_canvasBG,0,0,tileSize,tileSize);
 	
 	var img1 = new Image();
 	img1.src = "../Images/tankUp.png";
 	img1.onload = function()
-   	{
+   	{	
    		m_context1.drawImage(img1,0,0,tileSize,tileSize);
    	}
 	
@@ -149,7 +168,7 @@ var Tank = function (tileSize, x, y, gameBoard, direction, type){
  * @param {number} tileSize - The size of one tile in the grid.
  */
 Tank.prototype.draw = function(canvas,startx,startY,tileSize){
-	this.movedThisRound = false;
+	this.movedThisRound  --;
 	switch (this.type){
 		case 1:
 		switch (this.direction){
@@ -191,13 +210,7 @@ Tank.prototype.type = function(){
 	return "TANK";
 }
 
-/**
- * Lower the health of tank when hit by a projectile. 
- * @param {number} hitStrength - The strengh of the projectile.
- */
-Tank.prototype.hit = function (hitStrength){
-	this.health -= hitStrength;
-}
+
 
 /**
  * Give the tank's health.
