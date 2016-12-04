@@ -3,7 +3,6 @@ Author: Viren Patel
 
 The tank object used in the game.
 Different images representing different states of the tank.
-(full health, dammaged, destropyed) <<<<to be implemented>>>>
 
 */
 
@@ -210,8 +209,6 @@ Tank.prototype.type = function(){
 	return "TANK";
 }
 
-
-
 /**
  * Give the tank's health.
  * @return {number} - The tank's health.
@@ -220,7 +217,6 @@ Tank.prototype.getHealth = function (){
 	return this.health;
 }
 
-// return the tank's position in x and y co-ordinates
 /**
  * Give the x and y co-ordinates of the tank object.
  * @return {number} The x value.

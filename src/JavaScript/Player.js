@@ -2,6 +2,7 @@
 Author: Viren Patel
 
 The player class
+A tank controlled by the user.
 
 */
 
@@ -18,7 +19,6 @@ var Player = function(tileSize, x, y, gameBoard, direction, type){
 // Player inherits Tank
 inherits(Player, Tank);
 
-//Interacts with key inputs from the webpage
 /**
  * Moves the player tank according to the input from the user.
  * @param {event} A keyboard event

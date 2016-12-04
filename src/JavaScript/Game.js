@@ -13,10 +13,12 @@ var m_canvas, m_context;
 //endGame Tracker;
 var gameOver;
 //gamestate
-
+//number of bots in the game
 var numAI;
 
-//retrive and setup Dimensions for canvas area and box to be used
+/**
+ * Retrieve and setup Dimensions for the canvas area and box to be used.
+ */
 function getSize(){
 	//jquery gave most accurate window dimesnions
 	width = $(window).width();
@@ -28,7 +30,10 @@ function getSize(){
 	xOffSet = (width-(size*15))/2
 	yOffSet = size
 }
-//on AI die remove it
+
+/**
+ * Remove AI once it dies.
+ */
 function deQueueAI(){
 	numAI--;
 	if (numAI<1){
@@ -37,6 +42,11 @@ function deQueueAI(){
 	}	
 }
 
+/**
+ * The End game menu once the game is over. Prompt Accordingly.
+ * @param {string} message - A prompt saying that the game is over.
+ * @param {string} winLoss - A prompt indicating a win or loss for the user.
+ */
 function endGame(message,winLoss){
 	gameOver = true;
 	paused = true;
@@ -47,7 +57,10 @@ function endGame(message,winLoss){
  
 }
 
-// for new Game
+/**
+ * To start a new game.
+ * @return {boolean} False.
+ */
 function getQueryVariable(variable)
 {
        var query = window.location.search.substring(1);
@@ -59,7 +72,9 @@ function getQueryVariable(variable)
        return(false);
 }
 
-//set up game area
+/**
+ * Setup the game area.
+ */
 function setUpCanvas(){
 	getSize();
 	gameOver = false;
@@ -101,6 +116,10 @@ function setUpCanvas(){
 	openPause(true);
 }
 
+/**
+ * Open pause menu when "p" is pressed.
+ * @param {event} e - the key which is pressed on the keyboard.
+ */
 window.onkeydown = function (e) {
     var code = e.keyCode ? e.keyCode : e.which;
     if (code === 80) { //up key
@@ -113,6 +132,9 @@ window.onkeydown = function (e) {
     board.playerMove(e);
 };
 
+/**
+ * Update the game board and redraw it.
+ */
 function updateThenDraw(){
 	if (!paused){
 		board.update();
@@ -123,6 +145,9 @@ function updateThenDraw(){
 	}
 }
 
+/**
+ * Draw the pre rendered board and the rendered screen.
+ */
 function DrawCanvas(){
 	//pre-render Board
 	board.draw();
@@ -131,3 +156,4 @@ function DrawCanvas(){
 	//draw screen
 	gameCanvas.drawImage(m_canvas,0,0);
 }
+

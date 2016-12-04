@@ -5,13 +5,13 @@
 * Tank, Wall or Base
 */
 
-/*
-* The baord classes handles the board graphcis and relative infromation
+/**
+* The board classes handles the board graphcis and relative infromation.
 *
-* int tileseize: The size that each of the tiels o nthe board should be
-* int level: The level of the AI
-* int map: The map number
-*
+* @param {number} tileseize - The size that each of the tiles on the board should be.
+* @param {number} level - The level of the AI.
+* @param {number} map - The map number.
+* @param {number} amountAI - The number of bots in the game.
 */
 var GameBoard = function(tileSize,level,map, amountAI){
 	this.tileSize = tileSize;
@@ -100,14 +100,28 @@ var GameBoard = function(tileSize,level,map, amountAI){
 	this.ReDrawContext.fillRect(0,0,this.width,this.height);
 
 }
+/** 
+ * Detect that the player has pressed a movement key and call the movement function.
+ * @param {event} A keyboard event.
+ */
 GameBoard.prototype.playerMove = function(event){
 	this.player.interface(event);
 }
 
+/**
+ * Construct and launch a projectile.
+ * @param {number} x - the x position of the tank.
+ * @param {number} y - the y position of the tank.
+ * @param {number} direction - the direction the tank is facing.
+ */
 GameBoard.prototype.fire = function(x,y,direction){
 	this.projectileQueue.add(x,y,this.tileSize,direction);
 }
 
+/**
+ * Update the health of the home base.
+ * @param {number} baseStrength - the current health of the home base.
+ */
 GameBoard.prototype.updateBase = function(baseStrength){
 	if (this.curWeakBase > baseStrength){
 		this.curWeakBase = baseStrength
@@ -115,6 +129,12 @@ GameBoard.prototype.updateBase = function(baseStrength){
 	this.baseBarLen = (this.curWeakBase/200) * (this.tileSize * 13);
 }
 
+/**
+ * Update player's health when hit with a projectile.
+ * @param {number} damageTaken: the damage taken by the tank.
+ * @param {number} x - the x position of the tank.
+ * @param {number} y - the y position of the tank.
+ */
 GameBoard.prototype.damage = function(damageTaken,x,y){
 	try{
 		this.board[y][x].hit(damageTaken);
@@ -127,6 +147,14 @@ GameBoard.prototype.damage = function(damageTaken,x,y){
 	}
 }
 
+/**
+ * Return a random type of object: Tank, Wall, steel, homeBase or EmptyTile.
+ * @return {Tank} A tank object.
+ * @return {Wall} A brick wall object.
+ * @return {steel} A steel wall object.
+ * @return {homeBase} A home base object.
+ * @return {EmptyTile} An empty tile object.
+ */
 GameBoard.prototype.randomTile = function(){
 	  var x = Math.floor((Math.random() * 5) + 1);
 	  if (x == 1){
@@ -141,7 +169,12 @@ GameBoard.prototype.randomTile = function(){
 	 return new EmptyTile(this.tileSize);
 }
 
-//Method will be used to tell if there is an empty tile in said spot
+/**
+ * Determine if there is an empty tile in the said spot.
+ * @param {number} x - the x position of the said spot.
+ * @param {number} y - the y position of the said spot.
+ * @return {boolean} True or False indicating an empty tile.
+ */
 GameBoard.prototype.canBePlaced = function(x,y){
 	
 	try{
@@ -151,11 +184,21 @@ GameBoard.prototype.canBePlaced = function(x,y){
 	}
 }
 
+/**
+ * Move the position of a tank to a new tile on the game board.
+ * @param {number} Oldx - the current x position of the tank.
+ * @param {number} Oldy - the current y position of the tank.
+ * @param {number} newX - the new x position of the tank.
+ * @param {number} newY - the new y position of the tank.
+ */
 GameBoard.prototype.moveTo = function(Oldx,Oldy,newX,newY){
 	this.board[newY][newX] = this.board[Oldy][Oldx];
 	this.board[Oldy][Oldx] = new EmptyTile(this.tileSize);
 }
 
+/**
+ * Update the state of the game board.
+ */
 GameBoard.prototype.update = function(){
 
 	for ( y =0; y < 15; y++){
@@ -184,7 +227,10 @@ GameBoard.prototype.update = function(){
 	this.AiMoves --;
 }
 
-//draw onto pre-rendered game baord and then onto actual screen
+/**
+ * Draw onto pre-rendered game baord and then onto actual screen.
+ *
+ */
 GameBoard.prototype.draw = function(){
 		this.ReDrawContext.fillStyle = "#FFFFFF";
 	this.ReDrawContext.fillRect(0,0,this.width,this.height);
@@ -228,7 +274,10 @@ GameBoard.prototype.draw = function(){
 	this.boardContext.fillText("Base",0,posBarsHealthY+(posBarsHealthThicknes/2)+(this.tileSize/4),2*this.tileSize);
 }
 
-//get rendered image
+/**
+ * Get rendered image.
+ * @return {canvas} The board canvas.
+ */
 GameBoard.prototype.getRender = function(){
 	return this.boardCanvas;
 }
@@ -246,16 +295,25 @@ var EmptyTile = function(tileSize){
 	this.m_context.stroke();
 }
 
+/**
+ * A function indicating that the tile is empty.
+ * @return {boolean} Always true.
+ */
 EmptyTile.prototype.empty = function(){
 	return true;
 }
 
-// returns the tank's health
+/**
+ * Returns the tank's health.
+ * @return {number} The tank's health.
+ */
 EmptyTile.prototype.getHealth = function (){
 	return 1;
 }
 
-//draw pre rnedered image onto tile at location
+/**
+ * Draw prerendered image onto tile at location.
+ */
 EmptyTile.prototype.draw = function(canvas,startx,startY,tileSize){
 	canvas.drawImage(this.m_canvas,startx,startY);
 }

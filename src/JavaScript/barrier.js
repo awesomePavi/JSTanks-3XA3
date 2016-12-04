@@ -2,7 +2,7 @@
  *
  * @constructor
  * @this {wall}
- * @param {number} tileSize The size of one tile in a grid.
+ * @param {number} tileSize - The size of one tile in a grid.
  */
 var wall=function(tileSize){
 	this.strength=25;
@@ -32,10 +32,10 @@ wall.prototype.type = function(){
  * Puts the image of the wall on the expected position game board.
  *
  * @this {wall}
- * @param {canvas} canvas The graphic object to draw on.
- * @param {number} startx The position of the object on the x-axis on the game board.
- * @param {number} startY The position of the object on the y-axis on the game board.
- * @param {number} tileSize The size of one tile in a grid.
+ * @param {canvas} canvas - The graphic object to draw on.
+ * @param {number} startx - The position of the object on the x-axis on the game board.
+ * @param {number} startY - The position of the object on the y-axis on the game board.
+ * @param {number} tileSize - The size of one tile in a grid.
  */
 wall.prototype.draw = function(canvas,startx,startY,tileSize){
 	canvas.drawImage(this.m_canvas,startx,startY);
@@ -43,7 +43,7 @@ wall.prototype.draw = function(canvas,startx,startY,tileSize){
 /**
  * Decreases the points of strength of the wall after being hit.
  
- * @param {number} hitStength The points of strength of the object will decrease after being hit.
+ * @param {number} hitStength - The points of strength of the object will decrease after being hit.
  * @this {wall}
  */
 wall.prototype.hit = function (hitStength){
@@ -53,7 +53,7 @@ wall.prototype.hit = function (hitStength){
  * Returns the remainning points of strength of the wall.
  *
  * @this {wall}
- * @param {number} hitStength The points of strength of the object will decrease after being hit.
+ * @param {number} hitStength - The points of strength of the object will decrease after being hit.
  * @return {number} The remainning points of strength of the wall.
  */
 wall.prototype.getHealth = function (hitStength){
@@ -78,7 +78,7 @@ wall.prototype.getPosition = function (){
  *
  * @constructor
  * @this {steel}
- * @param {number} tileSize The size of one tile in a grid
+ * @param {number} tileSize - The size of one tile in a grid
  */
 var steel=function(tileSize){
 	this.strength=75;
@@ -108,10 +108,10 @@ steel.prototype.type = function(){
  * Puts the image of the steel on the expected position game board.
  *
  * @this {steel}
- * @param {canvas} canvas The graphic object to draw on.
- * @param {number} startx The position of the object on the x-axis on the game board.
- * @param {number} startY The position of the object on the y-axis on the game board.
- * @param {number} tileSize The size of one tile in a grid.
+ * @param {canvas} canvas - The graphic object to draw on.
+ * @param {number} startx - The position of the object on the x-axis on the game board.
+ * @param {number} startY - The position of the object on the y-axis on the game board.
+ * @param {number} tileSize - The size of one tile in a grid.
  */
 steel.prototype.draw = function(canvas,startx,startY,tileSize){
 	canvas.drawImage(this.m_canvas,startx,startY);
@@ -120,7 +120,7 @@ steel.prototype.draw = function(canvas,startx,startY,tileSize){
  * Decreases the points of strength of the steel after being hit
  *
  * @this {steel}
- * @param {number} hitStength The points of strength of the object will decrease after being hit.
+ * @param {number} hitStength - The points of strength of the object will decrease after being hit.
  */
 steel.prototype.hit = function (hitStength){
 	this.strength-=hitStength;
@@ -129,7 +129,7 @@ steel.prototype.hit = function (hitStength){
  * Returns the remainning points of strength of the steel.
  *
  * @this {steel}
- * @param {number} hitStength The points of strength of the object will decrease after being hit.
+ * @param {number} hitStength - The points of strength of the object will decrease after being hit.
  * @return {number} The remainning points of strength of the steel.
  */
 steel.prototype.getHealth = function (hitStength){
@@ -153,7 +153,7 @@ steel.prototype.getPosition = function (){
  *
  * @constructor
  * @this {homeBase}
- * @param {number} tileSize The size of one tile in a grid
+ * @param {number} tileSize - The size of one tile in a grid
  */
 var homeBase=function(tileSize,gameBoard){
 	this.board = gameBoard;
@@ -184,10 +184,10 @@ homeBase.prototype.type = function(){
  * Puts the image of the home base on the expected position game board.
  *
  * @this {homeBase}
- * @param {canvas} canvas The graphic object to draw on.
- * @param {number} startx The position of the object on the x-axis on the game board.
- * @param {number} startY The position of the object on the y-axis on the game board.
- * @param {number} tileSize The size of one tile in a grid.
+ * @param {canvas} canvas - The graphic object to draw on.
+ * @param {number} startx - The position of the object on the x-axis on the game board.
+ * @param {number} startY - The position of the object on the y-axis on the game board.
+ * @param {number} tileSize - The size of one tile in a grid.
  */
 homeBase.prototype.draw = function(canvas,startx,startY,tileSize){
 	canvas.drawImage(this.m_canvas,startx,startY);
@@ -196,7 +196,7 @@ homeBase.prototype.draw = function(canvas,startx,startY,tileSize){
  * Decreases the points of strength of the home base after being hit
  *
  * @this {homeBase}
- * @param {number} hitStength The points of strength of the object will decrease after being hit.
+ * @param {number} hitStength - The points of strength of the object will decrease after being hit.
  */
 homeBase.prototype.hit = function (hitStength){
 	this.strength-=hitStength;
@@ -209,7 +209,7 @@ homeBase.prototype.hit = function (hitStength){
  * Returns the remainning points of strength of the home base.
  *
  * @this {homeBase}
- * @param {number} hitStength The points of strength of the object will decrease after being hit.
+ * @param {number} hitStength - The points of strength of the object will decrease after being hit.
  * @return {number} The remainning points of strength of the home base.
  */
 homeBase.prototype.getHealth = function (hitStength){

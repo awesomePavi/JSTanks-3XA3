@@ -1,3 +1,12 @@
+
+/**
+ * Represents a Projectile.
+ * @constructor
+ * @param {number} tileSize - the size of any one tile on the gameboard.
+ * @param {number} x - the x position of the projectile.
+ * @param {number} y - the y position of the projectile.
+ * @param {number} dir - the direction that the projectile is to travel.
+ */
 var Projectile = function(tileSize,x,y,dir){
 	this.m_canvas = document.createElement('canvas');
 	this.m_canvas.width = tileSize;
@@ -37,7 +46,10 @@ var Projectile = function(tileSize,x,y,dir){
 	}
 }
 
-//update projectile movment and if it has hit a piece or not
+/**
+ * Update projectile movement and if it has hit any other object or not.
+ * @param {board} board - A board object.
+ */
 Projectile.prototype.update = function(board){
 	posx = Math.floor((this.startx+this.shiftx)/this.tileSize);
 	posy = Math.floor((this.startY+this.shifty)/this.tileSize);
@@ -70,7 +82,10 @@ Projectile.prototype.update = function(board){
 	return false;
 }
 
-//draw pre rendered image onto tile at location
+/**
+ * Draw pre rendered inmage onto tile at location
+ * @param {canvas} canvas - The canvas for the game board.
+ */
 Projectile.prototype.draw = function(canvas){
 	canvas.drawImage(this.m_canvas,this.startx+this.shiftx
 		,this.startY+this.shifty);
@@ -79,14 +94,29 @@ Projectile.prototype.draw = function(canvas){
 	//this.shiftx++;
 }
 
+/**
+ * An empty queue for a projectile.
+ */
 var ProjectileQue = function(){
 	this.queue = [];
 }
+
+/**
+ * Increment the projectile queue. 
+ * @param {number} x - the x position of the projectile.
+ * @param {number} y - the y position of the projectile.
+ * @param {number} tileSize - the size of any one tile on the gameboard.
+ * @param {number} direction - the direction that the projectile is to travel.
+ */
 ProjectileQue.prototype.add = function (x,y,tileSize,direction){
 	var tmp = new Projectile (tileSize, x,y,direction);
 	this.queue.push(tmp)
 }
 
+/**
+ * Update the prjectile queue.
+ * @param {board} - A game board object.
+ */
 ProjectileQue.prototype.update = function (board){
 	for (i=0; i<this.queue.length; i++){
 		if (this.queue[i].update(board))
@@ -96,6 +126,10 @@ ProjectileQue.prototype.update = function (board){
 	}
 }
 
+/**
+ * Pre render teh projectile queue
+ * @param {context} drawContext - the context for the projectile canvas.
+ */
 ProjectileQue.prototype.render = function (drawContext){
 	for (i=0; i<this.queue.length; i++){
 		this.queue[i].draw(drawContext);

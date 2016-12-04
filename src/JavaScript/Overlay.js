@@ -1,9 +1,17 @@
+
+// variable indicating if the game is paused or not.
 var paused;
 
+/**
+ * Start a new game according to the user inputs for the level and map.
+ */
 function newGame(level, map){
 	 window.location="JSTanks.html?Level="+level+"&Map="+map;
 }
 
+/**
+ * Menu containing instructions and a new game options.
+ */
 function fillDiv(){
 	 $.ajax({
         url: './Instructions.html',
@@ -27,6 +35,10 @@ function fillDiv(){
 	
 }
 
+/**
+ * Open the game over menu.
+ * @param {string} message - A prompt telling the user that the game is over.
+ */
 function oopenGameOver(message){
     document.getElementById('message').style.display = "block";
     document.getElementById('message').innerHTML = message;
@@ -36,7 +48,11 @@ function oopenGameOver(message){
     document.getElementById("PauseMenu").style.width = "100%";
 }
 
-/* Open when someone clicks on the span element */
+/**
+ * The game over menu.
+ * @param {string} message - A prompt telling the user that the game is over.
+ * @param {string} winLoss - A prompt telling the user if they won or lost.
+ */
 function openGameOver(message,winloss) {
     document.getElementById('continue').style.display = "none";
     document.getElementById('instr').style.display = "none";
@@ -61,7 +77,10 @@ function openGameOver(message,winloss) {
     document.getElementById("PauseMenu").style.width = "100%";
 }
 
-/* Open when someone clicks on the span element */
+/**
+ * The pause Menu
+ * @param {boolean} startgame - if the game is to start or not.
+ */
 function openPause(startgame) {
     if (startgame){
         document.getElementById('home').style.display = "none";
@@ -78,16 +97,24 @@ function openPause(startgame) {
     document.getElementById("PauseMenu").style.width = "100%";
 }
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
+/** 
+ * Close the pause menu whe the user clicks on the "x" symbol inside the overlay.
+ */
 function closePause() {
     document.getElementById("PauseMenu").style.width = "0%";
     paused = false;
 }
 
+/**
+ * When the user quits, go to this link.
+ */
 function quit(){
 	 window.location="https://gitlab.cas.mcmaster.ca/pathmap/JSTanks";
 }
 
+/**
+ * When the user selects "Home", go to this link.
+ */
 function home(){
 	 window.location="../HomePage/homePage.html";
 }

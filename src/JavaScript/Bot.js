@@ -23,6 +23,7 @@ inherits(Bot, Tank);
  * @param {Player} playerTank - A Player object.
  * @param {number} x - The x value of the player's position.
  * @param {number} y - The y value of the player's position.
+ * @param {number} direction - The direction the tank is facing.
  */
 Bot.prototype.movementLogic = function(playerTank, x, y, direction) {
 	//ensure ai only moves once per frame
@@ -282,7 +283,10 @@ Bot.prototype.hit = function (hitStrength){
 	}
 }
 
-// 
+/**
+ * A flag which always returns true.
+ * @return {boolean} Always true.
+ */
 Bot.prototype.Flag = function(){
 	return true;
 }
