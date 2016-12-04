@@ -48,13 +48,8 @@
 
 \section{Introduction}
 Module Decomposition is a good practice when it comes to developing applications involving many different data structures. Following this can benefit the program in many ways including the implementation process, maintenance, testing, and understanding of the program to new entities.\\ \\
-Most programmers use the process of decomposing their program into different modules which represent different aspects of the program. This can allow the programmer to think of one module/aspect of the program at a time. Thus, simplifying the implementing process. \\ \\
-It is easy to maintain a program which has its components implemented in separate modules. For example, the debugging process in case there are errors in the program, can be time consuming if the program has not been decomposed. On the other hand, a program that has been decomposed into modules would have the compiler point at the module in which the error occurs and therefore, the programmer only has to look through that module ignoring, but not completely, the code in the other modules.\\ \\
-Testing is one of the most vital phases in the development process. A program which shows no module decomposition can make the testing process significantly tough for the programmer. This is because although he can test different functions of the program, he cannot tell if specific aspects of the program are working fine or not. In contrast, in a well decomposed program, the programmer can test out different modules and know for sure if they are working fine or not. He does not have to test the whole code in order to check a single module/aspect of the program. \\ \\
-Module Decomposition makes it easier for stakeholders other than the developers, to understand the program and know how it accomplishes different tasks. They can learn about each module and connect them together to know how the program functions as one.\\ \\
-This document is a Module Guide for JSTanks. JSTanks has followed the process the Module Decomposition greatly and can be seen in this doument.This document goes in to detail to show how the things mentioned in the Software Requirements Specifications document are accomplished in the program. We plan to use this document for all the purposes discussed above. \\ \\
+This document is a Module Guide for JSTanks. JSTanks has followed the process the Module Decomposition greatly and can be seen in this doument.This document goes in to detail to show how the things mentioned in the Software Requirements Specifications document are accomplished in the program. It shows how the functions of the program are executed as the modules interact with eachother and tracing each function to its corresponding module(s). \\ \\
 This document has been divided into the following sections: Anticipated and Unlikely Changes of the software requirements, Module Hierarchy, Connection between Requirements and Design, Module Decomposition, Traceability Matrix, and Use Hierarchy between Modules.
-
 
 \section{Anticipated and Unlikely Changes}
 This sections contains possible changes to the project which may occur. The changes are placed into two categories anticipated and unlikely, depending on how likely a change is to occur.
@@ -85,7 +80,7 @@ All interfacing between entities and the user will continue to propagate through
 \subsubsection*{UC4}
   Game graphics will not be changed from a three level render stack to, a two level stack. Since it would require changes across all modules.
 
-\section{Module Hierarchy}
+\section{Module Hierarchy} \label{sec:Module_Hierarchy}
 This section provides a simple overview of the module design. The modules are hierarchically labelled M1 through M13 below and are decomposed in the table below that. 
 \\
 Hierarchy. These are the modules which will be implemented.
@@ -102,11 +97,13 @@ Hierarchy. These are the modules which will be implemented.
 \\M11: Wall-Module
 \\M12: Steel-Wall Module
 \\M13: Overlay Module
+\\M14: JSTanks Web Module
+\\M15: JSTanks Style Module
 
 %space used to move table to next page
  % \caption{Module Hierarchy}
 \begin{tabularx}{\textwidth}{l X}
-	
+
 	Level 1 & Level 2\\
 	\midrule
 	Game Module & - Set graphics area\\ \\
@@ -157,93 +154,90 @@ Hierarchy. These are the modules which will be implemented.
 	 Projectile Module & - Damage tile entities \\ \\
 	 & - identify tile hit\\
 	  \midrule
-	 Home-Base Module & - Player' home base will trigger end game on destroy \\ \\
+	 Home-Base Module & - Player's home base will trigger end game on destroy \\ \\
 	 & - tracks base health\\
 	 \midrule 
 	 Wall Module & - A weak wall, that can be destroyed \\ \\
 	 & - tracks wall health\\
 	 \midrule
-	 Steel-Wall Module & - A weak wall, that can be destroyed \\ \\
+	 Steel-Wall Module & - A stronger wall, that can take more damage \\ \\
 	 & - tracks steel-wall health\\
 	  \midrule
-	 Overlayl Module & - Pauses game loop \\ \\
-	 & - overlay's pause menu
+	 Overlay Module & - Pauses game loop \\ \\
+	 & - overlay's pause menu\\
+	\midrule
+	JSTanks Web Module & -Displays the whole game on the website\\ \\
+	\midrule
+	JSTanks Style Module & -Styles the game's webpage\\ \\
+
 \end{tabularx}
 
 \section{Connection between Requirements and Design}
-The requirements included in the Software Requirements Specifications document are implemented into the following modules: \\ \\
-JSTanks.html \\ 
-Tanks.css \\
-Overlay.js \\
-Game.js \\
-GameBoard.js \\
-createBoard.js \\
-Tank.js \\
-Player.js \\
-Bot.js \\
-barrier.js \\
-Projectile.js \\ \\
-The specific objects involved in these modules are listed in the “Module Hierarchy” section of this document. The corresponding modules of all function and non-functional requirements can be found in Table 4.
+The requirements included in the Software Requirements Specifications document are implemented into the modules listed in the "Module Hierarchy" \ref{sec:Module_Hierarchy} section of this document.
+The corresponding modules of all function and non-functional requirements can be found in Table \ref{tab:Traceability}  .
 
 
 \section{Module Decomposition}
 Modules are decomposed according to the principles of "information hiding" proposed by Parnas ed el (1984). We have made the design decision to not implement traditional information hiding, such that the project may be used by others whom are starting out in game design or programming, whom will be able to easily decipher our project and build their own web based game. By hiding how our key modules function internally, these new-comers will not be able to fully understand how to develop a basic HTML, CSS, JavaScript game; for this reason JSTanks has opted out from information hiding. All module decomposition can be found in the Module Interface Specification. 
 
 \section{Traceability Matrix}
-\begin{table}[H]
-      \begin{tabular}{ll}
+\begin{tabularx}{\textwidth}{l X}
         \toprule
-        Requirement & Modules \\
+        Requirement & Module(s) \\
         \midrule
         \multicolumn{2}{c}{Functional Requirements} \\
+        \midrule \\
+        FR1 & JSTanks Web \\
+        FR2 & JSTanks Web\\
+        FR3 & JSTanks Web, JSTanks Style, Game, Game Board, Home-Base, Wall, Steel-Wall, Create Game, Tank, Bot, Overlay \\
+        FR4 & Overlay.\\
+        FR5 & Overlay\\
+        FR6 & Overlay \\
+        FR7 & Overlay\\
+        FR8 & Overlay\\
+        FR9 & Overlay \\
+        FR10 & Overlay \\
+        FR11 & Overlay \\
+        FR12 & Overlay\\
+        FR13 & Bot, Projectile Queue, Tank \\
+        FR14 & Bot\\
+        FR15 & Bot\\
+        FR16 & Overlay\\
+        FR17 & Player, Tank\\
+        FR18 & Projectile Queue\\
+        FR19 & Projectile Queue, Tank, Bot\\
+        FR20 & Game Board, Home-Base, Wall, Steel-wall, Projectile Queue\\
+        FR21 & Game Board, Home-Base, Wall, Steel-wall, Projectile Queue\\
+        FR22 & Game Board, Home-Base, Wall, Steel-wall, Projectile Queue\\
+        FR23 & Projectile Queue, Tank, Player \\
+        FR24 & Overlay \\
+        FR25 & Overlay \\ \\
         \midrule
-        FR1 & JSTanks.html \\
-        FR2 & JSTanks.html \\
-        FR3 & JSTanks.html, Tank.css, Game.js, GameBoard.js, barrier.js, \\
-                 & createBoard.js, Tank.js, Bot.js, Overlay.js \\
-        FR4 & Overlay.js \\
-        FR5 & Overlay.js \\
-        FR6 & Overlay.js \\
-        FR7 & Overlay.js\\
-        FR8 & Overlay.js \\
-        FR9 & Overlay.js \\
-        FR10 & Overlay.js \\
-        FR11 & Overlay.js \\
-        FR12 & Overlay.js \\
-        FR13 & Bot.js, Projectile.js, Tank.js \\
-        FR14 & Bot.js \\
-        FR15 & Bot.js \\
-        FR16 & Overlay.js \\
-        FR17 & Player.js, Tank.js \\
-        FR18 & Projectile.js \\
-        FR19 & Projectile.js,Tank.js, Bot.js\\
-        FR20 & GameBoard.js, barriers.js, Projectile.js\\
-        FR21 & GameBoard.js, barriers.js, Projectile.js \\
-        FR22 & GameBoard.js, barriers.js, Projectile.js \\
-        FR23 & Projectile.js,Tank.js,Player.js  \\
-        FR24 & EndGame.js \\
-        FR25 & EndGame.js \\ \\
-        \midrule
-        \multicolumn{2}{c}{Non-functional Requirements} \\
-        \midrule
-        NF1.1 & JSTanks.html, Tank.css, Game.js, GameBoard.js, barriers.js,\\
-                     & createBoard.js, Tank.js, Bot.js \\
-        NF1.2 & JSTanks.html, Tank.css, Game.js, GameBoard.js, Tank.js, \\
-                     & Bot.js, Overlay.js \\
-        NF2.1 & Tank.js, Player.js, Projectile.js \\
+        \multicolumn{2}{c}{Non-functional Requirements} \\ 
+        \midrule \\
+        NF1.1 & JSTanks Web, JSTanks Style, Game, Game Board, Home-Base,  Wall, Steel-Wall, Create Game, Tank, Bot\\
+        NF1.2 & JSTanks Web, JSTanks Style, Game, Game Board, Tank,  Bot, Overlay \\
+        NF2.1 & Tank, Player, Projectile \\
         NF2.2 & -- \\
-        NF2.3 & JSTanks.html \\
-        NF2.4& Overlay.js \\
+        NF2.3 & JSTanks Web\\
+        NF2.4& Overlay \\
         NF2.5 & -- \\
         NF3 & -- \\
-        NF4 &JSTanks.html, Tank.css \\
-        NF5 & Game.js, GameBoard.js, Tank.js, Player.js, Bot.js, Overlay.js, \\
-                 &barrier.js, createBoard.js, Projectile.js \\
+        NF4 &JSTanks Web, JSTanks Style \\
+        NF5 & Game, Game Board, Tank, Player, Bot, Overlay, Home-Base, Wall, Steel-Wall, Create Game, Projectile Queue \\
         NF6 & -- \\
-        NF7 & Overlay.js \\
-        NF8 & -- \\
-        \bottomrule
-        \end{tabular}
+        NF7 & Overlay\\
+        NF8 & -- \\ \\
+	\midrule
+        \multicolumn{2}{c}{Anticipated Changes} \\
+        \midrule \\
+	AC1&Game Board, Game\\
+	AC2&Game, JSTanks Web\\
+	AC3&Create Game, Game Board\\
+	AC4&Bot\\
+	AC5&Projectile\\
+	AC6&Game Board, Game\\
+        \bottomrule \\
         \caption{Trace Between Requirements and Modules}
         % Colour for the rulings in tables:
         \makeatletter
@@ -254,33 +248,39 @@ Modules are decomposed according to the principles of "information hiding" propo
            \let\CT@arc@\relax
           \rulecolor{black!50}
         \makeatother
-        \label{Table 2}
-        \end{table}
+        \label{tab:Traceability}
+\end{tabularx}
 
 \section{Use Relations}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Uses_Hierarchy.png}
+	\caption{Uses Hierarchy}
+\end{figure}
 \begin{table}[!h]
 \begin{tabular}{lll}
 Module && Use Relation \\ 
 \hline \\
-JSTanks.html & uses & Tanks.css, Overlay.js, Game.js, GameBoard.js, \\  
-&&createBoard.js, Tank.js, Player.js, Bot.js,\\
-&& Barrier.js, and Projectile.js \\ \\
-Tanks.css & uses & -- \\ \\
-Overlay.js & uses & -- \\ \\
-Game.js & uses & GameBoard.js \\ \\
-GameBoard.js & uses & Player.js, Bot.js, barrier.js, and Projectile.js, \\
-&&and createBoard.js \\ \\
-createBoard.js & uses & barrier.js \\ \\
-Tank.js & uses & -- \\ \\
-Player.js & uses & Tank.js \\ \\
-Bot.js & uses & Tank.js \\ \\
-barrier.js & uses & -- \\ \\
-Projectile.js & uses & -- \\ \\
+JSTanks Web&uses&JSTanks Style, Game\\ \\
+JSTanks Style&uses&--\\ \\
+Game&uses&Game Board, Overlay\\ \\
+Game Board&uses&Projectile Queue, Create Game, Player, Bot, Empty Tile,\\
+&& Home-Base, Wall, Steel-Wall	 \\ \\
+Projectile Queue&uses&Projectile\\ \\
+Create Game&uses&Player, Bot, Empty-Tile, Home-Base, Wall, Steel-Wall\\ \\
+Player&uses&Tank\\ \\
+Bot&uses&Tank\\ \\
+Tank&uses&--\\ \\
+Empty Tile&uses&--\\ \\
+Projectile&uses&--\\ \\
+Home-Base&uses&--\\ \\
+Wall&uses&--\\ \\
+Steel-Wall&uses&--\\ \\
+Overlay&uses&--\\ \\
 \hline
 \end{tabular}
 \caption {Uses Relationship between Modules}
 \end{table}
-
 
 \newpage
 % Revision History, Module Hierarchy, Trace between Requirements and Modules, Trace between Anticipated Changes and Modules
