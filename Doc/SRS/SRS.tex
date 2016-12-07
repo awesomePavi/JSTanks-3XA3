@@ -328,15 +328,19 @@ shall disappear with the bullet at the same time.\\Priority: Medium
 \subsubsection{Functional Requirements 20} When the bullet launched by the user's tank hit a brick wall, the brick 
 wall shall disappear with the bullet at the same time.\\Priority: Medium
 \subsubsection{Functional Requirements 21} When the bullet launched by the user's tank hit a steel, the bullet shall 
-disappear and the steel wall shall disappear after being fit for three times.\\Priority: Medium
-\subsubsection{Functional Requirements 22} When the bullet launched by the tank of the AI hits the  home base, 
-one-fifth of strength of the home base shall decrease.\\Priority: Medium
-\subsubsection{Functional Requirements 23} When the bullet launched by the tank of the AI hits the user's tank, 
- the user's tank shall disappear with the bullet at the same time.\\Priority: Medium
+disappear and the steel wall shall disappear after being hit for three times.\\Priority: Medium
+\subsubsection{Functional Requirements 22}There shall be a blood bar for the home base under the map. When 
+the bullet launched by the tank of the AI hits the  home base, one-eighth of the blood in the blood bar of the home base 
+shall decrease.\\Priority: Medium
+\subsubsection{Functional Requirements 23} There shall be a blood bar for the user's tank under the map.When 
+the bullet launched by the tank of the AI hits the user's tank, one-sixth of blood in the blood bar of the user's tank shall 
+decrease.\\Priority: Medium
 \subsubsection{Functional Requirements 24} A window shall pops up to show that the game is over and the game shall
  comes to the end state if the user's tank or the home base is destroyed.\\Priority: High
 \subsubsection{Functional Requirements 25} The window shall pops up to show that the user wins the game and the game
  comes to the end state if the user's tank is the only one left in the map.\\Priority: High
+ \subsubsection{Functional Requirements 26} There shall not be a score for the user's tank, because the only way that
+ the user win the game is to protect the home base and itself and destroy all tanks of the AI. \\Priority: High
 \section{Non-functional Requirements}
 \subsection{Look and Feel Requirements}
 \subsubsection{Appearance Requirements}
@@ -346,51 +350,52 @@ appealing colour schemes. The game will have many tanks other than the user
 tank. The player tank will be coloured differently and all AI tanks will be
 coloured the same to make it easier for the player to tell the difference. There
 shall be brick sprites which make up the player?s home base and graphics for
-bullets fired from all tanks.
+bullets fired from all tanks.\\Priority: Medium
 \subsubsection{Style Requirements}
 JS Tanks shall colour the tanks and the background so that they do not make it
 hard for the user to focus on the screen. The game shall have a menu with
-different options that the player can go through. i.e. Play, Instructions, Quit.
+different options that the player can go through. i.e. Play, Instructions, Quit.\\Priority: High
 \subsection{Usability and Humanity Requirements}
 \subsubsection{Ease of use requirements}
 JS Tanks being a very simplistic game shall be very ease to play for all users. 
 The interface as well as the controls shall be very basic, but at the same time, 
-the gameplay should be satisfying for the player.
+the gameplay should be satisfying for the player. \\Priority: High
 \subsubsection{Personalization and Internationalization Requirements}
-This is not applicable to this game.
+This is not applicable to this game. \\Priority: Low
 \subsubsection{Learning Requirements}
-The user requires no further knowledge than to be able to open the browser.
+The user requires no further knowledge than to be able to open the browser.\\Priority: High
 \subsubsection{Understandability and Politeness Requirements}
 The user should know simple English to surf through the menu and read 
-instructions.
+instructions.\\Priority: High
 \subsubsection{Accessibility Requirements}
 The user should be able to access the game from any platform with a web browser 
-supporting JavaScript.
+supporting JavaScript.\\Priority: High
 \subsection{Performance Requirements}
 JS Tanks should be able to operate with minimal hardware specific requirements 
 for the basis of the project is stray away from specific and high end hardware. 
 The game should be able to operate with little input latency and no notable 
-frame rates.
+frame rates.\\Priority: Medium
 \subsection{Operational and Environmental Requirements}
 The game should run on Chromium web-browsers and Firefox browsers, across 
 operating systems most notably Windows and OSX systems. The game should run 
-within the web browser and require no connection to a server for processing.
+within the web browser and require no connection to a server for processing.\\Priority: High
 \subsection{Maintainability and Support Requirements}
 The code for the game should be simple and easy to understand and breakdown 
 to help those maintaining the code or others whom plan to learn from it or 
-build their own Java Script application
+build their own Java Script application.\\Priority: Medium
 \subsection{Security Requirements}
 The game should not access nor compromise user data, nor should it access or 
-compromise the hosting entities data.
+compromise the hosting entities data.\\Priority: High
 \subsection{Cultural Requirements}
 JS Tanks shall be available only in English and contain no directly offensive 
-remarks to any culture or nation.
+remarks to any culture or nation.\\Priority: High
 \subsection{Legal Requirements}
-The game must abide by Canada's Anti-Spam Legislation.
+The game must abide by Canada's Anti-Spam Legislation.\\Priority: High
 \\\\The game should try to meet the standards set by Canada's Accessibility 
-Legislation.
+Legislation.\\Priority: High
 \subsection{Health and Safety Requirements}
 The game should not cause any health and safety problem for users both physically and mentally.
+\\Priority: High
 \section{Project Issues}
 \subsection{Open Issues}
 Currently there are two issues plaguing our development of this project. Firstly
