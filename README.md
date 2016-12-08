@@ -1,3 +1,18 @@
-This project is the redeveolpment of an exisitng java based game called tanks which can be found here: https://github.com/aleks1/tanks
+# JSTank
 
-The plan is to rebuild this ame even better and web-based through the use of java-script.
+Team Members: Jiahao Li, Viren Patel, Pavithran Pathmarajah
+
+This project is a reimplementation of [Tanks](https://github.com/aleks1/tanks)
+
+Project description:
+
+* The plan is to rebuild this ame even better and web-based through the use of java-script.
+
+
+The folders and files for this project are as follows:
+
+| **Directory**                                    |  **Description**       |
+| :--------:                                       | :--------:             |
+| [Doc/](Doc)                                      |  Project Documentation |
+| [src/](src)                                      |  Source Code           |
+| [[Doc/ProjectSchedule/](ProjectSchedule)         |  Project Schedule      |
