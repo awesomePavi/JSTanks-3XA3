@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><project name="Project Schedule" company="JS tanks" webLink="https://gitlab.cas.mcmaster.ca/pathmap/JSTanks" view-date="2016-09-11" view-index="0" gantt-divider-location="353" resource-divider-location="247" version="2.8.1" locale="en_US">
     <description/>
     <view zooming-state="default:6" id="gantt-chart">
@@ -10,20 +9,6 @@
     <view id="resource-table">
         <field id="0" name="Name" width="166" order="0"/>
         <field id="1" name="Default role" width="75" order="1"/>
-=======
-<?xml version="1.0" encoding="UTF-8"?><project name="Project Schedule" company="JS tanks" webLink="https://gitlab.cas.mcmaster.ca/pathmap/JSTanks" view-date="2016-11-20" view-index="0" gantt-divider-location="543" resource-divider-location="568" version="2.8.1" locale="en_CA">
-    <description/>
-    <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Name" width="226" order="0"/>
-        <field id="tpd4" name="Begin date" width="149" order="1"/>
-        <field id="tpd5" name="End date" width="149" order="2"/>
-        <option id="taskLabelUp" value="name"/>
-        <timeline><![CDATA[1]]></timeline>
-    </view>
-    <view id="resource-table">
-        <field id="0" name="Name" width="343" order="0"/>
-        <field id="1" name="Default role" width="221" order="1"/>
->>>>>>> 8b4ef0339f9673a8b9f1ff5c3fb52177e1cb641a
     </view>
     <!-- -->
     <calendars>
@@ -55,7 +40,7 @@
             <task id="52" name="Project Decision" color="#8cb6ce" meeting="false" start="2016-09-15" duration="1" complete="100" expand="true"/>
             <task id="53" name="Write Proposal" color="#8cb6ce" meeting="false" start="2016-09-16" duration="2" complete="100" expand="true"/>
         </task>
-<<<<<<< HEAD
+
         <task id="1" name="Problem Statement" color="#8cb6ce" meeting="false" start="2016-09-18" duration="5" complete="100" expand="true">
             <task id="57" name="Rough Draft" color="#8cb6ce" meeting="false" start="2016-09-18" duration="4" complete="100" expand="true"/>
             <task id="58" name="Final Draft" color="#8cb6ce" meeting="false" start="2016-09-22" duration="1" complete="100" expand="true"/>
@@ -65,17 +50,7 @@
             <task id="67" name="Rough-Draft" color="#8cb6ce" meeting="false" start="2016-09-24" duration="1" complete="100" expand="true"/>
             <task id="68" name="Final-Draft" color="#8cb6ce" meeting="false" start="2016-09-25" duration="1" complete="100" expand="true"/>
         </task>
-        <task id="11" name="System Requirments Specification Rev 0" color="#8cb6ce" meeting="false" start="2016-09-26" duration="16" complete="100" expand="true">
-            <task id="19" name="Break Down Requirments Document" color="#8cb6ce" meeting="false" start="2016-09-26" duration="5" complete="100" expand="true"/>
-            <task id="22" name="System Requirments Specification - Rev 0" color="#8cb6ce" meeting="false" start="2016-10-01" duration="7" complete="100" expand="true"/>
-            <task id="26" name="System Requirments Specification - Rev 0" color="#8cb6ce" meeting="false" start="2016-10-08" duration="4" complete="100" expand="true"/>
-        </task>
-        <task id="12" name="Proof of Concept Demonstration" color="#8cb6ce" meeting="false" start="2016-10-08" duration="10" complete="100" expand="true">
-            <task id="81" name="Build-Parts" color="#8cb6ce" meeting="false" start="2016-10-08" duration="6" complete="100" expand="true"/>
-            <task id="82" name="Debug" color="#8cb6ce" meeting="false" start="2016-10-14" duration="4" complete="100" expand="true"/>
-=======
-        <task id="1" name="Problem Statement" color="#8cb6ce" meeting="false" start="2016-09-18" duration="6" complete="100" expand="true"/>
-        <task id="10" name="Development Plan" color="#8cb6ce" meeting="false" start="2016-09-23" duration="6" complete="100" expand="true"/>
+
         <task id="11" name="System Requirments Specification Rev 0" color="#8cb6ce" meeting="false" start="2016-09-26" duration="16" complete="100" expand="true">
             <task id="19" name="Break Down Requirments Document" color="#8cb6ce" meeting="false" start="2016-09-26" duration="5" complete="100" expand="true"/>
             <task id="142" name="Functional Requirement" color="#000000" meeting="false" start="2016-10-01" duration="7" complete="100" expand="true">
@@ -122,7 +97,6 @@
                 <task id="265" name="Legal Requirement" color="#8cb6ce" meeting="false" start="2016-10-08" duration="4" complete="100" expand="true"/>
                 <task id="266" name="Health and Safety Requirement" color="#8cb6ce" meeting="false" start="2016-10-08" duration="4" complete="100" expand="true"/>
             </task>
->>>>>>> 8b4ef0339f9673a8b9f1ff5c3fb52177e1cb641a
         </task>
         <task id="13" name="Test Plan 0" color="#8cb6ce" meeting="false" start="2016-10-20" duration="12" complete="100" expand="true">
             <task id="27" name="Requirments" color="#8cb6ce" meeting="false" start="2016-10-20" duration="3" complete="100" expand="true"/>
@@ -136,7 +110,6 @@
             <task id="35" name="Design Guide" color="#8cb6ce" meeting="false" start="2016-11-09" duration="2" complete="100" expand="true"/>
             <task id="36" name="Review" color="#8cb6ce" meeting="false" start="2016-11-11" duration="3" complete="100" expand="true"/>
         </task>
-<<<<<<< HEAD
         <task id="15" name="Revision 0 Demonstration" color="#8cb6ce" meeting="false" start="2016-10-18" duration="24" complete="100" expand="true">
             <task id="94" name="Build Parts" color="#8cb6ce" meeting="false" start="2016-10-18" duration="4" complete="100" expand="true"/>
             <task id="49" name="Menus" color="#8cb6ce" meeting="false" start="2016-10-22" duration="5" complete="100" expand="true"/>
@@ -159,14 +132,6 @@
             <task id="127" name="Document Review" color="#8cb6ce" meeting="false" start="2016-12-04" duration="2" complete="100" expand="true"/>
             <task id="113" name="Final Review" color="#8cb6ce" meeting="false" start="2016-12-06" duration="2" complete="100" expand="true"/>
         </task>
-=======
-        <task id="15" name="Revision 0 Demonstration" color="#8cb6ce" meeting="false" start="2016-10-18" duration="28" complete="100" expand="true">
-            <task id="48" name="Debuging" color="#8cb6ce" meeting="false" start="2016-10-18" duration="24" complete="100" expand="true"/>
-            <task id="49" name="Final Menus" color="#8cb6ce" meeting="false" start="2016-11-02" duration="13" complete="100" expand="true"/>
-        </task>
-        <task id="16" name="Final Demonstration 1" color="#8cb6ce" meeting="false" start="2016-11-15" duration="14" complete="100" expand="true"/>
-        <task id="17" name="Final Documentation 1" color="#8cb6ce" meeting="false" start="2016-11-20" duration="19" complete="90" expand="true"/>
->>>>>>> 8b4ef0339f9673a8b9f1ff5c3fb52177e1cb641a
     </tasks>
     <resources>
         <resource id="0" name="Jiahao Li" function="1" contacts="li577@mcmaster.ca" phone=""/>
@@ -175,11 +140,7 @@
     </resources>
     <allocations>
         <allocation task-id="19" resource-id="0" function="8" responsible="true" load="30.0"/>
-<<<<<<< HEAD
-        <allocation task-id="22" resource-id="0" function="1" responsible="true" load="100.0"/>
-        <allocation task-id="15" resource-id="0" function="4" responsible="true" load="5.0"/>
-        <allocation task-id="26" resource-id="0" function="1" responsible="true" load="10.0"/>
-=======
+
         <allocation task-id="12" resource-id="0" function="5" responsible="false" load="30.0"/>
         <allocation task-id="14" resource-id="0" function="1" responsible="true" load="40.0"/>
         <allocation task-id="15" resource-id="0" function="4" responsible="true" load="5.0"/>
@@ -187,7 +148,6 @@
         <allocation task-id="16" resource-id="0" function="5" responsible="false" load="60.0"/>
         <allocation task-id="26" resource-id="0" function="1" responsible="true" load="50.0"/>
         <allocation task-id="17" resource-id="0" function="6" responsible="false" load="5.0"/>
->>>>>>> 8b4ef0339f9673a8b9f1ff5c3fb52177e1cb641a
         <allocation task-id="31" resource-id="0" function="1" responsible="true" load="30.0"/>
         <allocation task-id="30" resource-id="0" function="1" responsible="false" load="20.0"/>
         <allocation task-id="29" resource-id="0" function="1" responsible="false" load="20.0"/>
@@ -196,7 +156,6 @@
         <allocation task-id="33" resource-id="0" function="4" responsible="true" load="20.0"/>
         <allocation task-id="35" resource-id="0" function="1" responsible="true" load="35.0"/>
         <allocation task-id="36" resource-id="0" function="1" responsible="true" load="30.0"/>
-<<<<<<< HEAD
         <allocation task-id="51" resource-id="0" function="9" responsible="false" load="50.0"/>
         <allocation task-id="52" resource-id="0" function="Default:0" responsible="false" load="20.0"/>
         <allocation task-id="53" resource-id="0" function="1" responsible="false" load="100.0"/>
@@ -221,20 +180,6 @@
         <allocation task-id="22" resource-id="1" function="1" responsible="false" load="100.0"/>
         <allocation task-id="15" resource-id="1" function="3" responsible="false" load="5.0"/>
         <allocation task-id="26" resource-id="1" function="1" responsible="true" load="10.0"/>
-=======
-        <allocation task-id="142" resource-id="0" function="1" responsible="true" load="70.0"/>
-        <allocation task-id="0" resource-id="1" function="3" responsible="true" load="30.0"/>
-        <allocation task-id="1" resource-id="1" function="1" responsible="true" load="30.0"/>
-        <allocation task-id="10" resource-id="1" function="7" responsible="false" load="70.0"/>
-        <allocation task-id="19" resource-id="1" function="3" responsible="false" load="30.0"/>
-        <allocation task-id="12" resource-id="1" function="5" responsible="false" load="30.0"/>
-        <allocation task-id="14" resource-id="1" function="6" responsible="false" load="40.0"/>
-        <allocation task-id="15" resource-id="1" function="3" responsible="false" load="5.0"/>
-        <allocation task-id="17" resource-id="1" function="8" responsible="false" load="35.0"/>
-        <allocation task-id="16" resource-id="1" function="3" responsible="false" load="60.0"/>
-        <allocation task-id="26" resource-id="1" function="1" responsible="false" load="50.0"/>
-        <allocation task-id="17" resource-id="1" function="6" responsible="false" load="5.0"/>
->>>>>>> 8b4ef0339f9673a8b9f1ff5c3fb52177e1cb641a
         <allocation task-id="31" resource-id="1" function="1" responsible="false" load="30.0"/>
         <allocation task-id="30" resource-id="1" function="1" responsible="false" load="20.0"/>
         <allocation task-id="29" resource-id="1" function="1" responsible="true" load="20.0"/>
@@ -243,7 +188,6 @@
         <allocation task-id="33" resource-id="1" function="4" responsible="false" load="20.0"/>
         <allocation task-id="35" resource-id="1" function="1" responsible="false" load="35.0"/>
         <allocation task-id="36" resource-id="1" function="3" responsible="false" load="30.0"/>
-<<<<<<< HEAD
         <allocation task-id="51" resource-id="1" function="9" responsible="false" load="50.0"/>
         <allocation task-id="53" resource-id="1" function="9" responsible="false" load="100.0"/>
         <allocation task-id="52" resource-id="1" function="Default:0" responsible="false" load="20.0"/>
@@ -268,20 +212,6 @@
         <allocation task-id="22" resource-id="2" function="1" responsible="false" load="100.0"/>
         <allocation task-id="15" resource-id="2" function="5" responsible="false" load="5.0"/>
         <allocation task-id="26" resource-id="2" function="6" responsible="false" load="2.0"/>
-=======
-        <allocation task-id="142" resource-id="1" function="3" responsible="false" load="70.0"/>
-        <allocation task-id="0" resource-id="2" function="2" responsible="true" load="30.0"/>
-        <allocation task-id="1" resource-id="2" function="1" responsible="true" load="30.0"/>
-        <allocation task-id="10" resource-id="2" function="6" responsible="false" load="70.0"/>
-        <allocation task-id="19" resource-id="2" function="2" responsible="false" load="30.0"/>
-        <allocation task-id="12" resource-id="2" function="4" responsible="true" load="70.0"/>
-        <allocation task-id="14" resource-id="2" function="1" responsible="false" load="40.0"/>
-        <allocation task-id="15" resource-id="2" function="5" responsible="false" load="5.0"/>
-        <allocation task-id="16" resource-id="2" function="2" responsible="true" load="65.0"/>
-        <allocation task-id="17" resource-id="2" function="8" responsible="true" load="30.0"/>
-        <allocation task-id="26" resource-id="2" function="6" responsible="false" load="10.0"/>
-        <allocation task-id="17" resource-id="2" function="6" responsible="true" load="5.0"/>
->>>>>>> 8b4ef0339f9673a8b9f1ff5c3fb52177e1cb641a
         <allocation task-id="31" resource-id="2" function="1" responsible="false" load="30.0"/>
         <allocation task-id="30" resource-id="2" function="1" responsible="true" load="20.0"/>
         <allocation task-id="29" resource-id="2" function="1" responsible="false" load="20.0"/>
@@ -290,7 +220,6 @@
         <allocation task-id="33" resource-id="2" function="4" responsible="false" load="20.0"/>
         <allocation task-id="35" resource-id="2" function="3" responsible="false" load="35.0"/>
         <allocation task-id="36" resource-id="2" function="2" responsible="false" load="30.0"/>
-<<<<<<< HEAD
         <allocation task-id="51" resource-id="2" function="2" responsible="true" load="50.0"/>
         <allocation task-id="52" resource-id="2" function="Default:0" responsible="true" load="20.0"/>
         <allocation task-id="53" resource-id="2" function="2" responsible="true" load="100.0"/>
@@ -315,9 +244,6 @@
         <allocation task-id="110" resource-id="2" function="1" responsible="true" load="25.0"/>
         <allocation task-id="107" resource-id="2" function="2" responsible="true" load="25.0"/>
         <allocation task-id="127" resource-id="2" function="1" responsible="true" load="100.0"/>
-=======
-        <allocation task-id="142" resource-id="2" function="2" responsible="false" load="70.0"/>
->>>>>>> 8b4ef0339f9673a8b9f1ff5c3fb52177e1cb641a
     </allocations>
     <vacations/>
     <previous/>
