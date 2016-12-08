@@ -15,11 +15,13 @@ function test9(next) {
 
     function testWin(funcTest) {
         try {
-            var testWindow = window.open("../HTML/JSTanks.html?Level=5&Map=1", "_blank", "toolbar=yes,left=1000,width=400,height=400");
+            console.log("hi");
+            var testWindow = window.open("../HTML/JSTanks.html", "_blank", "toolbar=yes,left=1000,width=400,height=400");
             testWindow.focus();
 
             $(testWindow).bind("load", function () {
                 try {
+
                     modForTest(testWindow);
                     setTimeout(
                         function () {
@@ -135,7 +137,7 @@ function test9(next) {
 
         win.board.board = tmp;
         win.closePause();
-        destroy(win,7,7,bots,1);
+        destroy(win,7,7,bots,3);
     }
 
     function bots(win) {
