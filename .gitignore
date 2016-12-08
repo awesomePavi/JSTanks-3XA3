@@ -1,2 +1,5 @@
-aux
+*aux
+*log
+*out
 *.DS_Store
+*.idea

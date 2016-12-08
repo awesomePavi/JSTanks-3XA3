@@ -48,7 +48,7 @@ function beginTesting(){
     document.body.appendChild(test); //inject where you need it to be
     startTime = Date.now();
     console.log(tests);
-    runTests(7);
+    runTests(0);
 }
 
 function runTests(pos) {

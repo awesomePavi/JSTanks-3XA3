@@ -88,81 +88,6 @@ function test9(next) {
         destroy(win,7,7,moreBase,2);
     }
 
-    function moreBase(win) {
-        posInPassFaill = 1;
-        var tmp = new Array(15);
-
-        for (i = 0; i < 15; i++) {
-            tmp[i] = new Array(15);
-        }
-
-        //Filling board with empty tiles
-        for (y = 0; y < 15; y++) {
-            for (x = 0; x < 15; x++) {
-                tmp[y][x] = new win.EmptyTile(win.board.tileSize);//this.randomTile();// new EmptyTile(this.tileSize);
-            }
-        }
-        for (y = 6; y < 9; y++) {
-            for (x = 6; x < 9; x++) {
-                tmp[y][x] = new win.homeBase(win.board.tileSize,win.board);
-            }
-        }
-
-        win.board.board = tmp;
-        win.closePause();
-        destroy(win,7,7,bot,3);
-    }
-
-    function bot(win) {
-        posInPassFaill = 2;
-        var tmp = new Array(15);
-
-        for (i = 0; i < 15; i++) {
-            tmp[i] = new Array(15);
-        }
-
-        //Filling board with empty tiles
-        for (y = 0; y < 15; y++) {
-            for (x = 0; x < 15; x++) {
-                tmp[y][x] = new win.EmptyTile(win.board.tileSize);//this.randomTile();// new EmptyTile(this.tileSize);
-            }
-        }
-
-        tmp[7][14] = new win.Bot(win.board.tileSize,7,15,win.board, 1, 2);
-
-
-        win.board.board = tmp;
-        win.closePause();
-        destroy(win,7,7,bots,1);
-    }
-
-    function bots(win) {
-        posInPassFaill = 3;
-        var tmp = new Array(15);
-
-        for (i = 0; i < 15; i++) {
-            tmp[i] = new Array(15);
-        }
-
-        //Filling board with empty tiles
-        for (y = 0; y < 15; y++) {
-            for (x = 0; x < 15; x++) {
-                tmp[y][x] = new win.EmptyTile(win.board.tileSize);//this.randomTile();// new EmptyTile(this.tileSize);
-            }
-        }
-
-        for (y = 4; y < 10; y++) {
-            for (x = 13; x < 14; x++) {
-                tmp[y][x] = new win.Bot(win.board.tileSize,y,x,win.board, 1, 2);
-            }
-        }
-
-        win.numAI = 6;
-
-        win.board.board = tmp;
-        win.closePause();
-        destroy(win,7,7,person,5);
-    }
 
     function person(win) {
         posInPassFaill = 4;
@@ -242,7 +167,7 @@ function test9(next) {
 }
 
 {
-   // tests.push(test9);
+    tests.push(test9);
 
     var test = document.createElement('div');
     test.className = "newLine";
