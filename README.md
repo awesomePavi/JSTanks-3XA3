@@ -15,4 +15,4 @@ The folders and files for this project are as follows:
 | :--------:                                       | :--------:             |
 | [Doc/](Doc)                                      |  Project Documentation |
 | [src/](src)                                      |  Source Code           |
-| [[Doc/ProjectSchedule/](ProjectSchedule)         |  Project Schedule      |
+| [Doc/ProjectSchedule/](ProjectSchedule)         |  Project Schedule      |
