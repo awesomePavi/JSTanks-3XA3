@@ -16,7 +16,7 @@ function test9(next) {
     function testWin(funcTest) {
         try {
             var testWindow = window.open("../HTML/JSTanks.html?Level=5&Map=1", "_blank", "toolbar=yes,left=1000,width=400,height=400");
-           // testWindow.focus();
+            testWindow.focus();
 
             $(testWindow).bind("load", function () {
                 try {
@@ -33,6 +33,7 @@ function test9(next) {
             });
         } catch (e) {
             console.log(e);
+
             closeWin(testWindow);
             fail();
         }
