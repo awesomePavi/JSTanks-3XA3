@@ -3,3 +3,7 @@
 *out
 *.DS_Store
 *.idea
+*.lof
+*.lot
+*.synctex.gz
+*.toc
