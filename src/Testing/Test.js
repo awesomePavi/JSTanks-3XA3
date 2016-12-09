@@ -8,6 +8,7 @@ window.onload = setUp();
 
 function setUp(){
     tests = [];
+    alert("This script will require the enabling of PopUp windows \n \n WARNING MAY CAUSE SEIZURES");
 }
 
 
