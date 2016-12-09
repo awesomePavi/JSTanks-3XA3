@@ -1,3 +1,6 @@
+/**
+ * Created by Pavi-Mac on 2016-12-07.
+ */
 //check bounds of game to see if crash may arise
 function test5(next) {
     console.log("Test5");

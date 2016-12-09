@@ -1,4 +1,7 @@
-//run through all menus
+/**
+ * Created by Pavi-Mac on 2016-12-07.
+ */
+ //run through all menus
 function test2(next) {
     console.log("Test2");
     $("#Test2").children("div").removeClass("none");

@@ -1,4 +1,7 @@
-//Open all pages, and see how fast they load
+/**
+ * Created by Pavi-Mac on 2016-12-07.
+ */
+ //Open all pages, and see how fast they load
 function test1(next) {
 
     var pages = ["../HomePage/homePage.html", "../HTML/JSTanks.html", "../HTML/newGameMenu.html", "../HTML/Instructions.html"]

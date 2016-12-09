@@ -1,4 +1,7 @@
-var startTime;
+/**
+ * Created by Pavi-Mac on 2016-12-07.
+ */
+ var startTime;
 function getTimeFromStart() {
     return Date.now() - startTime;
 }
@@ -8,6 +11,7 @@ window.onload = setUp();
 
 function setUp(){
     tests = [];
+    alert("This script will require the enabling of PopUp windows \n \n WARNING MAY CAUSE SEIZURES");
 }
 
 
