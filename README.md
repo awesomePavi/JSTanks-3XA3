@@ -1,5 +1,3 @@
-# JSTanks
-
 ##### Team Name: JSTanks
 ##### Group Number: 6
 ##### The Team: Jiahao Li @li577, Viren Patel @patelvh3, Pavithran Pathmarajah @pathmap
@@ -31,4 +29,3 @@ The folders and files for this project are as follows:
 | [src/](src)                                      |  Source Code           |
 | [ProjectSchedule/](/ProjectSchedule)             |  Project Schedule      |
 | [ReferenceMaterial/](/ReferenceMaterial)         |  Reference Material    |
-
