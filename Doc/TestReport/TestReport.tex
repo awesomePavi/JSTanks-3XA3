@@ -7,7 +7,7 @@
 
 %figure flaots from http://www.tex.ac.uk/FAQ-figurehere.HTML
 \usepackage{float}
-
+\usepackage{color}
 \usepackage{tabularx}
 \usepackage{enumitem}
 \usepackage{graphicx}
@@ -21,7 +21,7 @@
 \lhead{Team 6\\ JSTanks\\}
 \newpage
 \title{JSTanks - Test Report}
-\date{December 7, 2016}
+\date{December 8, 2016}
 \author{Jiahao Li\\LI577\\001416646\and Pavithran Pathmarajah\\PATHMAP\\
 001410729 \and Viren Patel\\PATELVH3\\001419057}
 
@@ -39,26 +39,14 @@
 \newpage
 
 
-\subsection*{Overview of Document}
-This document describes the results of all the testing done for JSTanks
+\section*{Overview of Document}
+This document describes the purposes of the testing done, the scope to which it was done
+the tools used, followed by a summarized table to test results linking to the tests themselves,
+and closing with a comparison to the original game. 
 
 \section{Revision History}
-\subsection{Revision 0}
 \begin{table}[H]
 \caption{Revision 1}
-	\begin{tabularx}{\textwidth}{cXc}
-		\toprule
-		Date & Developer & Change\\
-		\midrule
-		October 31&Jiahao Li &Initial Draft \\
-		October 31&Pavithran Pathmarajah &Initial Draft\\
-		October 31&Viren Patel  &Initial Draft\\
-	\end{tabularx}
-\end{table}
-
-\subsection{Revision 1}
-\begin{table}[H]
-\caption{Revision 2}
 	\begin{tabularx}{\textwidth}{cXc}
 		\toprule
 		Date & Developer & Change\\
@@ -66,6 +54,8 @@ This document describes the results of all the testing done for JSTanks
 		December 6&Jiahao Li &Initial Draft \\
 		December 6&Pavithran Pathmarajah &Initial Draft\\
 		December 6&Viren Patel  &Initial Draft\\
+		\midrule
+		December 8&Pavithran Pathmarajah &Include Links\\
 	\end{tabularx}
 \end{table}
 
@@ -77,12 +67,7 @@ This document describes the results of all the testing done for JSTanks
 This document is a report outlining the results of the testing, validation and verification process 
 that was to be followed by JSTanks after the build process. 
 
-\subsection{Scope}
-This project is being designed to move from running local applets that require 
-compilation to an on-line script interpreted by browsers. Therefore the 
-testing will mainly consists of the teams ability to port java coding 
-methodologies and object oriented styles, to Javascript. The test report will 
-cover, algorithms, data structures, visuals and the system. 
+
 
 \subsection{Acronyms, Abbreviations, and Symbols}
 \begin{figure}[H]
@@ -91,8 +76,152 @@ cover, algorithms, data structures, visuals and the system.
 	\caption{Acronyms}
 \end{figure}
 
-\subsection{Test Summary}
-Below are summarized tables of our tests
+\subsection{Scope}
+This project was designed to port an existing Java based game to the web
+where it will no longer be required to be download and ran locally, instead
+it will be able to run in the browser. The tests cover all functionality of the 
+game both functional and non-functional.
+
+\section{Tools-Used}
+The team used an automated test script as well as Google forms, as tools,
+to help in the testing process. The script was used to perform many tests
+as fast as possible, as many times as needed to ensure repeatable results
+to be certain that the game passed its requirements. Where as google forms
+was used as a means to build and distribute a questionnaire, in order to get 
+qualitative feedback on the game to check if it passed the non-functional 
+requirements set for it.
+
+\subsection{Automated Test Script}
+An automated testing script was made., to check for most functional requirements.
+The script was able to do many repetitive tests, much quicker then an individual
+is able to set up a scenario and run through a test. The script was also able to 
+pick out specific calls as they occurred in order to see if the correct result occurred.
+
+\subsubsection{Load In Scripts}
+\begin{itemize}  
+\item Each test ran is located in a separate test file labelled testN, where N is the test number.
+	This script dynamically tries to load in test scripts numbered form 0 to 100, to allow for 
+	tests to be added on the fly.
+\item No other tests will begin until this script loads in the tests, if the script is unable to find the
+	scripts then their is an error and no tests are ran.
+
+\end{itemize}
+
+\subsubsection{Page Load}
+\begin{itemize}  
+\item Ensures that all HTML pages and subsequent scripts on each page load up, this is
+	checked by the script binding to the webpage and waiting for loading of files to 
+	complete. Once all files are loaded for a specified page the script moves onto the
+	next page.
+\item If any one page takes more than two seconds to load then the test fails.
+\end{itemize}
+
+\subsubsection{Menu Functionality}
+\begin{itemize}  
+\item Runs through all menus on every page and checks that Javascript functions are 
+	linked and function correctly.
+\item If any one javascript call on a menu does not work, or throws an error, the whole 
+	test fails
+\end{itemize}
+
+\subsubsection{Board Boundaries}
+\begin{itemize}  
+\item Creates a blank board and places a user tank in one corner, then tries to move the
+	tank 20 times in one direction, (Trying to throw and error on a 15 x 15 board).
+\item The game then places wall objects on the board in a cross pattern, then runs the same 
+	test failing if the tank tile moves to a spot where a wall object is located.  
+\item The script then replaces the wall objects with steel walls and tries again.
+\item The script then replaces the steel wall object with home bases tries again,
+\item If the tank entity moves to  a location that it should not the whole test fails. 
+	The check is done via a script cross checking the x and y position of the tank with
+	the board.
+\end{itemize}
+
+\subsubsection{Game Pause}
+\begin{itemize}  
+\item Checks the pause and unpause features works correctly
+\item When the game is paused a script runs code and takes snapshots of the board array
+	checking if the board changes at all while paused. 
+\item The script mimics key press of 'p' to pause 
+\item The script then replaces the steel wall object with home bases tries again,
+\item The script then mimics the continue button being pressed as well
+\item If the board updates while paused or the continue feature or 'p' key
+	do not work correctly the test fails.
+\end{itemize}
+
+\subsubsection{Ai Randomness}
+\begin{itemize}  
+\item Checks the AI functions by starting a new game and removing all tanks
+	but one AI tank.
+\item If over the course of two seconds the tank has a net displacement of 2 tiles
+	it passes.
+\end{itemize}
+
+\subsubsection{Projectiles}
+\begin{itemize}  
+\item Checks that the projectile fire function fires a projectile
+\item Checks that when a projectile hits a wall it takes damage
+\item Checks that when a projectile hits a steel wall it takes damage
+\item Checks that when a projectile hits a base it takes damage
+\item Checks that when a projectile hits a tank it takes damage
+\item Checks that a projectile is dequeued when it hits something
+	or goes off screen
+\item Does this by binding to multiple functions in the game javascript
+\end{itemize}
+
+\subsubsection{Player Tank}
+\begin{itemize}  
+\item Checks that user input works correctly, does so by triggering 
+	keyboard events.
+\item The script cross checks the old tank position with new positions 
+	on the board, to check if it moved accordingly.
+\item The script checks that the fire command had worked correctly by 
+	placing a wall where the tank should, be and seeing if it was 
+	damaged.
+\end{itemize}
+
+\subsubsection{Game End}
+\begin{itemize}  
+\item Checks the game ends when the home base is destroyed.
+\item  Checks with multiple home bases.
+\item Checks the game ends when the AI is killed.
+\item  Checks with multiple AI.
+\item Checks if the game ends when the player tank is destroyed.
+\item Test is done by script binding to the end game call, if any scenario
+	does not end the game then the test is failed.
+\end{itemize}
+
+ \subsubsection {Link to Test Script}
+\hspace{10 mm}
+{\color{blue}   \href{http://pavipath.com/JSTanks/Testing/Test.html}{JSTank Automated Tester}}
+
+
+\subsection{Questionnaire}
+A questionnaire was issued via google forms to ensure non-functional requirements 
+were met through the process of performing a qualitative analysis to determine 
+whether the requirements were met. The questionnaire issued was 7 pages long 
+and was filled by 8 people. The links below will forward you to a PDF of the 
+questionnaire and the google form itself.
+
+ \subsubsection {Link to Questionnaire}
+\hspace{10 mm}
+{\color{blue}   \href{http://sl.pavipath.com/2gJSSurvey}{Google Form - Questionnaire}}
+  
+\subsubsection {PDF of Questionnaire}
+\hspace{10 mm}
+{\color{blue}  \href{file:///../../ReferenceMaterial/questionnaire.pdf}{PDF of Questionnaire}}
+
+
+
+\section{Test Summary}
+The game has passed all the tests designed by the team in order to check that it meets all 
+functional and non-functional requirements. These tests were done via automated testing 
+using a custom script, manual testing by the team as-well as by issuing a questionnaire 
+and using feedback to determine if the game succeeded or failed. Below are a series of
+tables, listing the requirement tests status and last test date (the requirements link to the 
+full requirements located further down this document).    
+
+\subsection{Functional Tests}
 %game
 \begin{table}[H]
 \caption{Functional Requirements}
@@ -159,7 +288,7 @@ Below are summarized tables of our tests
 		\bottomrule
 	\end{tabularx}
 \end{table}
-
+\subsection{Unit Tests}
 \begin{table}[H]
 \caption{Unit Tests}
 	\begin{tabularx}{\textwidth}{| c | l | X | l |}
@@ -202,7 +331,7 @@ Below are summarized tables of our tests
 		\bottomrule
 	\end{tabularx}
 \end{table}
-
+\subsection{Non-Functional Tests}
 \begin{table}[H]
 \caption{non-Functional Tests}
 	\begin{tabularx}{\textwidth}{| c | l | X | l |}
@@ -852,6 +981,7 @@ Questions:
 \end{itemize}
 Pass:  If the game passes all manual unit tests on all browsers, the requirement
  is met.\newline
+ \newline
 Status: PASSED
 
 \subsection{Ease of Use}
@@ -887,6 +1017,7 @@ Questions:
 \end{itemize}
 Pass:  If the game passes all manual unit tests on all browsers, the requirement
  is met.\newline
+ \newline
 Status: PASSED
 
 
@@ -901,11 +1032,18 @@ How: running all manual unit tests from section 4.1 on the following browsers:
 \end{itemize}
 \begin{figure}[H]
 	\centering
+	\includegraphics[width=\textwidth]{./Figures/9.png}
+	\caption{Browsers Used}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
 	\includegraphics[width=\textwidth]{./Figures/8.png}
 	\caption{Browsers Feedback}
 \end{figure}
 Pass:  If the game passes all manual unit tests on all browsers the requirement
  is met.\newline
+ \newline
 Status: PASSED
 
  \subsection{Performance}
@@ -927,6 +1065,7 @@ How: Playing a standard game on the following systems:
 Pass: If game runs at similar speeds across all platforms, where relative 
 similarity will be decided by tester.
 \newline
+ \newline
 Status: PASSED
 
 
@@ -937,7 +1076,8 @@ Status: PASSED
  How: Have a classmate whom does not work with JS to read over an object file, 
  and have them tell us if they find the code easy to understand. \newline
  Pass: Classmate states that code is easy to read and learn from.
- \newline Status: PASSED
+ \newline  \newline
+Status: PASSED
 
 
  \subsection{Security}
@@ -947,7 +1087,8 @@ source \newline
 How: Download the source files, then close all network connections.\newline
 Pass: If the game is able to run off-line, it is not sending any data back.
 Reasoning: If one method in JS fails the entire script usually crashes
-\newline Status: PASSED
+\newline  \newline
+Status: PASSED
 
 \subsection{Legal Requirements}
 \label{sec:4.7}
@@ -955,7 +1096,8 @@ Reasoning: If one method in JS fails the entire script usually crashes
  How: Review legislation and look through code to ensure legislation is 
  followed. \newline
  Pass: Legislation is not violated.
- \newline Status: PASSED
+ \newline  \newline
+Status: PASSED
  
 \section{Comparison to Existing Implementation}
 The open source game software we are working on is simply a Java application 

@@ -1,6 +1,7 @@
 /**
  * Created by Pavi-Mac on 2016-12-07.
  */
+ 
 //check that the game end works
 function test9(next) {
     console.log("Test9");

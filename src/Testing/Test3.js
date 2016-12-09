@@ -1,4 +1,6 @@
-
+/**
+ * Created by Pavi-Mac on 2016-12-07.
+ */
 //cehck that the game board loads up for all varaitions of game attributes including error causal
 function test3(next) {
     console.log("Test3");

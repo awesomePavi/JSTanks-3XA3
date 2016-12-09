@@ -1,4 +1,7 @@
-var startTime;
+/**
+ * Created by Pavi-Mac on 2016-12-07.
+ */
+ var startTime;
 function getTimeFromStart() {
     return Date.now() - startTime;
 }
